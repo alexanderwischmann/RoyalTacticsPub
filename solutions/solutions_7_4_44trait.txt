@@ -1,0 +1,60 @@
+Solution nr 1:
+	 clan (1),  ranger (4),  goblin (4),  assassin (1),  blaster (1),  brutalist (1),  undead (1),  giant (1)
+	 archerqueen,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletondragons,  royalgiant
+Solution nr 2:
+	 ace (4),  assassin (1),  pekka (1),  brawler (4),  blaster (1),  clan (1),  noble (1),  superstar (1)
+	 bandit,  pekka,  executioner,  megaknight,  barbarian,  prince,  monk
+Solution nr 3:
+	 pekka (1),  brawler (4),  ace (1),  clan (4),  ranger (1),  brutalist (1),  blaster (1),  noble (1)
+	 pekka,  megaknight,  archerqueen,  barbarian,  valkyrie,  wizard,  prince
+Solution nr 4:
+	 ace (1),  blaster (4),  clan (4),  ranger (1),  brawler (1),  brutalist (1),  goblin (1),  noble (1)
+	 executioner,  archerqueen,  barbarian,  valkyrie,  wizard,  speargoblin,  princess
+Solution nr 5:
+	 ace (1),  blaster (4),  clan (1),  goblin (4),  assassin (1),  brutalist (1),  ranger (1),  noble (1)
+	 executioner,  wizard,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  princess
+Solution nr 6:
+	 ace (4),  assassin (1),  blaster (4),  brawler (1),  clan (1),  goblin (1),  noble (1),  superstar (1)
+	 bandit,  executioner,  megaknight,  wizard,  speargoblin,  princess,  monk
+Solution nr 7:
+	 giant (1),  superstar (4),  noble (1),  undead (4),  assassin (1),  brutalist (1),  ranger (1),  ace (1)
+	 electrogiant,  musketeer,  royalghost,  witch,  skeletonking,  skeletondragons,  monk
+Solution nr 8:
+	 ace (4),  assassin (1),  blaster (1),  brawler (1),  giant (1),  superstar (4),  noble (1),  undead (1)
+	 bandit,  executioner,  megaknight,  electrogiant,  musketeer,  witch,  monk
+Solution nr 9:
+	 clan (4),  ranger (1),  brawler (1),  brutalist (4),  blaster (1),  goblin (1),  undead (1),  pekka (1)
+	 archerqueen,  barbarian,  valkyrie,  wizard,  goblinmachine,  skeletonking,  minipekka
+Solution nr 10:
+	 giant (1),  superstar (4),  noble (4),  assassin (1),  brawler (1),  blaster (1),  undead (1),  ace (1)
+	 electrogiant,  goldenknight,  musketeer,  prince,  princess,  witch,  monk
+Solution nr 11:
+	 clan (1),  brutalist (4),  goblin (4),  assassin (1),  blaster (1),  ranger (1),  undead (1),  pekka (1)
+	 valkyrie,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletonking,  minipekka
+Solution nr 12:
+	 pekka (1),  brawler (4),  ace (1),  clan (1),  noble (4),  assassin (1),  superstar (1),  blaster (1)
+	 pekka,  megaknight,  barbarian,  goldenknight,  musketeer,  prince,  princess
+Solution nr 13:
+	 ace (1),  blaster (4),  clan (1),  goblin (1),  noble (4),  assassin (1),  superstar (1),  brawler (1)
+	 executioner,  wizard,  speargoblin,  goldenknight,  musketeer,  prince,  princess
+Solution nr 14:
+	 ace (1),  assassin (4),  goblin (4),  blaster (1),  brutalist (1),  ranger (1),  noble (1),  undead (1)
+	 bandit,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  goldenknight,  royalghost
+Solution nr 15:
+	 clan (1),  ranger (4),  goblin (1),  undead (4),  assassin (1),  superstar (1),  brutalist (1),  giant (1)
+	 archerqueen,  dartgoblin,  royalghost,  witch,  skeletonking,  skeletondragons,  royalgiant
+Solution nr 16:
+	 ace (4),  assassin (4),  blaster (1),  brawler (1),  goblin (1),  noble (1),  undead (1),  superstar (1)
+	 bandit,  executioner,  megaknight,  goblin,  goldenknight,  royalghost,  monk
+Solution nr 17:
+	 clan (1),  brutalist (4),  goblin (1),  undead (4),  assassin (1),  superstar (1),  ranger (1),  pekka (1)
+	 valkyrie,  goblinmachine,  royalghost,  witch,  skeletonking,  skeletondragons,  minipekka
+Solution nr 18:
+	 clan (4),  ranger (4),  brawler (1),  brutalist (1),  blaster (1),  goblin (1),  undead (1),  giant (1)
+	 archerqueen,  barbarian,  valkyrie,  wizard,  dartgoblin,  skeletondragons,  royalgiant
+Solution nr 19:
+	 ace (1),  assassin (4),  goblin (1),  noble (1),  undead (4),  superstar (1),  brutalist (1),  ranger (1)
+	 bandit,  goblin,  goldenknight,  royalghost,  witch,  skeletonking,  skeletondragons
+Solution nr 20:
+	 ace (1),  assassin (4),  goblin (1),  noble (4),  superstar (1),  brawler (1),  blaster (1),  undead (1)
+	 bandit,  goblin,  goldenknight,  musketeer,  prince,  princess,  royalghost
