@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Merge Tactics Comp Solver</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="any"
+      href="{{ url_for('static', filename='favicon.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script
+      src="https://unpkg.com/vue@3/dist/vue.global.prod.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    {% raw %}
+    <div id="app" class="app-container" v-cloak>
+      <header class="app-header">
+        <h1>
+          <span class="app-title-primary">Merge Tactics</span>
+          <span class="app-title-secondary">Comp Solver</span>
+        </h1>
+        <p
+          style="
+            margin-top: 10px;
+            padding: 40px;
+            font-size: 1.2em;
+            max-width: 800px;
+          "
+        >
+          Maximize your trait efficiency using this Merge Tactics deck building
+          tool. Given a deck size the solver generates all existing comps with
+          the selected amount of active traits. By filtering for cards and
+          traits you can build optimal decks suiting your preferences.
+        </p>
+        <div class="app-badge-cluster">
+          <div class="app-logo-badge app-badge-card">
+            <div class="app-tagline">
+              <span class="app-tagline-primary">Holiday Season &middot;</span>
+              <span class="app-tagline-secondary">Updates Every Season!</span>
+            </div>
+            <img
+              class="app-logo-seasonal"
+              src="/assets/merge_tactics_logo.webp"
+              alt="Merge Tactics Holiday Logo"
+              loading="lazy"
+            />
+          </div>
+          <a
+            class="app-support-cta app-badge-card"
+            href="https://www.buymeacoffee.com/halfasausage"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="app-support-tag">Support the Developer</span>
+            <span class="app-support-title">Buy me a coffee</span>
+            <span class="app-support-note">
+              buymeacoffee.com/halfasausage
+            </span>
+          </a>
+        </div>
+      </header>
+
+      <div class="app-content" v-if="metadataLoaded && hasMetadata">
+        <div class="filters-results-box">
+          <aside class="filters-panel">
+            <div class="filters-scroll">
+              <section class="filter-section">
+                <div class="filter-group deck-size-group">
+                  <div class="filter-label-row">
+                    <span class="filter-label">Deck Size</span>
+                  </div>
+                  <div class="button-group">
+                    <button
+                      v-for="size in deckSizes"
+                      :key="size"
+                      type="button"
+                      class="pill-button"
+                      :class="{ active: size === selectedSize }"
+                      @click="selectDeckSize(size)"
+                    >
+                      {{ size }}
+                    </button>
+                  </div>
+                </div>
+
+                <div class="filter-group trait-value-group">
+                  <div class="filter-label-row">
+                    <span class="filter-label">
+                      Active Traits
+                      <button
+                        type="button"
+                        class="tooltip-trigger"
+                        aria-label="Explain active trait counts"
+                        @click.prevent
+                      >
+                        ?
+                        <span class="tooltip-text">
+                          Sum of Trait Values (TV) in each Comp, where<br /><br />
+                          <span class="tooltip-mapping">
+                            <span class="tooltip-row">
+                              <span class="tooltip-term">0/4, 1/4</span>
+                              <span class="tooltip-arrow">→</span>
+                              <span class="tooltip-value">0 TV</span>
+                            </span>
+                            <span class="tooltip-row">
+                              <span class="tooltip-term">2/4, 3/4</span>
+                              <span class="tooltip-arrow">→</span>
+                              <span class="tooltip-value">1 TV</span>
+                            </span>
+                            <span class="tooltip-row">
+                              <span class="tooltip-term">4/4</span>
+                              <span class="tooltip-arrow">→</span>
+                              <span class="tooltip-value">2 TV</span>
+                            </span>
+                          </span>
+                        </span>
+                      </button>
+                    </span>
+                  </div>
+                  <div class="trait-value-mask">
+                    <div
+                      class="button-group trait-value-track"
+                      :style="traitValueTrackStyle"
+                    >
+                      <button
+                        v-for="value in traitValueTrackValues"
+                        :key="`trait-${value}`"
+                        type="button"
+                        class="pill-button"
+                        :class="{ active: value === selectedTraitValue }"
+                        @click="selectTraitValue(value)"
+                      >
+                        {{ value }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="filter-group trait-option-group">
+                  <div class="filter-label-row">
+                    <span class="filter-label">Options</span>
+                  </div>
+                  <div class="button-group">
+                    <button
+                      v-for="option in traitOptionChoices"
+                      :key="`option-${option.value}`"
+                      type="button"
+                      class="pill-button"
+                      :class="{ active: option.value === selectedTraitOption }"
+                      :disabled="!isOptionAvailable(option.value)"
+                      @click="selectTraitOption(option.value)"
+                    >
+                      {{ option.label }}
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="filter-section assets">
+                <div class="filter-group full-width">
+                  <div class="filter-label-row">
+                    <span class="filter-label">Card Filter</span>
+                  </div>
+                  <div class="asset-grid card-grid">
+                    <button
+                      v-for="card in cardOptions"
+                      :key="card"
+                      type="button"
+                      class="asset-tile card"
+                      :class="cardTileClass(card)"
+                      @click="toggleCardFilter(card)"
+                    >
+                      <img
+                        :src="cardImageUrl(card)"
+                        :alt="card"
+                        loading="lazy"
+                        @error="handleImageError"
+                      />
+                      <span
+                        v-if="cardState(card)"
+                        class="asset-state-icon"
+                        :class="`state-${cardState(card)}`"
+                      ></span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="filter-group full-width">
+                  <div class="filter-label-row">
+                    <span class="filter-label">Trait Filter</span>
+                  </div>
+                  <div class="asset-grid trait-grid">
+                    <button
+                      v-for="trait in traitOptions"
+                      :key="trait"
+                      type="button"
+                      class="asset-tile trait"
+                      :class="traitTileClass(trait)"
+                      @click="toggleTraitFilter(trait)"
+                    >
+                      <img
+                        :src="traitImageUrl(trait)"
+                        :alt="trait"
+                        loading="lazy"
+                        @error="handleImageError"
+                      />
+                      <span
+                        v-if="traitStateLabel(trait)
+                      && traitState(trait) !== 'max1'"
+                        :class="['asset-state', 'trait-badge', traitBadgeClass(trait)]"
+                      >
+                        {{ traitStateLabel(trait) === '≥4' ? '4' : '2' }}
+                      </span>
+                      <span
+                        v-else-if="traitState(trait) === 'max1'"
+                        class="asset-state-icon state-forbidden"
+                      ></span>
+                      <span class="asset-state placeholder" v-else></span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="filters-actions">
+              <button class="secondary" type="button" @click="resetFilters">
+                Clear Filters
+              </button>
+            </div>
+          </aside>
+
+          <main class="results-panel">
+            <div v-if="error" class="status-message error">{{ error }}</div>
+            <template v-else>
+              <div class="results-meta">
+                <strong>Showing {{ rangeStart }}–{{ rangeEnd }}</strong>
+                <div class="results-total">
+                  {{ formattedTotalMatches }}
+                  <span class="results-total-label">Solutions</span>
+                </div>
+                <div class="pagination">
+                  <button
+                    class="secondary"
+                    type="button"
+                    :disabled="!canGoPrev"
+                    @click="changePage(-1)"
+                  >
+                    Previous
+                  </button>
+                  <span>Page {{ page }} / {{ totalPages || 1 }}</span>
+                  <button
+                    class="secondary"
+                    type="button"
+                    :disabled="!canGoNext"
+                    @click="changePage(1)"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+
+              <div v-if="showLoadingIndicator" class="status-message loading">
+                Loading decks…
+              </div>
+
+              <div class="solutions-list">
+                <article
+                  class="solution-card"
+                  v-for="solution in solutions"
+                  :key="solution.identifier"
+                >
+                  <div class="solution-line">
+                    <div class="solution-id">{{ solution.displayId }}</div>
+                    <div class="card-strip">
+                      <div
+                        class="card-tile"
+                        v-for="card in solution.cards"
+                        :key="card"
+                      >
+                        <img
+                          :src="cardImageUrl(card)"
+                          :alt="card"
+                          loading="lazy"
+                          @error="handleImageError"
+                        />
+                      </div>
+                    </div>
+                    <div class="trait-strip">
+                      <div
+                        class="trait-tile"
+                        v-for="trait in sortedTraits(solution.traits)"
+                        :key="trait.name"
+                        :class="traitSolutionClass(trait)"
+                      >
+                        <img
+                          :src="traitImageUrl(trait.name)"
+                          :alt="trait.name"
+                          loading="lazy"
+                          @error="handleImageError"
+                        />
+                        <span
+                          class="trait-count"
+                          :class="traitCountClass(trait.count)"
+                        >
+                          {{ trait.count }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </template>
+          </main>
+        </div>
+      </div>
+
+      <div class="app-content" v-else-if="metadataLoaded">
+        <div class="status-message error">
+          No solution files available. Add files under the
+          <code>solutions/</code> directory and restart the server.
+        </div>
+      </div>
+
+      <div class="app-content" v-else>
+        <div class="status-message loading">Loading data…</div>
+      </div>
+    </div>
+
+    <footer
+      class="site-footer"
+      style="
+        margin-top: 75px;
+        padding: 40px;
+        /* border-top: 1px solid #ddd; */
+        font-size: 0.9em;
+        color: #a8a8a8;
+        text-align: center;
+      "
+    >
+      <p>
+        © 2025
+        <a href="https://royaltactics.com" target="_blank" rel="noopener"
+          >RoyalTactics.com</a
+        >. All Rights Reserved.
+      </p>
+      <p>
+        This material is unofficial and is not endorsed by Supercell. Supercell
+        is not responsible for it. For more information see Supercell's
+        <a
+          href="https://supercell.com/en/fan-content-policy/"
+          target="_blank"
+          rel="noopener"
+          >Fan Content Policy</a
+        >
+        and
+        <a
+          href="https://supercell.com/en/privacy-policy/"
+          target="_blank"
+          rel="noopener"
+          >Privacy Policy</a
+        >
+        .
+      </p>
+
+      <div style="margin-top: 50px; font-size: 0.9em">
+        <strong>Privacy & Data:</strong><br />
+        No personal user data is collected. This site uses anonymous local
+        storage for your preferences and third-party cookies via
+        <em>Buy Me a Coffee</em> to process donations. This site is not
+        affiliated with Supercell's data practices.
+      </div>
+    </footer>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const { createApp } = Vue;
+        const TRAIT_VALUE_UNIVERSE = [2, 3, 4, 5, 6, 7];
+        const TRAIT_VALUE_VIEWPORT = 4;
+
+        createApp({
+          data() {
+            return {
+              loading: false,
+              error: "",
+              deckSizes: [],
+              optionAvailability: {},
+              selectedSize: 6,
+              selectedTraitValue: 6,
+              selectedTraitOption: "base",
+              traitOptionChoices: [
+                { value: "base", label: "No Option" },
+                { value: "4trait", label: "4/4 Trait" },
+                {
+                  value: "44trait",
+                  label: "Two 4/4 Traits",
+                },
+              ],
+              cardOptions: [],
+              traitOptions: [],
+              filters: {
+                requiredCards: [],
+                forbiddenCards: [],
+                traitsMin4: [],
+                traitsMin2: [],
+                traitsMax1: [],
+              },
+              solutions: [],
+              page: 1,
+              totalPages: 0,
+              totalMatches: 0,
+              limit: 25,
+              hasMetadata: false,
+              metadataLoaded: false,
+              displayTotalMatches: 0,
+              totalAnimationFrame: null,
+              showLoadingIndicator: false,
+              loadingIndicatorTimer: null,
+              traitValueUniverse: [...TRAIT_VALUE_UNIVERSE],
+              traitValueViewportSize: TRAIT_VALUE_VIEWPORT,
+              traitValueLeftIndex: 0,
+            };
+          },
+          computed: {
+            currentOptionAvailability() {
+              if (
+                this.selectedSize == null ||
+                this.selectedTraitValue == null
+              ) {
+                return {};
+              }
+              return (
+                this.optionAvailability[String(this.selectedSize)]?.[
+                  String(this.selectedTraitValue)
+                ] || {}
+              );
+            },
+            hasResults() {
+              return this.solutions.length > 0;
+            },
+            canGoPrev() {
+              return this.page > 1;
+            },
+            canGoNext() {
+              return this.page < this.totalPages;
+            },
+            rangeStart() {
+              if (!this.totalMatches) {
+                return 0;
+              }
+              return (this.page - 1) * this.limit + 1;
+            },
+            rangeEnd() {
+              if (!this.totalMatches) {
+                return 0;
+              }
+              return Math.min(this.page * this.limit, this.totalMatches);
+            },
+            formattedTotalMatches() {
+              return Number(this.displayTotalMatches).toLocaleString();
+            },
+            traitValueTrackValues() {
+              return this.traitValueUniverse;
+            },
+            traitValueOptions() {
+              const start = Math.max(0, this.traitValueLeftIndex);
+              const end = start + this.traitValueViewportSize;
+              return this.traitValueTrackValues.slice(start, end);
+            },
+            traitValueTrackStyle() {
+              const total = this.traitValueTrackValues.length;
+              if (!total) {
+                return {};
+              }
+              const maxLeftIndex = Math.max(
+                0,
+                total - this.traitValueViewportSize
+              );
+              const clampedLeftIndex = Math.min(
+                Math.max(this.traitValueLeftIndex, 0),
+                maxLeftIndex
+              );
+              const trackWidth = `calc(${total} * var(--trait-value-button-width) + ${
+                total - 1
+              } * var(--trait-value-gap))`;
+              return {
+                width: trackWidth,
+                minWidth: trackWidth,
+                "--trait-value-index": clampedLeftIndex,
+              };
+            },
+          },
+          watch: {
+            totalMatches(newVal) {
+              this.animateTotalMatches(newVal);
+            },
+            loading(newVal) {
+              this.handleLoadingVisibility(newVal);
+            },
+          },
+          methods: {
+            cardState(name) {
+              if (this.filters.requiredCards.includes(name)) {
+                return "required";
+              }
+              if (this.filters.forbiddenCards.includes(name)) {
+                return "forbidden";
+              }
+              return "";
+            },
+            cardStateLabel(name) {
+              const state = this.cardState(name);
+              if (state === "required") {
+                return "Required";
+              }
+              if (state === "forbidden") {
+                return "Forbidden";
+              }
+              return "";
+            },
+            cardTileClass(name) {
+              const state = this.cardState(name);
+              return {
+                required: state === "required",
+                forbidden: state === "forbidden",
+              };
+            },
+            sortedTraits(traits) {
+              if (!Array.isArray(traits)) {
+                return [];
+              }
+              return [...traits].sort((a, b) => {
+                const aCount = a?.count ?? 0;
+                const bCount = b?.count ?? 0;
+                const tier = (count) => {
+                  if (count >= 4) {
+                    return 0;
+                  }
+                  if (count <= 1) {
+                    return 2;
+                  }
+                  return 1;
+                };
+                const tierDiff = tier(aCount) - tier(bCount);
+                if (tierDiff !== 0) {
+                  return tierDiff;
+                }
+                if (aCount !== bCount) {
+                  return bCount - aCount;
+                }
+                const aName = (a?.name || "").toString();
+                const bName = (b?.name || "").toString();
+                return aName.localeCompare(bName);
+              });
+            },
+            traitSolutionClass(trait) {
+              const count = trait?.count ?? 0;
+              return {
+                "trait-low": count <= 1,
+                "trait-tier-4": count >= 4,
+                "trait-tier-3": count === 3,
+                "trait-tier-2": count === 2,
+              };
+            },
+            traitCountClass(count) {
+              if (count >= 4) {
+                return "trait-count-4";
+              }
+              if (count >= 2) {
+                return "trait-count-2";
+              }
+              return "trait-count-low";
+            },
+            toggleCardFilter(name) {
+              if (!this.cardOptions.includes(name)) {
+                return;
+              }
+
+              if (this.filters.requiredCards.includes(name)) {
+                this.filters.requiredCards = this.filters.requiredCards.filter(
+                  (card) => card !== name
+                );
+                if (!this.filters.forbiddenCards.includes(name)) {
+                  this.filters.forbiddenCards = [
+                    ...this.filters.forbiddenCards,
+                    name,
+                  ];
+                }
+              } else if (this.filters.forbiddenCards.includes(name)) {
+                this.filters.forbiddenCards =
+                  this.filters.forbiddenCards.filter((card) => card !== name);
+              } else {
+                this.filters.forbiddenCards =
+                  this.filters.forbiddenCards.filter((card) => card !== name);
+                this.filters.requiredCards = [
+                  ...this.filters.requiredCards,
+                  name,
+                ];
+              }
+
+              this.page = 1;
+              this.fetchSolutions();
+            },
+            traitState(name) {
+              if (this.filters.traitsMin4.includes(name)) {
+                return "min4";
+              }
+              if (this.filters.traitsMin2.includes(name)) {
+                return "min2";
+              }
+              if (this.filters.traitsMax1.includes(name)) {
+                return "max1";
+              }
+              return "";
+            },
+            traitStateLabel(name) {
+              const state = this.traitState(name);
+              if (state === "min4") {
+                return "≥4";
+              }
+              if (state === "min2") {
+                return "≥2";
+              }
+              if (state === "max1") {
+                return "Max 1";
+              }
+              return "";
+            },
+            traitTileClass(name) {
+              const state = this.traitState(name);
+              return {
+                "trait-min4": state === "min4",
+                "trait-min2": state === "min2",
+                "trait-max1": state === "max1",
+                "state-max1": state === "max1",
+              };
+            },
+            traitBadgeClass(name) {
+              const state = this.traitState(name);
+              if (state === "min4") {
+                return "trait-badge-4";
+              }
+              if (state === "min2") {
+                return "trait-badge-2";
+              }
+              return "";
+            },
+            toggleTraitFilter(name) {
+              if (!this.traitOptions.includes(name)) {
+                return;
+              }
+
+              const state = this.traitState(name);
+              const removeFromAll = () => {
+                this.filters.traitsMin4 = this.filters.traitsMin4.filter(
+                  (trait) => trait !== name
+                );
+                this.filters.traitsMin2 = this.filters.traitsMin2.filter(
+                  (trait) => trait !== name
+                );
+                this.filters.traitsMax1 = this.filters.traitsMax1.filter(
+                  (trait) => trait !== name
+                );
+              };
+
+              if (state === "min2") {
+                removeFromAll();
+                this.filters.traitsMin4 = [...this.filters.traitsMin4, name];
+              } else if (state === "min4") {
+                removeFromAll();
+                this.filters.traitsMax1 = [...this.filters.traitsMax1, name];
+              } else if (state === "max1") {
+                removeFromAll();
+              } else {
+                removeFromAll();
+                this.filters.traitsMin2 = [...this.filters.traitsMin2, name];
+              }
+
+              this.normalizeTraitSelections();
+              this.page = 1;
+              this.fetchSolutions();
+            },
+            selectDeckSize(size, force = false) {
+              const numericSize = Number(size);
+              if (!Number.isFinite(numericSize)) {
+                return;
+              }
+              if (!this.deckSizes.includes(numericSize)) {
+                return;
+              }
+              const previousSize = Number(this.selectedSize);
+              const isSameSelection = previousSize === numericSize;
+              if (!force && isSameSelection) {
+                return;
+              }
+              this.selectedSize = numericSize;
+              this.syncTraitSelectionForSize();
+              this.page = 1;
+              return this.loadOptions();
+            },
+            selectTraitValue(value) {
+              const options = this.traitValueOptions;
+              const numericValue = Number(value);
+              if (!Number.isFinite(numericValue)) {
+                return;
+              }
+              if (
+                this.selectedTraitValue === numericValue ||
+                !options.includes(numericValue)
+              ) {
+                return;
+              }
+              this.selectedTraitValue = numericValue;
+              this.syncTraitOptionForSelection();
+              this.page = 1;
+              return this.loadOptions();
+            },
+            selectTraitOption(option) {
+              if (this.selectedTraitOption === option) {
+                return;
+              }
+              if (!this.isOptionAvailable(option)) {
+                return;
+              }
+              this.selectedTraitOption = option;
+              this.page = 1;
+              this.loadOptions();
+            },
+            isOptionAvailable(option) {
+              if (!option) {
+                return false;
+              }
+              return Boolean(this.currentOptionAvailability[option]);
+            },
+            clampTraitValue(value) {
+              const universe = this.traitValueTrackValues;
+              if (!universe.length) {
+                return null;
+              }
+              const numeric = Math.round(Number(value));
+              if (!Number.isFinite(numeric)) {
+                return universe[universe.length - 1];
+              }
+              const min = universe[0];
+              const max = universe[universe.length - 1];
+              return Math.min(Math.max(numeric, min), max);
+            },
+            leftIndexForDeck(size) {
+              const universe = this.traitValueTrackValues;
+              if (!universe.length) {
+                return 0;
+              }
+              const viewport = this.traitValueViewportSize;
+              const maxLeftIndex = Math.max(0, universe.length - viewport);
+              const clampedSize = this.clampTraitValue(size);
+              if (clampedSize == null) {
+                return 0;
+              }
+              const minValue = universe[0];
+              const maxValue = universe[universe.length - 1];
+              const maxLeftValue = Math.max(
+                minValue,
+                maxValue - (viewport - 1)
+              );
+              let desiredLeftValue = clampedSize - (viewport - 1);
+              if (desiredLeftValue < minValue) {
+                desiredLeftValue = minValue;
+              }
+              if (desiredLeftValue > maxLeftValue) {
+                desiredLeftValue = maxLeftValue;
+              }
+              const index = universe.indexOf(desiredLeftValue);
+              if (index === -1) {
+                return maxLeftIndex;
+              }
+              return Math.min(index, maxLeftIndex);
+            },
+            syncTraitSelectionForSize() {
+              const universe = this.traitValueTrackValues;
+              if (!universe.length) {
+                this.traitValueLeftIndex = 0;
+                this.selectedTraitValue = null;
+                this.selectedTraitOption = "base";
+                return;
+              }
+
+              const leftIndex = this.leftIndexForDeck(this.selectedSize);
+              this.traitValueLeftIndex = leftIndex;
+
+              const options = this.traitValueTrackValues.slice(
+                leftIndex,
+                leftIndex + this.traitValueViewportSize
+              );
+              if (!options.length) {
+                this.selectedTraitValue = null;
+                this.selectedTraitOption = "base";
+                return;
+              }
+
+              if (!options.includes(this.selectedTraitValue)) {
+                const preferred = this.clampTraitValue(this.selectedSize);
+                const previousValueRaw = this.selectedTraitValue;
+                const previousValue = Number(previousValueRaw);
+                const hasPrevious = Number.isFinite(previousValue);
+                const minOption = options[0];
+                const maxOption = options[options.length - 1];
+                let nextValue = null;
+
+                if (hasPrevious && previousValue < minOption) {
+                  nextValue = minOption;
+                } else if (hasPrevious && previousValue > maxOption) {
+                  nextValue = maxOption;
+                } else if (hasPrevious) {
+                  const nextHigher = options.find(
+                    (value) => value > previousValue
+                  );
+                  if (nextHigher != null) {
+                    nextValue = nextHigher;
+                  }
+                }
+
+                if (nextValue == null && options.includes(preferred)) {
+                  nextValue = preferred;
+                }
+
+                if (nextValue == null) {
+                  nextValue = maxOption;
+                }
+
+                this.selectedTraitValue = nextValue;
+              }
+              this.syncTraitOptionForSelection();
+            },
+            async fetchMetadata() {
+              this.error = "";
+              this.metadataLoaded = false;
+              try {
+                const response = await fetch("/api/metadata");
+                if (!response.ok) {
+                  throw new Error("Unable to read metadata.");
+                }
+                const data = await response.json();
+                this.deckSizes = Array.isArray(data.deckSizes)
+                  ? data.deckSizes
+                      .map((value) => Number(value))
+                      .filter((value) => Number.isFinite(value))
+                      .sort((a, b) => a - b)
+                  : [];
+                this.optionAvailability = data.optionAvailability || {};
+                this.limit = data.limit || this.limit;
+                this.hasMetadata = Boolean(data.hasData);
+
+                if (!data.hasData) {
+                  this.error =
+                    "No solution files found. Place solution text files under solutions/.";
+                  return;
+                }
+
+                const defaultSize = Number(data.defaultDeckSize);
+                let resolvedSize = Number.isFinite(defaultSize)
+                  ? defaultSize
+                  : 6;
+                if (!this.deckSizes.includes(resolvedSize)) {
+                  resolvedSize = this.deckSizes.includes(6)
+                    ? 6
+                    : this.deckSizes[0] ?? null;
+                }
+                this.selectedSize = resolvedSize;
+
+                const defaultTraitValue = Number(data.defaultTraitValue);
+                const fallbackTrait = Number.isFinite(defaultTraitValue)
+                  ? defaultTraitValue
+                  : resolvedSize;
+                this.selectedTraitValue = this.clampTraitValue(fallbackTrait);
+                this.selectedTraitOption = data.defaultTraitOption || "base";
+
+                this.ensureValidSelections();
+
+                if (
+                  this.selectedSize == null ||
+                  this.selectedTraitValue == null
+                ) {
+                  this.error =
+                    "Unable to determine default deck size or trait value.";
+                  return;
+                }
+
+                this.page = 1;
+                await this.selectDeckSize(this.selectedSize, true);
+              } catch (err) {
+                this.error =
+                  err instanceof Error
+                    ? err.message
+                    : "Unexpected error while loading metadata.";
+              } finally {
+                this.metadataLoaded = true;
+              }
+            },
+            async loadOptions() {
+              if (
+                this.selectedSize == null ||
+                this.selectedTraitValue == null
+              ) {
+                this.solutions = [];
+                this.totalMatches = 0;
+                this.totalPages = 0;
+                return;
+              }
+
+              this.loading = true;
+              this.error = "";
+              try {
+                const params = new URLSearchParams({
+                  deck_size: String(this.selectedSize),
+                  traits_value: String(this.selectedTraitValue),
+                  trait_option: this.selectedTraitOption,
+                });
+                const response = await fetch(
+                  `/api/options?${params.toString()}`
+                );
+                if (!response.ok) {
+                  const message = await response.text();
+                  throw new Error(
+                    message || "Failed to load card and trait options."
+                  );
+                }
+                const data = await response.json();
+                this.cardOptions = data.cards || [];
+                this.traitOptions = data.traits || [];
+                this.resetFiltersForOptions();
+                await this.fetchSolutions(false);
+              } catch (err) {
+                this.solutions = [];
+                this.totalMatches = 0;
+                this.totalPages = 0;
+                this.error =
+                  err instanceof Error
+                    ? err.message
+                    : "Unexpected error while loading options.";
+              } finally {
+                this.loading = false;
+              }
+            },
+            syncTraitOptionForSelection() {
+              if (
+                this.selectedSize == null ||
+                this.selectedTraitValue == null
+              ) {
+                this.selectedTraitOption = "base";
+                return;
+              }
+              const availability = this.currentOptionAvailability;
+              if (!availability || Object.keys(availability).length === 0) {
+                this.selectedTraitOption = "base";
+                return;
+              }
+              if (!this.isOptionAvailable(this.selectedTraitOption)) {
+                const priority = ["base", "4trait", "44trait"];
+                const nextOption = priority.find((option) =>
+                  this.isOptionAvailable(option)
+                );
+                this.selectedTraitOption = nextOption || "base";
+              }
+            },
+            ensureValidSelections() {
+              if (!this.deckSizes.length) {
+                this.selectedSize = null;
+                this.selectedTraitValue = null;
+                this.selectedTraitOption = "base";
+                this.traitValueLeftIndex = 0;
+                return;
+              }
+
+              if (
+                this.selectedSize == null ||
+                !this.deckSizes.includes(this.selectedSize)
+              ) {
+                this.selectedSize = this.deckSizes.includes(6)
+                  ? 6
+                  : this.deckSizes[0];
+              }
+
+              this.selectedTraitValue = this.clampTraitValue(
+                this.selectedTraitValue ?? this.selectedSize
+              );
+
+              this.syncTraitSelectionForSize();
+            },
+            resetFiltersForOptions() {
+              const validCards = new Set(this.cardOptions);
+              const validTraits = new Set(this.traitOptions);
+
+              ["requiredCards", "forbiddenCards"].forEach((key) => {
+                const filtered = this.filters[key].filter((card) =>
+                  validCards.has(card)
+                );
+                if (filtered.length !== this.filters[key].length) {
+                  this.filters[key] = filtered;
+                }
+              });
+
+              ["traitsMin4", "traitsMin2", "traitsMax1"].forEach((key) => {
+                const filtered = this.filters[key].filter((trait) =>
+                  validTraits.has(trait)
+                );
+                if (filtered.length !== this.filters[key].length) {
+                  this.filters[key] = filtered;
+                }
+              });
+
+              this.normalizeTraitSelections();
+            },
+            normalizeTraitSelections() {
+              const traitPool = new Set(this.traitOptions);
+              const min4Filtered = this.filters.traitsMin4
+                .filter((trait) => traitPool.has(trait))
+                .filter(
+                  (trait, index, array) => array.indexOf(trait) === index
+                );
+              if (min4Filtered.length !== this.filters.traitsMin4.length) {
+                this.filters.traitsMin4 = min4Filtered;
+              }
+
+              const min4Set = new Set(this.filters.traitsMin4);
+              const min2Filtered = this.filters.traitsMin2
+                .filter((trait) => traitPool.has(trait) && !min4Set.has(trait))
+                .filter(
+                  (trait, index, array) => array.indexOf(trait) === index
+                );
+              if (min2Filtered.length !== this.filters.traitsMin2.length) {
+                this.filters.traitsMin2 = min2Filtered;
+              }
+
+              const min2Set = new Set(this.filters.traitsMin2);
+              const max1Filtered = this.filters.traitsMax1
+                .filter(
+                  (trait) =>
+                    traitPool.has(trait) &&
+                    !min4Set.has(trait) &&
+                    !min2Set.has(trait)
+                )
+                .filter(
+                  (trait, index, array) => array.indexOf(trait) === index
+                );
+              if (max1Filtered.length !== this.filters.traitsMax1.length) {
+                this.filters.traitsMax1 = max1Filtered;
+              }
+            },
+            async fetchSolutions(manageLoader = true) {
+              if (
+                this.selectedSize == null ||
+                this.selectedTraitValue == null
+              ) {
+                return;
+              }
+
+              this.loading = true;
+              this.error = "";
+              this.solutions = [];
+
+              try {
+                const params = new URLSearchParams({
+                  deck_size: String(this.selectedSize),
+                  traits_value: String(this.selectedTraitValue),
+                  trait_option: this.selectedTraitOption,
+                  page: String(this.page),
+                  limit: String(this.limit),
+                });
+
+                const filterMapping = {
+                  requiredCards: "required_cards",
+                  forbiddenCards: "forbidden_cards",
+                  traitsMin4: "traits_min4",
+                  traitsMin2: "traits_min2",
+                  traitsMax1: "traits_max1",
+                };
+
+                Object.entries(filterMapping).forEach(
+                  ([stateKey, queryKey]) => {
+                    this.filters[stateKey].forEach((value) =>
+                      params.append(queryKey, value)
+                    );
+                  }
+                );
+
+                const response = await fetch(
+                  `/api/solutions?${params.toString()}`
+                );
+                if (!response.ok) {
+                  const message = await response.text();
+                  throw new Error(message || "Failed to load solutions.");
+                }
+
+                const data = await response.json();
+                this.solutions = data.results || [];
+                this.totalMatches = data.totalMatches || 0;
+                this.totalPages = data.totalPages || 0;
+                if (this.totalPages === 0) {
+                  this.page = 1;
+                } else {
+                  this.page = data.page || 1;
+                }
+              } catch (err) {
+                this.solutions = [];
+                this.totalMatches = 0;
+                this.totalPages = 0;
+                this.page = 1;
+                this.error =
+                  err instanceof Error
+                    ? err.message
+                    : "Unexpected error while loading solutions.";
+              } finally {
+                if (manageLoader) {
+                  this.loading = false;
+                }
+              }
+            },
+            animateTotalMatches(target) {
+              if (this.totalAnimationFrame !== null) {
+                cancelAnimationFrame(this.totalAnimationFrame);
+                this.totalAnimationFrame = null;
+              }
+
+              if (!Number.isFinite(target)) {
+                this.displayTotalMatches = 0;
+                return;
+              }
+
+              const startValue = Number(this.displayTotalMatches) || 0;
+              const endValue = Math.max(0, Number(target) || 0);
+
+              if (startValue === endValue) {
+                this.displayTotalMatches = endValue;
+                return;
+              }
+
+              const duration = this.totalAnimationDuration(endValue);
+              const startTime = performance.now();
+
+              const step = (now) => {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = this.easeOutQuad(progress);
+                const current = Math.round(
+                  startValue + (endValue - startValue) * eased
+                );
+                this.displayTotalMatches = current;
+
+                if (progress < 1) {
+                  this.totalAnimationFrame = requestAnimationFrame(step);
+                } else {
+                  this.totalAnimationFrame = null;
+                }
+              };
+
+              this.totalAnimationFrame = requestAnimationFrame(step);
+            },
+            totalAnimationDuration(count) {
+              if (!count) {
+                return 400;
+              }
+
+              const minDuration = 500;
+              const maxDuration = 2000;
+              const minValue = 1;
+              const maxValue = 100000;
+              const clamped = Math.min(Math.max(count, minValue), maxValue);
+              const ratio = (clamped - minValue) / (maxValue - minValue);
+
+              return minDuration + ratio * (maxDuration - minDuration);
+            },
+            easeOutQuad(t) {
+              return 1 - (1 - t) * (1 - t);
+            },
+            handleLoadingVisibility(isLoading) {
+              if (this.loadingIndicatorTimer !== null) {
+                clearTimeout(this.loadingIndicatorTimer);
+                this.loadingIndicatorTimer = null;
+              }
+
+              if (isLoading) {
+                this.showLoadingIndicator = false;
+                this.loadingIndicatorTimer = setTimeout(() => {
+                  if (this.loading) {
+                    this.showLoadingIndicator = true;
+                  }
+                  this.loadingIndicatorTimer = null;
+                }, 200);
+              } else {
+                this.showLoadingIndicator = false;
+              }
+            },
+            changePage(direction) {
+              const target = this.page + direction;
+              if (target < 1 || target > this.totalPages) {
+                return;
+              }
+              this.page = target;
+              this.fetchSolutions();
+            },
+            resetFilters() {
+              this.filters.requiredCards = [];
+              this.filters.forbiddenCards = [];
+              this.filters.traitsMin4 = [];
+              this.filters.traitsMin2 = [];
+              this.filters.traitsMax1 = [];
+              this.page = 1;
+              this.fetchSolutions();
+            },
+            cardImageUrl(name) {
+              return name
+                ? `/assets/cards?name=${encodeURIComponent(name)}`
+                : "";
+            },
+            traitImageUrl(name) {
+              return name
+                ? `/assets/traits?name=${encodeURIComponent(name)}`
+                : "";
+            },
+            handleImageError(event) {
+              event.target.style.visibility = "hidden";
+            },
+          },
+          mounted() {
+            this.fetchMetadata();
+          },
+          beforeUnmount() {
+            if (this.totalAnimationFrame !== null) {
+              cancelAnimationFrame(this.totalAnimationFrame);
+              this.totalAnimationFrame = null;
+            }
+            if (this.loadingIndicatorTimer !== null) {
+              clearTimeout(this.loadingIndicatorTimer);
+              this.loadingIndicatorTimer = null;
+            }
+          },
+        }).mount("#app");
+      });
+    </script>
+    {% endraw %}
+  </body>
+</html>
