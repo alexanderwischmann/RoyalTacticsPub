@@ -2,10 +2,11 @@ from __future__ import annotations
 
 import math
 import re
+from collections import deque
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
-from typing import Dict, Iterable, List, Sequence, Tuple
+from typing import Dict, Iterable, Iterator, List, Optional, Sequence, Set, Tuple
 
 from flask import Flask, abort, jsonify, render_template, request, send_file
 
@@ -86,7 +87,7 @@ def _collect_assets(
     for (size, _, _), path_str in index.items():
         if deck_size is not None and size != deck_size:
             continue
-        for solution in _load_solutions(path_str):
+        for solution in _iter_solutions(path_str):
             card_set.update(solution.cards)
             trait_set.update(name for name, _ in solution.traits)
 
@@ -95,45 +96,52 @@ def _collect_assets(
     return cards, traits
 
 
-@lru_cache(maxsize=64)
-def _load_solutions(file_path: str) -> Tuple[SolutionData, ...]:
+def _parse_solution_block(block: Sequence[str]) -> Optional[SolutionData]:
+    if len(block) < 3:
+        return None
+
+    id_line, trait_line, card_line = block
+    identifier = id_line.replace("Solution nr", "").replace(":", "").strip()
+
+    traits: List[Tuple[str, int]] = []
+    for trait_entry in trait_line.split(","):
+        trait_entry = trait_entry.strip()
+        match = re.match(r"([a-zA-Z_ ]+)\s*\((\d+)\)", trait_entry)
+        if not match:
+            continue
+        name = match.group(1).strip()
+        count = int(match.group(2))
+        traits.append((name, count))
+
+    cards = [card.strip() for card in card_line.split(",") if card.strip()]
+
+    if not traits or not cards:
+        return None
+
+    return SolutionData(
+        identifier=identifier,
+        traits=tuple(traits),
+        cards=tuple(cards),
+    )
+
+
+def _iter_solutions(file_path: str) -> Iterator[SolutionData]:
     path = Path(file_path)
     if not path.exists():
-        return tuple()
+        return
 
-    raw_lines = [line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
-    solutions: List[SolutionData] = []
-
-    for i in range(0, len(raw_lines), 3):
-        block = raw_lines[i : i + 3]
-        if len(block) < 3:
-            continue
-        id_line, trait_line, card_line = block
-
-        identifier = id_line.replace("Solution nr", "").replace(":", "").strip()
-
-        traits: List[Tuple[str, int]] = []
-        for trait_entry in trait_line.split(","):
-            trait_entry = trait_entry.strip()
-            match = re.match(r"([a-zA-Z_ ]+)\s*\((\d+)\)", trait_entry)
-            if not match:
+    block: List[str] = []
+    with path.open("r", encoding="utf-8") as handle:
+        for raw_line in handle:
+            line = raw_line.strip()
+            if not line:
                 continue
-            name = match.group(1).strip()
-            count = int(match.group(2))
-            traits.append((name, count))
-
-        cards = [card.strip() for card in card_line.split(",") if card.strip()]
-
-        if traits and cards:
-            solutions.append(
-                SolutionData(
-                    identifier=identifier,
-                    traits=tuple(traits),
-                    cards=tuple(cards),
-                )
-            )
-
-    return tuple(solutions)
+            block.append(line)
+            if len(block) == 3:
+                solution = _parse_solution_block(block)
+                if solution is not None:
+                    yield solution
+                block.clear()
 
 
 def _calculate_trait_counts(solution: SolutionData) -> Dict[str, int]:
@@ -143,40 +151,65 @@ def _calculate_trait_counts(solution: SolutionData) -> Dict[str, int]:
     return counts
 
 
-def _apply_filters(
-    solutions: Sequence[SolutionData],
-    required_cards: Sequence[str],
-    forbidden_cards: Sequence[str],
-    traits_min2: Sequence[str],
-    traits_min4: Sequence[str],
-    traits_max1: Sequence[str],
-) -> List[SolutionData]:
-    req_cards = {card.lower() for card in required_cards}
-    forbid_cards = {card.lower() for card in forbidden_cards}
-    req_traits2 = {trait.lower() for trait in traits_min2}
-    req_traits4 = {trait.lower() for trait in traits_min4}
-    req_traits2 -= req_traits4
-    cap_traits = {trait.lower() for trait in traits_max1}
+def _solution_matches_filters(
+    solution: SolutionData,
+    required_cards: Set[str],
+    forbidden_cards: Set[str],
+    traits_min2: Set[str],
+    traits_min4: Set[str],
+    traits_max1: Set[str],
+) -> bool:
+    cards_lower = {card.lower() for card in solution.cards}
+    if forbidden_cards & cards_lower:
+        return False
+    if not required_cards.issubset(cards_lower):
+        return False
 
-    filtered: List[SolutionData] = []
-    for solution in solutions:
-        cards_lower = {card.lower() for card in solution.cards}
-        if forbid_cards & cards_lower:
-            continue
-        if not req_cards.issubset(cards_lower):
+    trait_counts = _calculate_trait_counts(solution)
+
+    if any(trait_counts.get(name, 0) < 4 for name in traits_min4):
+        return False
+    if any(trait_counts.get(name, 0) < 2 for name in traits_min2):
+        return False
+    if any(trait_counts.get(name, 0) >= 2 for name in traits_max1):
+        return False
+    return True
+
+
+def _collect_filtered_page(
+    file_path: str,
+    start_index: int,
+    limit: int,
+    required_cards: Set[str],
+    forbidden_cards: Set[str],
+    traits_min2: Set[str],
+    traits_min4: Set[str],
+    traits_max1: Set[str],
+) -> Tuple[int, List[Tuple[int, SolutionData]], List[Tuple[int, SolutionData]]]:
+    total_matches = 0
+    requested_entries: List[Tuple[int, SolutionData]] = []
+    tail_entries: deque[Tuple[int, SolutionData]] = deque(maxlen=limit)
+
+    for solution in _iter_solutions(file_path):
+        if not _solution_matches_filters(
+            solution,
+            required_cards,
+            forbidden_cards,
+            traits_min2,
+            traits_min4,
+            traits_max1,
+        ):
             continue
 
-        trait_counts = _calculate_trait_counts(solution)
+        match_index = total_matches
+        total_matches += 1
 
-        if any(trait_counts.get(name, 0) < 4 for name in req_traits4):
-            continue
-        if any(trait_counts.get(name, 0) < 2 for name in req_traits2):
-            continue
-        if any(trait_counts.get(name, 0) >= 2 for name in cap_traits):
-            continue
+        if start_index <= match_index < start_index + limit:
+            requested_entries.append((match_index, solution))
 
-        filtered.append(solution)
-    return filtered
+        tail_entries.append((match_index, solution))
+
+    return total_matches, requested_entries, list(tail_entries)
 
 
 @lru_cache(maxsize=512)
@@ -269,9 +302,20 @@ def api_options():
     if not file_path:
         abort(404, description="No solutions available for the requested combination")
 
-    solutions = _load_solutions(file_path)
-    cards = _sorted_unique(card for sol in solutions for card in sol.cards)
-    traits = _sorted_unique(trait for sol in solutions for trait, _ in sol.traits)
+    card_seen: Dict[str, str] = {}
+    trait_seen: Dict[str, str] = {}
+    for solution in _iter_solutions(file_path):
+        for card in solution.cards:
+            key = card.lower()
+            if key not in card_seen:
+                card_seen[key] = card
+        for trait_name, _ in solution.traits:
+            key = trait_name.lower()
+            if key not in trait_seen:
+                trait_seen[key] = trait_name
+
+    cards = sorted(card_seen.values(), key=str.lower)
+    traits = sorted(trait_seen.values(), key=str.lower)
 
     if not cards or not traits:
         deck_cards, deck_traits = _collect_assets(index, deck_size)
@@ -307,15 +351,18 @@ def api_solutions():
     if not file_path:
         abort(404, description="No solutions available for the requested combination")
 
-    solutions = _load_solutions(file_path)
+    required_cards_raw = _parse_query_list(request.args.getlist("required_cards"))
+    forbidden_cards_raw = _parse_query_list(request.args.getlist("forbidden_cards"))
+    traits_min4_raw = _parse_query_list(request.args.getlist("traits_min4"))
+    traits_min2_raw = _parse_query_list(request.args.getlist("traits_min2"))
+    traits_max1_raw = _parse_query_list(request.args.getlist("traits_max1"))
 
-    required_cards = _parse_query_list(request.args.getlist("required_cards"))
-    forbidden_cards = _parse_query_list(request.args.getlist("forbidden_cards"))
-    traits_min4 = _parse_query_list(request.args.getlist("traits_min4"))
-    traits_min2 = _parse_query_list(request.args.getlist("traits_min2"))
-    traits_max1 = _parse_query_list(request.args.getlist("traits_max1"))
-
-    filtered = _apply_filters(solutions, required_cards, forbidden_cards, traits_min2, traits_min4, traits_max1)
+    required_cards = {card.lower() for card in required_cards_raw}
+    forbidden_cards = {card.lower() for card in forbidden_cards_raw}
+    traits_min4 = {trait.lower() for trait in traits_min4_raw}
+    traits_min2 = {trait.lower() for trait in traits_min2_raw}
+    traits_min2 -= traits_min4
+    traits_max1 = {trait.lower() for trait in traits_max1_raw}
 
     try:
         limit = int(request.args.get("limit", DISPLAY_LIMIT))
@@ -323,36 +370,53 @@ def api_solutions():
         limit = DISPLAY_LIMIT
     limit = max(1, min(limit, 100))
 
-    total_matches = len(filtered)
-    total_pages = math.ceil(total_matches / limit) if total_matches else 0
-
     try:
         requested_page = int(request.args.get("page", 1))
     except ValueError:
         requested_page = 1
+    requested_page = max(1, requested_page)
 
-    if total_pages:
-        page = max(1, min(requested_page, total_pages))
-    else:
+    start_index = (requested_page - 1) * limit
+
+    (
+        total_matches,
+        requested_entries,
+        tail_entries,
+    ) = _collect_filtered_page(
+        file_path,
+        start_index,
+        limit,
+        required_cards,
+        forbidden_cards,
+        traits_min2,
+        traits_min4,
+        traits_max1,
+    )
+
+    if total_matches == 0:
+        total_pages = 0
         page = 1
+        entries: List[Tuple[int, SolutionData]] = []
+    else:
+        total_pages = math.ceil(total_matches / limit)
+        page = min(requested_page, total_pages)
+        if page == requested_page:
+            entries = requested_entries
+        else:
+            adjusted_start = (page - 1) * limit
+            entries = [entry for entry in tail_entries if entry[0] >= adjusted_start]
 
-    start = (page - 1) * limit if total_matches else 0
-    end = min(start + limit, total_matches)
-    page_items = filtered[start:end] if total_matches else []
-
-    results = []
-    for offset, item in enumerate(page_items):
-        display_id = start + offset + 1 if total_matches else offset + 1
-        results.append(
-            {
-                "displayId": display_id,
-                "identifier": item.identifier,
-                "cards": list(item.cards),
-                "traits": [
-                    {"name": name, "count": count} for name, count in item.traits
-                ],
-            }
-        )
+    results = [
+        {
+            "displayId": match_index + 1,
+            "identifier": item.identifier,
+            "cards": list(item.cards),
+            "traits": [
+                {"name": name, "count": count} for name, count in item.traits
+            ],
+        }
+        for match_index, item in entries
+    ]
 
     return jsonify(
         {
