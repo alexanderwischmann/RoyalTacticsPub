@@ -3,6 +3,7 @@ from __future__ import annotations
 import math
 import re
 from collections import deque
+import threading
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
@@ -12,6 +13,10 @@ import json
 from flask import Flask, abort, jsonify, render_template, request, send_file
 
 DISPLAY_LIMIT = 25
+# How often (in iterations) to check for cancellation to avoid per-iteration
+# locking overhead. Increase to check less frequently (lower CPU cost), or
+# decrease to respond to cancellations faster.
+CANCELLATION_CHECK_INTERVAL = 128
 BASE_DIR = Path(__file__).resolve().parent
 SOLUTIONS_DIR = BASE_DIR / "solutions"
 ASSETS_DIR = BASE_DIR / "assets"
@@ -228,7 +233,9 @@ def _collect_filtered_page(
     traits_min2: Set[str],
     traits_min4: Set[str],
     traits_max1: Set[str],
-) -> Tuple[int, List[SolutionData], List[SolutionData]]:
+    client_ip: str,
+    token: int,
+) -> Tuple[int, List[SolutionData], List[SolutionData], bool]:
     total_matches = 0
     requested_entries_masked: List[Tuple[int, SolutioMask]] = []
     tail_entries_masked: deque[Tuple[int, SolutioMask]] = deque(maxlen=limit)
@@ -240,7 +247,23 @@ def _collect_filtered_page(
     traitsMin2Mask = traitMin2FilterMask(list(traits_min2))
     traitsMin4Mask = traitMin4FilterMask(list(traits_min4))
 
+    # To avoid the overhead of acquiring a lock on every iteration we check
+    # the cancellation token only every `CANCELLATION_CHECK_INTERVAL`
+    # iterations. We perform a plain dict read (no lock) for the quick-path
+    # check — this is safe on CPython (single dict access is atomic) and the
+    # write-side always uses REQUEST_LOCK so we won't observe a crash; at
+    # worst we'll see a slightly stale value for a short time which is
+    # acceptable for cancellation semantics.
+    iterations_since_check = 0
     for solution in _iter_solutions(file_path):
+        iterations_since_check += 1
+        if iterations_since_check >= CANCELLATION_CHECK_INTERVAL:
+            iterations_since_check = 0
+            # read without lock for performance; use the locked path only if
+            # you need a strict memory-model guarantee across Python
+            current = REQUEST_TOKENS.get(client_ip, 0)
+            if current != token:
+                return (0, [], [], True)
         if not _solution_matches_filters(
             solution,
             requiredCardsMask,
@@ -260,9 +283,10 @@ def _collect_filtered_page(
         tail_entries_masked.append((match_index, solution))
 
     return (
-        total_matches, 
+        total_matches,
         _decode_solutions(requested_entries_masked),
-        _decode_solutions(list(tail_entries_masked))
+        _decode_solutions(list(tail_entries_masked)),
+        False,
     )
 
 
@@ -276,6 +300,12 @@ def _find_asset(asset_type: str, name: str) -> Path | None:
         if candidate.exists():
             return candidate
     return None
+
+
+# Map of client_ip -> latest token (int). When a new request arrives we bump the
+# token so any earlier in-flight processing can detect the mismatch and stop.
+REQUEST_TOKENS: Dict[str, int] = {}
+REQUEST_LOCK = threading.Lock()
 
 
 @app.get("/")
@@ -403,11 +433,36 @@ def api_solutions():
 
     start_index = (requested_page - 1) * limit
 
-    (
-        total_matches,
-        requested_entries,
-        tail_entries,
-    ) = _collect_filtered_page(
+    # client identification: prefer client-supplied `clientId` and `requestId`.
+    # If absent, fall back to IP-based behavior for compatibility.
+    client_id_arg = request.args.get("clientId")
+    request_id_arg = request.args.get("requestId")
+
+    if client_id_arg:
+        client_key = client_id_arg
+    else:
+        client_key = request.remote_addr or request.environ.get("REMOTE_ADDR") or "unknown"
+
+    # Determine request id: prefer client-supplied increasing integer. If not
+    # provided, fall back to bumping the stored token (older behavior).
+    if request_id_arg is not None:
+        try:
+            request_id = int(request_id_arg)
+        except ValueError:
+            abort(400, description="Invalid requestId parameter")
+        # Record the latest seen request id for this client (use max to be robust
+        # against out-of-order arrivals).
+        with REQUEST_LOCK:
+            prev = REQUEST_TOKENS.get(client_key, 0)
+            if request_id > prev:
+                REQUEST_TOKENS[client_key] = request_id
+    else:
+        # Older clients: bump token so in-flight work is invalidated.
+        with REQUEST_LOCK:
+            request_id = REQUEST_TOKENS.get(client_key, 0) + 1
+            REQUEST_TOKENS[client_key] = request_id
+
+    total_matches, requested_entries, tail_entries, cancelled = _collect_filtered_page(
         file_path,
         start_index,
         limit,
@@ -416,7 +471,12 @@ def api_solutions():
         traits_min2,
         traits_min4,
         traits_max1,
+        client_key,
+        request_id,
     )
+
+    if cancelled:
+        return jsonify({"cancelled": True}), 200
 
     if total_matches == 0:
         total_pages = 0
@@ -451,7 +511,6 @@ def api_solutions():
             "results": results,
         }
     )
-
 
 @app.get("/assets/logo.png")
 def serve_logo():

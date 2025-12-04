@@ -380,6 +380,25 @@
 
     <script>
       window.addEventListener("DOMContentLoaded", () => {
+        // Ensure a stable clientId for this browser session (persisted).
+        // If none exists, create a random UUID and store it in localStorage.
+        let __MT_clientId = localStorage.getItem("clientId");
+        if (!__MT_clientId) {
+          try {
+            __MT_clientId = crypto.randomUUID();
+            localStorage.setItem("clientId", __MT_clientId);
+          } catch (err) {
+            // Fallback: use a timestamp-based id if crypto.randomUUID not available
+            __MT_clientId = `client-${Date.now()}-${Math.floor(
+              Math.random() * 100000
+            )}`;
+            localStorage.setItem("clientId", __MT_clientId);
+          }
+        }
+        // Request counter for this page - increments for each outgoing solutions fetch
+        let __MT_requestCounter = 0;
+        // Controller for aborting in-flight solution requests when a new one starts
+        let __MT_currentController = null;
         const { createApp } = Vue;
         const TRAIT_VALUE_UNIVERSE = [2, 3, 4, 5, 6, 7];
         const TRAIT_VALUE_VIEWPORT = 4;
@@ -1089,9 +1108,28 @@
                   }
                 );
 
+                // Attach client identification and a monotonically increasing
+                // request id so the server can cancel older in-flight work.
+                params.append("clientId", __MT_clientId);
+                params.append("requestId", String(++__MT_requestCounter));
+
+                // Abort any previous in-flight solutions request from this page
+                if (__MT_currentController) {
+                  try {
+                    __MT_currentController.abort();
+                  } catch (e) {
+                    // ignore
+                  }
+                }
+                __MT_currentController = new AbortController();
+
                 const response = await fetch(
-                  `/api/solutions?${params.toString()}`
+                  `/api/solutions?${params.toString()}`,
+                  {
+                    signal: __MT_currentController.signal,
+                  }
                 );
+
                 if (!response.ok) {
                   const message = await response.text();
                   throw new Error(message || "Failed to load solutions.");
@@ -1107,6 +1145,12 @@
                   this.page = data.page || 1;
                 }
               } catch (err) {
+                // If the request was aborted by a newer one, don't treat as an error
+                if (err && err.name === "AbortError") {
+                  // silently return; the newer request will take over
+                  return;
+                }
+
                 this.solutions = [];
                 this.totalMatches = 0;
                 this.totalPages = 0;
@@ -1118,6 +1162,12 @@
               } finally {
                 if (manageLoader) {
                   this.loading = false;
+                }
+                // Clear controller reference so future requests create a fresh one
+                try {
+                  __MT_currentController = null;
+                } catch (e) {
+                  /* ignore */
                 }
               }
             },
