@@ -102,7 +102,7 @@ def traitMin2FilterMask(min2Traits: list[str]) -> int:
     mask = 0
     for trait in min2Traits:
         index = TRAIT_LIST.index(trait)
-        weight_mask = (1 << 1) | (1 << 2) # (0011 & x = 0011)  true for 0011, 0111, 1111  (i.e. weight >= 2)
+        weight_mask = 0b0011 # (0011 & x = 0011)  true for 0011, 0111, 1111  (i.e. weight >= 2)
         mask |= (weight_mask << (index * 4))
     return mask
 
@@ -110,7 +110,7 @@ def traitMin4FilterMask(min4Traits: list[str]) -> int:
     mask = 0
     for trait in min4Traits:
         index = TRAIT_LIST.index(trait)
-        weight_mask = (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) # (1111 & x = 1111)  true for 1111 only (i.e. weight == 4)
+        weight_mask = 0b1111 # (1111 & x = 1111)  true for 1111 only (i.e. weight == 4)
         mask |= (weight_mask << (index * 4))
     return mask
 
@@ -230,9 +230,9 @@ def _collect_filtered_page(
     limit: int,
     required_cards: Set[str],
     forbidden_cards: Set[str],
+    traits_max1: Set[str],
     traits_min2: Set[str],
     traits_min4: Set[str],
-    traits_max1: Set[str],
     client_ip: str,
     token: int,
 ) -> Tuple[int, List[SolutionData], List[SolutionData], bool]:
@@ -468,9 +468,9 @@ def api_solutions():
         limit,
         required_cards,
         forbidden_cards,
+        traits_max1,
         traits_min2,
         traits_min4,
-        traits_max1,
         client_key,
         request_id,
     )
