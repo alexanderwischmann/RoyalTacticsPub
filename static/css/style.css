@@ -127,6 +127,13 @@ a:hover {
   padding: 10px 25px;
 }
 
+.app-logo-badge:hover,
+.app-logo-badge:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(250, 204, 21, 0.65);
+  box-shadow: 0 32px 56px rgba(15, 23, 42, 0.6);
+}
+
 .app-tagline {
   display: flex;
   flex-direction: column;
@@ -279,6 +286,16 @@ a:hover {
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 12px;
+}
+
+.filter-label-row {
+  min-height: 44px;
+}
+
+.filter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .tooltip-trigger {
