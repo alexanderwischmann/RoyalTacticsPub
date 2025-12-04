@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 from typing import Dict, Iterable, Iterator, List, Optional, Sequence, Set, Tuple
+import json
 
 from flask import Flask, abort, jsonify, render_template, request, send_file
 
@@ -22,15 +23,112 @@ MIME_TYPES = {
     ".webp": "image/webp",
 }
 
+with open(f"{BASE_DIR}/card_dict.json", "r", encoding="utf-8") as f:
+    CARD_DICT = json.load(f)
+CARD_LIST = sorted(CARD_DICT.keys())
+TRAIT_LIST = sorted(set(trait for traits in CARD_DICT.values() for trait in traits))
+
 app = Flask(__name__, static_folder="static", template_folder="templates")
 app.config["JSON_SORT_KEYS"] = False
 
 
 @dataclass(frozen=True)
+class SolutioMask:
+    cards: int # Bitmask
+    traits:  int # Bitmask
+
+@dataclass(frozen=True)
 class SolutionData:
-    identifier: str
+    identifier: int
     traits: Tuple[Tuple[str, int], ...]
     cards: Tuple[str, ...]
+
+# --------- BITFILTER LOGIC  ----------
+
+def traitsMask(weighted_traits: list[str]) -> int:
+    mask = 0
+    for trait, weight in weighted_traits: 
+        weight_mask = 0
+        for weight_index in range(weight):
+            weight_mask |= (1 << weight_index) # for weight 1 to 4:  0001 0011 0111 1111
+        
+        index = TRAIT_LIST.index(trait)
+        mask |= (weight_mask << (index * 4))
+    return mask
+
+def cardsMask(cards: list[str]) -> int:
+    mask = 0
+    for card in cards:
+        index = CARD_LIST.index(card)
+        mask |= (1 << index)
+    return mask
+
+
+def filterCardsForbidden(filterMask: int, cardsMask: int) -> bool:
+    return (filterMask & cardsMask) == 0
+
+def filterCardsRequired(filterMask: int, cardsMask: int) -> bool:
+    return (filterMask & cardsMask) == filterMask
+
+def filterTraitsMax1(filterMask: int, traitsMask: int) -> bool:
+    return (filterMask & traitsMask) == 0
+
+def filterTraitsMin2(filterMask: int, traitsMask: int) -> bool:
+    return (filterMask & traitsMask) == filterMask
+
+def filterTraitsMin4(filterMask: int, traitsMask: int) -> bool:
+    return (filterMask & traitsMask) == filterMask
+
+
+def cardsRequiredFilterMask(requiredCards: list[str]) -> int:
+    return cardsMask(requiredCards)
+
+def cardsForbiddenFilterMask(forbiddenCards: list[str]) -> int:
+    return cardsMask(forbiddenCards)
+
+def traitsMax1FilterMask(max1Traits: list[str]) -> int:
+    mask = 0
+    for trait in max1Traits:
+        index = TRAIT_LIST.index(trait)
+        mask |= (1 << (index * 4))
+    return mask
+
+def traitMin2FilterMask(min2Traits: list[str]) -> int:
+    mask = 0
+    for trait in min2Traits:
+        index = TRAIT_LIST.index(trait)
+        weight_mask = (1 << 1) | (1 << 2) # (0011 & x = 0011)  true for 0011, 0111, 1111  (i.e. weight >= 2)
+        mask |= (weight_mask << (index * 4))
+    return mask
+
+def traitMin4FilterMask(min4Traits: list[str]) -> int:
+    mask = 0
+    for trait in min4Traits:
+        index = TRAIT_LIST.index(trait)
+        weight_mask = (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) # (1111 & x = 1111)  true for 1111 only (i.e. weight == 4)
+        mask |= (weight_mask << (index * 4))
+    return mask
+
+def decodeTraitsMask(traitsMask: int) -> List[Tuple[str, int]]:
+    traits = []
+    for index, trait in enumerate(TRAIT_LIST):
+        weight_mask = (traitsMask >> (index * 4)) & 0b1111
+        if weight_mask != 0:
+            weight = 0
+            for bit_index in range(4):
+                if (weight_mask >> bit_index) & 1:
+                    weight += 1
+            traits.append((trait, weight))
+    return traits
+
+def decodeCardsMask(cardsMask: int) -> List[str]:
+    cards = []
+    for index, card in enumerate(CARD_LIST):
+        if (cardsMask >> index) & 1:
+            cards.append(card)
+    return cards
+
+# --------- END BITFILTER LOGIC  ----------
 
 
 def _sorted_unique(values: Iterable[str]) -> List[str]:
@@ -79,102 +177,47 @@ def _scan_solution_files() -> Dict[Tuple[int, int, str], str]:
     return index
 
 
-def _collect_assets(
-    index: Dict[Tuple[int, int, str], str], deck_size: int | None = None
-) -> Tuple[List[str], List[str]]:
-    card_set = set()
-    trait_set = set()
-    for (size, _, _), path_str in index.items():
-        if deck_size is not None and size != deck_size:
-            continue
-        for solution in _iter_solutions(path_str):
-            card_set.update(solution.cards)
-            trait_set.update(name for name, _ in solution.traits)
 
-    cards = sorted(card_set, key=str.lower)
-    traits = sorted(trait_set, key=str.lower)
-    return cards, traits
-
-
-def _parse_solution_block(block: Sequence[str]) -> Optional[SolutionData]:
-    if len(block) < 3:
-        return None
-
-    id_line, trait_line, card_line = block
-    identifier = id_line.replace("Solution nr", "").replace(":", "").strip()
-
-    traits: List[Tuple[str, int]] = []
-    for trait_entry in trait_line.split(","):
-        trait_entry = trait_entry.strip()
-        match = re.match(r"([a-zA-Z_ ]+)\s*\((\d+)\)", trait_entry)
-        if not match:
-            continue
-        name = match.group(1).strip()
-        count = int(match.group(2))
-        traits.append((name, count))
-
-    cards = [card.strip() for card in card_line.split(",") if card.strip()]
-
-    if not traits or not cards:
-        return None
-
-    return SolutionData(
-        identifier=identifier,
-        traits=tuple(traits),
-        cards=tuple(cards),
-    )
-
-
-def _iter_solutions(file_path: str) -> Iterator[SolutionData]:
+def _iter_solutions(file_path: str) -> Iterator[SolutioMask]:
     path = Path(file_path)
     if not path.exists():
         return
 
-    block: List[str] = []
     with path.open("r", encoding="utf-8") as handle:
         for raw_line in handle:
             line = raw_line.strip()
             if not line:
                 continue
-            block.append(line)
-            if len(block) == 3:
-                solution = _parse_solution_block(block)
-                if solution is not None:
-                    yield solution
-                block.clear()
-
-
-def _calculate_trait_counts(solution: SolutionData) -> Dict[str, int]:
-    counts: Dict[str, int] = {}
-    for name, value in solution.traits:
-        counts[name.lower()] = value
-    return counts
+            parts = line.split(",")
+            yield SolutioMask(
+                cards=int(parts[0]),
+                traits=int(parts[1]),
+            )
 
 
 def _solution_matches_filters(
-    solution: SolutionData,
-    required_cards: Set[str],
-    forbidden_cards: Set[str],
-    traits_min2: Set[str],
-    traits_min4: Set[str],
-    traits_max1: Set[str],
+    solution: SolutioMask,
+    requiredCardsMask: int,
+    forbiddenCardsMask: int,
+    traitsMax1Mask: int,
+    traitsMin2Mask: int,
+    traitsMin4Mask: int,
 ) -> bool:
-    cards_lower = {card.lower() for card in solution.cards}
-    if forbidden_cards & cards_lower:
-        return False
-    if not required_cards.issubset(cards_lower):
-        return False
+    
+    return (
+        filterCardsRequired(requiredCardsMask, solution.cards) and
+        filterCardsForbidden(forbiddenCardsMask, solution.cards) and
+        filterTraitsMax1(traitsMax1Mask, solution.traits) and
+        filterTraitsMin2(traitsMin2Mask, solution.traits) and
+        filterTraitsMin4(traitsMin4Mask, solution.traits) 
+)
 
-    trait_counts = _calculate_trait_counts(solution)
-
-    if any(trait_counts.get(name, 0) < 4 for name in traits_min4):
-        return False
-    if any(trait_counts.get(name, 0) < 2 for name in traits_min2):
-        return False
-    if any(trait_counts.get(name, 0) >= 2 for name in traits_max1):
-        return False
-    return True
-
+def _decode_solutions(solutions: List[int, SolutioMask]) -> List[SolutionData]:
+    return [SolutionData(
+        identifier=index,
+        traits=tuple(decodeTraitsMask(solution.traits)),
+        cards=tuple(decodeCardsMask(solution.cards))
+    ) for index, solution in solutions]
 
 def _collect_filtered_page(
     file_path: str,
@@ -185,19 +228,26 @@ def _collect_filtered_page(
     traits_min2: Set[str],
     traits_min4: Set[str],
     traits_max1: Set[str],
-) -> Tuple[int, List[Tuple[int, SolutionData]], List[Tuple[int, SolutionData]]]:
+) -> Tuple[int, List[SolutionData], List[SolutionData]]:
     total_matches = 0
-    requested_entries: List[Tuple[int, SolutionData]] = []
-    tail_entries: deque[Tuple[int, SolutionData]] = deque(maxlen=limit)
+    requested_entries_masked: List[Tuple[int, SolutioMask]] = []
+    tail_entries_masked: deque[Tuple[int, SolutioMask]] = deque(maxlen=limit)
+
+    # Precompute filter masks
+    requiredCardsMask = cardsRequiredFilterMask(list(required_cards))
+    forbiddenCardsMask = cardsForbiddenFilterMask(list(forbidden_cards))
+    traitsMax1Mask = traitsMax1FilterMask(list(traits_max1))
+    traitsMin2Mask = traitMin2FilterMask(list(traits_min2))
+    traitsMin4Mask = traitMin4FilterMask(list(traits_min4))
 
     for solution in _iter_solutions(file_path):
         if not _solution_matches_filters(
             solution,
-            required_cards,
-            forbidden_cards,
-            traits_min2,
-            traits_min4,
-            traits_max1,
+            requiredCardsMask,
+            forbiddenCardsMask,
+            traitsMax1Mask,
+            traitsMin2Mask,
+            traitsMin4Mask,
         ):
             continue
 
@@ -205,11 +255,15 @@ def _collect_filtered_page(
         total_matches += 1
 
         if start_index <= match_index < start_index + limit:
-            requested_entries.append((match_index, solution))
+            requested_entries_masked.append((match_index, solution))
 
-        tail_entries.append((match_index, solution))
+        tail_entries_masked.append((match_index, solution))
 
-    return total_matches, requested_entries, list(tail_entries)
+    return (
+        total_matches, 
+        _decode_solutions(requested_entries_masked),
+        _decode_solutions(list(tail_entries_masked))
+    )
 
 
 @lru_cache(maxsize=512)
@@ -302,36 +356,7 @@ def api_options():
     if not file_path:
         abort(404, description="No solutions available for the requested combination")
 
-    card_seen: Dict[str, str] = {}
-    trait_seen: Dict[str, str] = {}
-    for solution in _iter_solutions(file_path):
-        for card in solution.cards:
-            key = card.lower()
-            if key not in card_seen:
-                card_seen[key] = card
-        for trait_name, _ in solution.traits:
-            key = trait_name.lower()
-            if key not in trait_seen:
-                trait_seen[key] = trait_name
-
-    cards = sorted(card_seen.values(), key=str.lower)
-    traits = sorted(trait_seen.values(), key=str.lower)
-
-    if not cards or not traits:
-        deck_cards, deck_traits = _collect_assets(index, deck_size)
-        if not cards:
-            cards = deck_cards
-        if not traits:
-            traits = deck_traits
-
-    if not cards or not traits:
-        all_cards, all_traits = _collect_assets(index, None)
-        if not cards:
-            cards = all_cards
-        if not traits:
-            traits = all_traits
-
-    return jsonify({"cards": cards, "traits": traits})
+    return jsonify({"cards": CARD_LIST, "traits": TRAIT_LIST})
 
 
 @app.get("/api/solutions")
@@ -396,7 +421,7 @@ def api_solutions():
     if total_matches == 0:
         total_pages = 0
         page = 1
-        entries: List[Tuple[int, SolutionData]] = []
+        entries: List[SolutionData] = []
     else:
         total_pages = math.ceil(total_matches / limit)
         page = min(requested_page, total_pages)
@@ -404,18 +429,17 @@ def api_solutions():
             entries = requested_entries
         else:
             adjusted_start = (page - 1) * limit
-            entries = [entry for entry in tail_entries if entry[0] >= adjusted_start]
+            entries = [entry for entry in tail_entries if entry.identifier >= adjusted_start]
 
     results = [
         {
-            "displayId": match_index + 1,
-            "identifier": item.identifier,
-            "cards": list(item.cards),
+            "displayId": solution.identifier + 1,
+            "cards": list(solution.cards),
             "traits": [
-                {"name": name, "count": count} for name, count in item.traits
+                {"name": name, "count": count} for name, count in solution.traits
             ],
         }
-        for match_index, item in entries
+        for solution in entries
     ]
 
     return jsonify(

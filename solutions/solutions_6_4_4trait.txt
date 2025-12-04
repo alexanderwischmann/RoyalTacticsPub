@@ -1,1872 +1,624 @@
-Solution nr 1:
-	 ace (4),  assassin (1),  pekka (1),  brawler (2),  blaster (1),  undead (1),  superstar (2)
-	 bandit,  pekka,  executioner,  megaknight,  witch,  monk
-Solution nr 2:
-	 ace (4),  assassin (1),  blaster (1),  brawler (2),  clan (1),  undead (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  barbarian,  witch,  monk
-Solution nr 3:
-	 ace (4),  assassin (1),  blaster (1),  brawler (2),  clan (2),  ranger (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  archerqueen,  barbarian,  monk
-Solution nr 4:
-	 ace (4),  assassin (1),  blaster (1),  brawler (2),  clan (2),  brutalist (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  barbarian,  valkyrie,  monk
-Solution nr 5:
-	 ace (4),  assassin (1),  blaster (1),  brawler (1),  giant (2),  superstar (2),  ranger (1)
-	 bandit,  executioner,  megaknight,  electrogiant,  royalgiant,  monk
-Solution nr 6:
-	 ace (4),  assassin (1),  pekka (1),  brawler (2),  blaster (1),  giant (1),  superstar (2)
-	 bandit,  pekka,  executioner,  megaknight,  electrogiant,  monk
-Solution nr 7:
-	 ace (4),  assassin (1),  blaster (1),  brawler (2),  clan (1),  giant (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  barbarian,  electrogiant,  monk
-Solution nr 8:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  clan (1),  undead (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  wizard,  witch,  monk
-Solution nr 9:
-	 ace (4),  assassin (1),  pekka (1),  brawler (2),  blaster (2),  clan (1),  superstar (1)
-	 bandit,  pekka,  executioner,  megaknight,  wizard,  monk
-Solution nr 10:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  clan (2),  ranger (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  archerqueen,  wizard,  monk
-Solution nr 11:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  clan (2),  brutalist (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  valkyrie,  wizard,  monk
-Solution nr 12:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (2),  blaster (1),  undead (1),  pekka (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  skeletondragons,  minipekka
-Solution nr 13:
-	 pekka (1),  brawler (2),  clan (4),  ranger (2),  brutalist (1),  blaster (1),  undead (1)
-	 pekka,  archerqueen,  barbarian,  valkyrie,  wizard,  skeletondragons
-Solution nr 14:
-	 pekka (1),  brawler (2),  clan (4),  ranger (2),  brutalist (1),  blaster (1),  giant (1)
-	 pekka,  archerqueen,  barbarian,  valkyrie,  wizard,  royalgiant
-Solution nr 15:
-	 ace (1),  blaster (2),  clan (4),  ranger (2),  brawler (1),  brutalist (1),  undead (1)
-	 executioner,  archerqueen,  barbarian,  valkyrie,  wizard,  skeletondragons
-Solution nr 16:
-	 ace (2),  assassin (1),  blaster (2),  clan (4),  ranger (1),  brawler (1),  brutalist (1)
-	 bandit,  executioner,  archerqueen,  barbarian,  valkyrie,  wizard
-Solution nr 17:
-	 pekka (1),  brawler (2),  ace (1),  blaster (2),  clan (4),  ranger (1),  brutalist (1)
-	 pekka,  executioner,  archerqueen,  barbarian,  valkyrie,  wizard
-Solution nr 18:
-	 ace (1),  blaster (2),  clan (4),  ranger (2),  brawler (1),  brutalist (1),  giant (1)
-	 executioner,  archerqueen,  barbarian,  valkyrie,  wizard,  royalgiant
-Solution nr 19:
-	 ace (1),  brawler (2),  clan (4),  ranger (2),  brutalist (1),  blaster (1),  giant (1)
-	 megaknight,  archerqueen,  barbarian,  valkyrie,  wizard,  royalgiant
-Solution nr 20:
-	 ace (2),  brawler (2),  clan (4),  ranger (1),  brutalist (1),  blaster (1),  superstar (1)
-	 megaknight,  archerqueen,  barbarian,  valkyrie,  wizard,  monk
-Solution nr 21:
-	 ace (2),  blaster (2),  clan (4),  ranger (1),  brawler (1),  brutalist (1),  superstar (1)
-	 executioner,  archerqueen,  barbarian,  valkyrie,  wizard,  monk
-Solution nr 22:
-	 ace (2),  assassin (1),  brawler (2),  clan (4),  ranger (1),  brutalist (1),  blaster (1)
-	 bandit,  megaknight,  archerqueen,  barbarian,  valkyrie,  wizard
-Solution nr 23:
-	 ace (1),  blaster (2),  clan (4),  ranger (1),  brawler (1),  brutalist (2),  undead (1)
-	 executioner,  archerqueen,  barbarian,  valkyrie,  wizard,  skeletonking
-Solution nr 24:
-	 ace (1),  brawler (2),  clan (4),  ranger (1),  brutalist (2),  blaster (1),  undead (1)
-	 megaknight,  archerqueen,  barbarian,  valkyrie,  wizard,  skeletonking
-Solution nr 25:
-	 ace (1),  brawler (2),  clan (4),  ranger (2),  brutalist (1),  blaster (1),  undead (1)
-	 megaknight,  archerqueen,  barbarian,  valkyrie,  wizard,  skeletondragons
-Solution nr 26:
-	 ace (1),  brawler (2),  clan (4),  ranger (1),  brutalist (2),  blaster (1),  pekka (1)
-	 megaknight,  archerqueen,  barbarian,  valkyrie,  wizard,  minipekka
-Solution nr 27:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  giant (1),  superstar (2),  clan (1)
-	 bandit,  executioner,  megaknight,  electrogiant,  wizard,  monk
-Solution nr 28:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (1),  giant (2),  superstar (1),  blaster (1)
-	 archerqueen,  barbarian,  valkyrie,  electrogiant,  wizard,  royalgiant
-Solution nr 29:
-	 ace (4),  assassin (2),  blaster (1),  brawler (1),  goblin (1),  undead (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  goblin,  witch,  monk
-Solution nr 30:
-	 ace (4),  assassin (2),  pekka (1),  brawler (2),  blaster (1),  goblin (1),  superstar (1)
-	 bandit,  pekka,  executioner,  megaknight,  goblin,  monk
-Solution nr 31:
-	 ace (4),  assassin (2),  blaster (1),  brawler (2),  clan (1),  goblin (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  barbarian,  goblin,  monk
-Solution nr 32:
-	 ace (4),  assassin (2),  blaster (1),  brawler (1),  giant (1),  superstar (2),  goblin (1)
-	 bandit,  executioner,  megaknight,  electrogiant,  goblin,  monk
-Solution nr 33:
-	 ace (4),  assassin (2),  blaster (2),  brawler (1),  clan (1),  goblin (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  wizard,  goblin,  monk
-Solution nr 34:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  goblin (1),  undead (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  speargoblin,  witch,  monk
-Solution nr 35:
-	 ace (4),  assassin (1),  pekka (1),  brawler (2),  blaster (2),  goblin (1),  superstar (1)
-	 bandit,  pekka,  executioner,  megaknight,  speargoblin,  monk
-Solution nr 36:
-	 ace (4),  assassin (1),  blaster (2),  brawler (2),  clan (1),  goblin (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  barbarian,  speargoblin,  monk
-Solution nr 37:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  giant (1),  superstar (2),  goblin (1)
-	 bandit,  executioner,  megaknight,  electrogiant,  speargoblin,  monk
-Solution nr 38:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (1),  blaster (2),  goblin (1),  giant (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  speargoblin,  royalgiant
-Solution nr 39:
-	 clan (4),  ranger (1),  brawler (1),  brutalist (2),  blaster (2),  goblin (1),  undead (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  speargoblin,  skeletonking
-Solution nr 40:
-	 pekka (1),  brawler (2),  clan (4),  ranger (1),  brutalist (1),  blaster (2),  goblin (1)
-	 pekka,  archerqueen,  barbarian,  valkyrie,  wizard,  speargoblin
-Solution nr 41:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (1),  blaster (2),  goblin (1),  undead (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  speargoblin,  skeletondragons
-Solution nr 42:
-	 clan (4),  ranger (1),  brawler (1),  brutalist (2),  blaster (2),  goblin (1),  pekka (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  speargoblin,  minipekka
-Solution nr 43:
-	 ace (1),  brawler (2),  clan (4),  ranger (1),  brutalist (1),  blaster (2),  goblin (1)
-	 megaknight,  archerqueen,  barbarian,  valkyrie,  wizard,  speargoblin
-Solution nr 44:
-	 giant (2),  superstar (4),  noble (2),  assassin (1),  undead (1),  ranger (1),  ace (1)
-	 electrogiant,  goldenknight,  musketeer,  witch,  royalgiant,  monk
-Solution nr 45:
-	 clan (4),  ranger (1),  brawler (1),  brutalist (1),  blaster (2),  goblin (2),  assassin (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  goblin,  speargoblin
-Solution nr 46:
-	 ace (1),  assassin (2),  goblin (1),  brutalist (2),  undead (4),  superstar (1),  ranger (1)
-	 bandit,  goblinmachine,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 47:
-	 clan (1),  brutalist (4),  goblin (1),  undead (2),  ranger (2),  pekka (1),  giant (1)
-	 valkyrie,  goblinmachine,  skeletonking,  skeletondragons,  minipekka,  royalgiant
-Solution nr 48:
-	 clan (1),  brutalist (4),  goblin (1),  undead (2),  superstar (2),  pekka (1),  ace (1)
-	 valkyrie,  goblinmachine,  witch,  skeletonking,  minipekka,  monk
-Solution nr 49:
-	 pekka (2),  brawler (1),  clan (1),  brutalist (4),  goblin (1),  undead (2),  superstar (1)
-	 pekka,  valkyrie,  goblinmachine,  witch,  skeletonking,  minipekka
-Solution nr 50:
-	 clan (2),  ranger (1),  brutalist (4),  goblin (1),  undead (2),  superstar (1),  pekka (1)
-	 archerqueen,  valkyrie,  goblinmachine,  witch,  skeletonking,  minipekka
-Solution nr 51:
-	 clan (2),  brawler (1),  brutalist (4),  goblin (1),  undead (2),  ranger (1),  pekka (1)
-	 barbarian,  valkyrie,  goblinmachine,  skeletonking,  skeletondragons,  minipekka
-Solution nr 52:
-	 clan (1),  brutalist (4),  giant (1),  superstar (2),  goblin (1),  undead (2),  pekka (1)
-	 valkyrie,  electrogiant,  goblinmachine,  witch,  skeletonking,  minipekka
-Solution nr 53:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (2),  blaster (1),  goblin (1),  giant (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  goblinmachine,  royalgiant
-Solution nr 54:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (2),  blaster (1),  goblin (1),  undead (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  goblinmachine,  skeletondragons
-Solution nr 55:
-	 pekka (1),  brawler (2),  clan (4),  ranger (1),  brutalist (2),  blaster (1),  goblin (1)
-	 pekka,  archerqueen,  barbarian,  valkyrie,  wizard,  goblinmachine
-Solution nr 56:
-	 ace (1),  blaster (2),  clan (4),  ranger (1),  brawler (1),  brutalist (2),  goblin (1)
-	 executioner,  archerqueen,  barbarian,  valkyrie,  wizard,  goblinmachine
-Solution nr 57:
-	 ace (1),  brawler (2),  clan (4),  ranger (1),  brutalist (2),  blaster (1),  goblin (1)
-	 megaknight,  archerqueen,  barbarian,  valkyrie,  wizard,  goblinmachine
-Solution nr 58:
-	 ace (4),  assassin (2),  blaster (1),  brawler (1),  goblin (2),  brutalist (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  goblin,  goblinmachine,  monk
-Solution nr 59:
-	 clan (4),  ranger (1),  brawler (1),  brutalist (2),  blaster (1),  goblin (2),  assassin (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  goblin,  goblinmachine
-Solution nr 60:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  goblin (2),  brutalist (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  speargoblin,  goblinmachine,  monk
-Solution nr 61:
-	 clan (1),  brutalist (4),  goblin (2),  blaster (1),  undead (2),  superstar (1),  pekka (1)
-	 valkyrie,  speargoblin,  goblinmachine,  witch,  skeletonking,  minipekka
-Solution nr 62:
-	 clan (1),  ranger (4),  goblin (1),  undead (2),  brutalist (2),  pekka (1),  giant (1)
-	 archerqueen,  dartgoblin,  skeletonking,  skeletondragons,  minipekka,  royalgiant
-Solution nr 63:
-	 ace (1),  assassin (2),  clan (1),  ranger (4),  goblin (1),  undead (2),  giant (1)
-	 bandit,  archerqueen,  dartgoblin,  royalghost,  skeletondragons,  royalgiant
-Solution nr 64:
-	 clan (1),  ranger (4),  giant (2),  superstar (1),  goblin (1),  undead (2),  brutalist (1)
-	 archerqueen,  electrogiant,  dartgoblin,  skeletonking,  skeletondragons,  royalgiant
-Solution nr 65:
-	 clan (1),  ranger (4),  giant (2),  superstar (1),  goblin (1),  undead (2),  assassin (1)
-	 archerqueen,  electrogiant,  dartgoblin,  royalghost,  skeletondragons,  royalgiant
-Solution nr 66:
-	 clan (2),  ranger (4),  brawler (1),  giant (2),  superstar (1),  goblin (1),  undead (1)
-	 archerqueen,  barbarian,  electrogiant,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 67:
-	 ace (4),  assassin (2),  blaster (1),  brawler (2),  clan (1),  undead (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  barbarian,  royalghost,  monk
-Solution nr 68:
-	 ace (1),  assassin (4),  goblin (2),  blaster (1),  noble (2),  superstar (1),  undead (1)
-	 bandit,  goblin,  speargoblin,  goldenknight,  musketeer,  royalghost
-Solution nr 69:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (2),  blaster (1),  goblin (1),  undead (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  dartgoblin,  skeletonking
-Solution nr 70:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (2),  blaster (1),  goblin (1),  pekka (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  dartgoblin,  minipekka
-Solution nr 71:
-	 pekka (1),  brawler (2),  clan (4),  ranger (2),  brutalist (1),  blaster (1),  goblin (1)
-	 pekka,  archerqueen,  barbarian,  valkyrie,  wizard,  dartgoblin
-Solution nr 72:
-	 ace (1),  blaster (2),  clan (4),  ranger (2),  brawler (1),  brutalist (1),  goblin (1)
-	 executioner,  archerqueen,  barbarian,  valkyrie,  wizard,  dartgoblin
-Solution nr 73:
-	 ace (1),  brawler (2),  clan (4),  ranger (2),  brutalist (1),  blaster (1),  goblin (1)
-	 megaknight,  archerqueen,  barbarian,  valkyrie,  wizard,  dartgoblin
-Solution nr 74:
-	 clan (2),  ranger (4),  giant (2),  superstar (1),  blaster (1),  goblin (1),  undead (1)
-	 archerqueen,  electrogiant,  wizard,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 75:
-	 ace (4),  assassin (2),  blaster (1),  brawler (1),  goblin (2),  ranger (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  goblin,  dartgoblin,  monk
-Solution nr 76:
-	 clan (1),  ranger (4),  goblin (2),  assassin (1),  undead (2),  brutalist (1),  giant (1)
-	 archerqueen,  goblin,  dartgoblin,  skeletonking,  skeletondragons,  royalgiant
-Solution nr 77:
-	 clan (2),  ranger (4),  brawler (1),  goblin (2),  assassin (1),  undead (1),  giant (1)
-	 archerqueen,  barbarian,  goblin,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 78:
-	 ace (4),  assassin (2),  blaster (1),  brawler (1),  giant (1),  superstar (2),  undead (1)
-	 bandit,  executioner,  megaknight,  electrogiant,  royalghost,  monk
-Solution nr 79:
-	 goblin (1),  ranger (2),  undead (4),  assassin (1),  superstar (2),  brutalist (1),  ace (1)
-	 dartgoblin,  royalghost,  witch,  skeletonking,  skeletondragons,  monk
-Solution nr 80:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (1),  blaster (1),  goblin (2),  assassin (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  goblin,  dartgoblin
-Solution nr 81:
-	 ace (1),  assassin (4),  goblin (2),  ranger (1),  noble (2),  blaster (1),  undead (1)
-	 bandit,  goblin,  dartgoblin,  goldenknight,  princess,  royalghost
-Solution nr 82:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  goblin (2),  ranger (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  speargoblin,  dartgoblin,  monk
-Solution nr 83:
-	 clan (1),  ranger (4),  goblin (2),  blaster (1),  undead (2),  brutalist (1),  giant (1)
-	 archerqueen,  speargoblin,  dartgoblin,  skeletonking,  skeletondragons,  royalgiant
-Solution nr 84:
-	 clan (2),  ranger (4),  brawler (1),  goblin (2),  blaster (1),  undead (1),  giant (1)
-	 archerqueen,  barbarian,  speargoblin,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 85:
-	 ace (4),  assassin (2),  blaster (2),  brawler (1),  clan (1),  undead (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  wizard,  royalghost,  monk
-Solution nr 86:
-	 clan (2),  ranger (4),  brawler (1),  goblin (2),  brutalist (1),  undead (1),  giant (1)
-	 archerqueen,  barbarian,  goblinmachine,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 87:
-	 goblin (4),  assassin (1),  blaster (1),  brutalist (2),  ranger (2),  undead (1),  pekka (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletondragons,  minipekka
-Solution nr 88:
-	 ace (1),  assassin (2),  goblin (4),  blaster (1),  brutalist (2),  ranger (1),  pekka (1)
-	 bandit,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  minipekka
-Solution nr 89:
-	 pekka (2),  brawler (1),  goblin (4),  assassin (1),  blaster (1),  brutalist (2),  ranger (1)
-	 pekka,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  minipekka
-Solution nr 90:
-	 goblin (4),  assassin (1),  blaster (1),  brutalist (2),  ranger (1),  undead (2),  superstar (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  witch,  skeletonking
-Solution nr 91:
-	 ace (2),  assassin (2),  goblin (4),  blaster (1),  brutalist (1),  ranger (1),  superstar (1)
-	 bandit,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  monk
-Solution nr 92:
-	 ace (1),  assassin (2),  goblin (4),  blaster (1),  brutalist (1),  ranger (2),  undead (1)
-	 bandit,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletondragons
-Solution nr 93:
-	 ace (1),  assassin (2),  goblin (4),  blaster (1),  brutalist (1),  ranger (2),  giant (1)
-	 bandit,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalgiant
-Solution nr 94:
-	 ace (1),  blaster (2),  goblin (4),  assassin (1),  brutalist (1),  ranger (2),  undead (1)
-	 executioner,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletondragons
-Solution nr 95:
-	 ace (1),  blaster (2),  goblin (4),  assassin (1),  brutalist (1),  ranger (2),  giant (1)
-	 executioner,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalgiant
-Solution nr 96:
-	 goblin (4),  assassin (1),  blaster (1),  brutalist (2),  ranger (2),  pekka (1),  giant (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  minipekka,  royalgiant
-Solution nr 97:
-	 ace (2),  blaster (2),  goblin (4),  assassin (1),  brutalist (1),  ranger (1),  superstar (1)
-	 executioner,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  monk
-Solution nr 98:
-	 ace (2),  assassin (2),  brawler (1),  goblin (4),  blaster (1),  brutalist (1),  ranger (1)
-	 bandit,  megaknight,  goblin,  speargoblin,  goblinmachine,  dartgoblin
-Solution nr 99:
-	 ace (1),  blaster (2),  goblin (4),  assassin (1),  brutalist (2),  ranger (1),  undead (1)
-	 executioner,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletonking
-Solution nr 100:
-	 ace (2),  blaster (2),  brawler (1),  goblin (4),  assassin (1),  brutalist (1),  ranger (1)
-	 executioner,  megaknight,  goblin,  speargoblin,  goblinmachine,  dartgoblin
-Solution nr 101:
-	 clan (1),  ranger (2),  goblin (4),  assassin (1),  blaster (1),  brutalist (2),  undead (1)
-	 archerqueen,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletonking
-Solution nr 102:
-	 ace (1),  assassin (2),  clan (1),  ranger (2),  goblin (4),  blaster (1),  brutalist (1)
-	 bandit,  archerqueen,  goblin,  speargoblin,  goblinmachine,  dartgoblin
-Solution nr 103:
-	 clan (1),  ranger (2),  goblin (4),  assassin (1),  blaster (1),  brutalist (2),  pekka (1)
-	 archerqueen,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  minipekka
-Solution nr 104:
-	 clan (1),  ranger (2),  goblin (4),  assassin (2),  blaster (1),  brutalist (1),  undead (1)
-	 archerqueen,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalghost
-Solution nr 105:
-	 ace (1),  blaster (2),  clan (1),  ranger (2),  goblin (4),  assassin (1),  brutalist (1)
-	 executioner,  archerqueen,  goblin,  speargoblin,  goblinmachine,  dartgoblin
-Solution nr 106:
-	 clan (2),  ranger (2),  brawler (1),  goblin (4),  assassin (1),  blaster (1),  brutalist (1)
-	 archerqueen,  barbarian,  goblin,  speargoblin,  goblinmachine,  dartgoblin
-Solution nr 107:
-	 clan (1),  brutalist (2),  goblin (4),  assassin (1),  blaster (1),  ranger (2),  undead (1)
-	 valkyrie,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletondragons
-Solution nr 108:
-	 ace (1),  assassin (2),  clan (1),  brutalist (2),  goblin (4),  blaster (1),  ranger (1)
-	 bandit,  valkyrie,  goblin,  speargoblin,  goblinmachine,  dartgoblin
-Solution nr 109:
-	 clan (1),  brutalist (2),  goblin (4),  assassin (1),  blaster (1),  ranger (2),  giant (1)
-	 valkyrie,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalgiant
-Solution nr 110:
-	 clan (1),  brutalist (2),  goblin (4),  assassin (2),  blaster (1),  ranger (1),  undead (1)
-	 valkyrie,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalghost
-Solution nr 111:
-	 ace (1),  blaster (2),  clan (1),  brutalist (2),  goblin (4),  assassin (1),  ranger (1)
-	 executioner,  valkyrie,  goblin,  speargoblin,  goblinmachine,  dartgoblin
-Solution nr 112:
-	 clan (2),  brawler (1),  brutalist (2),  goblin (4),  assassin (1),  blaster (1),  ranger (1)
-	 barbarian,  valkyrie,  goblin,  speargoblin,  goblinmachine,  dartgoblin
-Solution nr 113:
-	 giant (2),  superstar (1),  goblin (4),  assassin (1),  blaster (1),  brutalist (1),  ranger (2)
-	 electrogiant,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalgiant
-Solution nr 114:
-	 clan (1),  blaster (2),  goblin (4),  assassin (1),  brutalist (2),  ranger (1),  pekka (1)
-	 wizard,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  minipekka
-Solution nr 115:
-	 ace (1),  assassin (2),  clan (1),  blaster (2),  goblin (4),  brutalist (1),  ranger (1)
-	 bandit,  wizard,  goblin,  speargoblin,  goblinmachine,  dartgoblin
-Solution nr 116:
-	 clan (1),  blaster (2),  goblin (4),  assassin (1),  brutalist (1),  ranger (2),  undead (1)
-	 wizard,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletondragons
-Solution nr 117:
-	 clan (1),  blaster (2),  goblin (4),  assassin (1),  brutalist (2),  ranger (1),  undead (1)
-	 wizard,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletonking
-Solution nr 118:
-	 clan (1),  blaster (2),  goblin (4),  assassin (1),  brutalist (1),  ranger (2),  giant (1)
-	 wizard,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalgiant
-Solution nr 119:
-	 clan (1),  blaster (2),  goblin (4),  assassin (2),  brutalist (1),  ranger (1),  undead (1)
-	 wizard,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalghost
-Solution nr 120:
-	 clan (2),  brawler (1),  blaster (2),  goblin (4),  assassin (1),  brutalist (1),  ranger (1)
-	 barbarian,  wizard,  goblin,  speargoblin,  goblinmachine,  dartgoblin
-Solution nr 121:
-	 noble (1),  assassin (2),  undead (4),  superstar (1),  brutalist (2),  ranger (1),  pekka (1)
-	 goldenknight,  royalghost,  witch,  skeletonking,  skeletondragons,  minipekka
-Solution nr 122:
-	 ace (4),  assassin (2),  pekka (1),  brawler (2),  blaster (1),  noble (1),  superstar (1)
-	 bandit,  pekka,  executioner,  megaknight,  goldenknight,  monk
-Solution nr 123:
-	 ace (4),  assassin (2),  blaster (1),  brawler (2),  clan (1),  noble (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  barbarian,  goldenknight,  monk
-Solution nr 124:
-	 ace (4),  assassin (2),  blaster (1),  brawler (1),  giant (1),  superstar (2),  noble (1)
-	 bandit,  executioner,  megaknight,  electrogiant,  goldenknight,  monk
-Solution nr 125:
-	 ace (4),  assassin (2),  blaster (2),  brawler (1),  clan (1),  noble (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  wizard,  goldenknight,  monk
-Solution nr 126:
-	 ace (1),  assassin (4),  goblin (1),  noble (1),  undead (2),  ranger (2),  giant (1)
-	 bandit,  goblin,  goldenknight,  royalghost,  skeletondragons,  royalgiant
-Solution nr 127:
-	 ace (2),  assassin (4),  pekka (1),  brawler (2),  goblin (1),  noble (1),  undead (1)
-	 bandit,  pekka,  megaknight,  goblin,  goldenknight,  royalghost
-Solution nr 128:
-	 ace (1),  assassin (4),  clan (1),  ranger (2),  goblin (1),  noble (1),  undead (2)
-	 bandit,  archerqueen,  goblin,  goldenknight,  royalghost,  skeletondragons
-Solution nr 129:
-	 ace (2),  assassin (4),  brawler (2),  clan (1),  goblin (1),  noble (1),  undead (1)
-	 bandit,  megaknight,  barbarian,  goblin,  goldenknight,  royalghost
-Solution nr 130:
-	 ace (1),  assassin (4),  clan (1),  brutalist (2),  goblin (1),  noble (1),  undead (2)
-	 bandit,  valkyrie,  goblin,  goldenknight,  royalghost,  skeletonking
-Solution nr 131:
-	 ace (2),  assassin (4),  giant (1),  superstar (2),  goblin (1),  noble (1),  undead (1)
-	 bandit,  electrogiant,  goblin,  goldenknight,  royalghost,  monk
-Solution nr 132:
-	 ace (1),  assassin (4),  giant (1),  superstar (2),  goblin (1),  noble (1),  undead (2)
-	 bandit,  electrogiant,  goblin,  goldenknight,  royalghost,  witch
-Solution nr 133:
-	 ace (2),  assassin (4),  blaster (2),  clan (1),  goblin (1),  noble (1),  undead (1)
-	 bandit,  executioner,  wizard,  goblin,  goldenknight,  royalghost
-Solution nr 134:
-	 ace (4),  assassin (2),  blaster (2),  brawler (1),  goblin (1),  noble (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  speargoblin,  goldenknight,  monk
-Solution nr 135:
-	 ace (4),  assassin (2),  blaster (2),  brawler (1),  goblin (1),  undead (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  speargoblin,  royalghost,  monk
-Solution nr 136:
-	 ace (1),  assassin (4),  goblin (2),  brutalist (1),  noble (2),  superstar (1),  undead (1)
-	 bandit,  goblin,  goblinmachine,  goldenknight,  musketeer,  royalghost
-Solution nr 137:
-	 ace (1),  assassin (4),  clan (1),  blaster (2),  goblin (2),  noble (1),  undead (1)
-	 bandit,  wizard,  goblin,  speargoblin,  goldenknight,  royalghost
-Solution nr 138:
-	 clan (1),  brutalist (4),  goblin (1),  noble (1),  assassin (2),  undead (2),  pekka (1)
-	 valkyrie,  goblinmachine,  goldenknight,  royalghost,  skeletonking,  minipekka
-Solution nr 139:
-	 clan (1),  brutalist (4),  goblin (2),  assassin (2),  noble (1),  undead (1),  pekka (1)
-	 valkyrie,  goblin,  goblinmachine,  goldenknight,  skeletonking,  minipekka
-Solution nr 140:
-	 clan (1),  ranger (4),  goblin (1),  noble (1),  assassin (2),  undead (2),  giant (1)
-	 archerqueen,  dartgoblin,  goldenknight,  royalghost,  skeletondragons,  royalgiant
-Solution nr 141:
-	 ace (1),  assassin (4),  goblin (2),  ranger (2),  noble (1),  undead (1),  giant (1)
-	 bandit,  goblin,  dartgoblin,  goldenknight,  royalghost,  royalgiant
-Solution nr 142:
-	 ace (2),  assassin (4),  goblin (2),  ranger (1),  noble (1),  undead (1),  superstar (1)
-	 bandit,  goblin,  dartgoblin,  goldenknight,  royalghost,  monk
-Solution nr 143:
-	 ace (1),  assassin (4),  clan (1),  ranger (2),  goblin (2),  noble (1),  undead (1)
-	 bandit,  archerqueen,  goblin,  dartgoblin,  goldenknight,  royalghost
-Solution nr 144:
-	 ace (1),  assassin (4),  goblin (1),  noble (2),  superstar (1),  undead (2),  brutalist (1)
-	 bandit,  goblin,  goldenknight,  musketeer,  royalghost,  skeletonking
-Solution nr 145:
-	 goblin (4),  assassin (2),  blaster (1),  brutalist (2),  ranger (1),  noble (1),  undead (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  goldenknight,  skeletonking
-Solution nr 146:
-	 goblin (4),  assassin (2),  blaster (1),  brutalist (1),  ranger (2),  noble (1),  giant (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  goldenknight,  royalgiant
-Solution nr 147:
-	 goblin (4),  assassin (2),  blaster (1),  brutalist (1),  ranger (2),  noble (1),  undead (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  goldenknight,  skeletondragons
-Solution nr 148:
-	 goblin (4),  assassin (2),  blaster (1),  brutalist (2),  ranger (1),  noble (1),  pekka (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  goldenknight,  minipekka
-Solution nr 149:
-	 ace (1),  blaster (2),  goblin (4),  assassin (2),  brutalist (1),  ranger (1),  noble (1)
-	 executioner,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  goldenknight
-Solution nr 150:
-	 clan (1),  ranger (2),  goblin (4),  assassin (2),  blaster (1),  brutalist (1),  noble (1)
-	 archerqueen,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  goldenknight
-Solution nr 151:
-	 clan (1),  brutalist (2),  goblin (4),  assassin (2),  blaster (1),  ranger (1),  noble (1)
-	 valkyrie,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  goldenknight
-Solution nr 152:
-	 clan (1),  blaster (2),  goblin (4),  assassin (2),  brutalist (1),  ranger (1),  noble (1)
-	 wizard,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  goldenknight
-Solution nr 153:
-	 noble (1),  superstar (2),  undead (4),  assassin (1),  brutalist (2),  ranger (1),  pekka (1)
-	 musketeer,  royalghost,  witch,  skeletonking,  skeletondragons,  minipekka
-Solution nr 154:
-	 ace (1),  assassin (2),  noble (1),  superstar (2),  undead (4),  brutalist (1),  ranger (1)
-	 bandit,  musketeer,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 155:
-	 clan (1),  ranger (2),  noble (1),  superstar (2),  undead (4),  assassin (1),  brutalist (1)
-	 archerqueen,  musketeer,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 156:
-	 ace (4),  assassin (1),  pekka (1),  brawler (2),  blaster (1),  noble (1),  superstar (2)
-	 bandit,  pekka,  executioner,  megaknight,  musketeer,  monk
-Solution nr 157:
-	 ace (4),  assassin (1),  blaster (1),  brawler (2),  clan (1),  noble (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  barbarian,  musketeer,  monk
-Solution nr 158:
-	 clan (1),  brutalist (2),  noble (1),  superstar (2),  undead (4),  assassin (1),  ranger (1)
-	 valkyrie,  musketeer,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 159:
-	 goblin (1),  ranger (2),  undead (4),  assassin (1),  superstar (1),  brutalist (2),  pekka (1)
-	 dartgoblin,  royalghost,  witch,  skeletonking,  skeletondragons,  minipekka
-Solution nr 160:
-	 ace (2),  blaster (1),  giant (1),  superstar (4),  noble (1),  undead (2),  brutalist (1)
-	 executioner,  electrogiant,  musketeer,  witch,  skeletonking,  monk
-Solution nr 161:
-	 giant (1),  superstar (4),  noble (1),  undead (2),  brutalist (2),  pekka (1),  ace (1)
-	 electrogiant,  musketeer,  witch,  skeletonking,  minipekka,  monk
-Solution nr 162:
-	 ace (2),  brawler (1),  giant (1),  superstar (4),  noble (1),  undead (2),  brutalist (1)
-	 megaknight,  electrogiant,  musketeer,  witch,  skeletonking,  monk
-Solution nr 163:
-	 clan (1),  ranger (2),  giant (1),  superstar (4),  noble (1),  undead (2),  ace (1)
-	 archerqueen,  electrogiant,  musketeer,  witch,  skeletondragons,  monk
-Solution nr 164:
-	 ace (2),  brawler (2),  clan (1),  giant (1),  superstar (4),  noble (1),  undead (1)
-	 megaknight,  barbarian,  electrogiant,  musketeer,  witch,  monk
-Solution nr 165:
-	 clan (1),  brutalist (2),  giant (1),  superstar (4),  noble (1),  undead (2),  ace (1)
-	 valkyrie,  electrogiant,  musketeer,  witch,  skeletonking,  monk
-Solution nr 166:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  clan (1),  noble (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  wizard,  musketeer,  monk
-Solution nr 167:
-	 ace (2),  blaster (2),  giant (1),  superstar (4),  clan (1),  noble (1),  undead (1)
-	 executioner,  electrogiant,  wizard,  musketeer,  witch,  monk
-Solution nr 168:
-	 goblin (1),  assassin (2),  noble (1),  superstar (2),  undead (4),  brutalist (1),  ranger (1)
-	 goblin,  musketeer,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 169:
-	 ace (4),  assassin (2),  blaster (1),  brawler (1),  goblin (1),  noble (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  goblin,  musketeer,  monk
-Solution nr 170:
-	 ace (2),  assassin (2),  giant (1),  superstar (4),  goblin (1),  noble (1),  undead (1)
-	 bandit,  electrogiant,  goblin,  musketeer,  witch,  monk
-Solution nr 171:
-	 ace (1),  assassin (4),  goblin (1),  noble (2),  blaster (1),  undead (2),  ranger (1)
-	 bandit,  goblin,  goldenknight,  princess,  royalghost,  skeletondragons
-Solution nr 172:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  goblin (1),  noble (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  speargoblin,  musketeer,  monk
-Solution nr 173:
-	 ace (2),  blaster (2),  giant (1),  superstar (4),  goblin (1),  noble (1),  undead (1)
-	 executioner,  electrogiant,  speargoblin,  musketeer,  witch,  monk
-Solution nr 174:
-	 giant (1),  superstar (4),  noble (2),  assassin (1),  undead (2),  brutalist (1),  ace (1)
-	 electrogiant,  goldenknight,  musketeer,  witch,  skeletonking,  monk
-Solution nr 175:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (2),  blaster (1),  undead (1),  giant (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  skeletonking,  royalgiant
-Solution nr 176:
-	 pekka (1),  brawler (2),  clan (4),  ranger (1),  brutalist (2),  blaster (1),  undead (1)
-	 pekka,  archerqueen,  barbarian,  valkyrie,  wizard,  skeletonking
-Solution nr 177:
-	 goblin (1),  brutalist (2),  noble (1),  superstar (2),  undead (4),  assassin (1),  ranger (1)
-	 goblinmachine,  musketeer,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 178:
-	 clan (1),  brutalist (4),  goblin (1),  noble (1),  superstar (2),  undead (2),  pekka (1)
-	 valkyrie,  goblinmachine,  musketeer,  witch,  skeletonking,  minipekka
-Solution nr 179:
-	 giant (1),  superstar (4),  goblin (1),  brutalist (2),  noble (1),  undead (2),  ace (1)
-	 electrogiant,  goblinmachine,  musketeer,  witch,  skeletonking,  monk
-Solution nr 180:
-	 ace (1),  assassin (2),  goblin (1),  ranger (2),  undead (4),  superstar (1),  brutalist (1)
-	 bandit,  dartgoblin,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 181:
-	 ace (1),  assassin (4),  goblin (2),  ranger (1),  noble (2),  superstar (1),  undead (1)
-	 bandit,  goblin,  dartgoblin,  goldenknight,  musketeer,  royalghost
-Solution nr 182:
-	 clan (1),  ranger (4),  goblin (1),  noble (1),  superstar (2),  undead (2),  giant (1)
-	 archerqueen,  dartgoblin,  musketeer,  witch,  skeletondragons,  royalgiant
-Solution nr 183:
-	 ace (4),  assassin (2),  blaster (1),  brawler (1),  undead (2),  brutalist (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  royalghost,  skeletonking,  monk
-Solution nr 184:
-	 giant (1),  superstar (4),  goblin (1),  ranger (2),  noble (1),  undead (2),  ace (1)
-	 electrogiant,  dartgoblin,  musketeer,  witch,  skeletondragons,  monk
-Solution nr 185:
-	 clan (1),  ranger (4),  giant (2),  superstar (2),  goblin (1),  noble (1),  undead (1)
-	 archerqueen,  electrogiant,  dartgoblin,  musketeer,  skeletondragons,  royalgiant
-Solution nr 186:
-	 clan (4),  ranger (1),  brawler (1),  brutalist (2),  blaster (1),  undead (2),  assassin (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  royalghost,  skeletonking
-Solution nr 187:
-	 ace (1),  assassin (4),  goblin (1),  noble (2),  blaster (1),  undead (2),  brutalist (1)
-	 bandit,  goblin,  goldenknight,  princess,  royalghost,  skeletonking
-Solution nr 188:
-	 ace (4),  assassin (1),  blaster (1),  brawler (1),  undead (2),  superstar (2),  brutalist (1)
-	 bandit,  executioner,  megaknight,  witch,  skeletonking,  monk
-Solution nr 189:
-	 ace (2),  blaster (1),  giant (1),  superstar (4),  noble (2),  assassin (1),  undead (1)
-	 executioner,  electrogiant,  goldenknight,  musketeer,  witch,  monk
-Solution nr 190:
-	 ace (2),  brawler (1),  giant (1),  superstar (4),  noble (2),  assassin (1),  undead (1)
-	 megaknight,  electrogiant,  goldenknight,  musketeer,  witch,  monk
-Solution nr 191:
-	 giant (1),  superstar (4),  goblin (1),  assassin (2),  noble (2),  undead (1),  ace (1)
-	 electrogiant,  goblin,  goldenknight,  musketeer,  witch,  monk
-Solution nr 192:
-	 clan (4),  ranger (1),  brawler (1),  brutalist (2),  blaster (1),  undead (2),  superstar (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  witch,  skeletonking
-Solution nr 193:
-	 giant (1),  superstar (4),  noble (2),  brawler (1),  undead (2),  ranger (1),  ace (1)
-	 electrogiant,  musketeer,  prince,  witch,  skeletondragons,  monk
-Solution nr 194:
-	 giant (2),  superstar (4),  noble (2),  blaster (1),  undead (1),  ranger (1),  ace (1)
-	 electrogiant,  musketeer,  princess,  witch,  royalgiant,  monk
-Solution nr 195:
-	 ace (2),  assassin (1),  giant (1),  superstar (4),  noble (2),  blaster (1),  undead (1)
-	 bandit,  electrogiant,  musketeer,  princess,  witch,  monk
-Solution nr 196:
-	 ace (2),  brawler (1),  giant (1),  superstar (4),  noble (2),  blaster (1),  undead (1)
-	 megaknight,  electrogiant,  musketeer,  princess,  witch,  monk
-Solution nr 197:
-	 noble (2),  assassin (2),  brawler (1),  undead (4),  superstar (1),  brutalist (1),  ranger (1)
-	 goldenknight,  prince,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 198:
-	 giant (1),  superstar (4),  clan (1),  blaster (2),  noble (2),  undead (1),  ace (1)
-	 electrogiant,  wizard,  musketeer,  princess,  witch,  monk
-Solution nr 199:
-	 ace (4),  assassin (2),  pekka (1),  brawler (2),  blaster (1),  undead (1),  superstar (1)
-	 bandit,  pekka,  executioner,  megaknight,  royalghost,  monk
-Solution nr 200:
-	 clan (2),  brutalist (4),  blaster (2),  goblin (1),  noble (1),  undead (1),  pekka (1)
-	 valkyrie,  wizard,  goblinmachine,  princess,  skeletonking,  minipekka
-Solution nr 201:
-	 giant (1),  superstar (4),  noble (2),  blaster (1),  undead (2),  assassin (1),  ace (1)
-	 electrogiant,  musketeer,  princess,  royalghost,  witch,  monk
-Solution nr 202:
-	 ace (1),  assassin (4),  goblin (1),  noble (2),  superstar (1),  undead (2),  ranger (1)
-	 bandit,  goblin,  goldenknight,  musketeer,  royalghost,  skeletondragons
-Solution nr 203:
-	 goblin (4),  assassin (2),  blaster (1),  brutalist (1),  ranger (1),  noble (2),  superstar (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  goldenknight,  musketeer
-Solution nr 204:
-	 ace (4),  assassin (2),  blaster (1),  brawler (2),  noble (1),  undead (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  prince,  royalghost,  monk
-Solution nr 205:
-	 ace (2),  assassin (2),  pekka (1),  brawler (4),  clan (1),  noble (1),  undead (1)
-	 bandit,  pekka,  megaknight,  barbarian,  prince,  royalghost
-Solution nr 206:
-	 pekka (1),  brawler (4),  ace (2),  clan (1),  noble (1),  undead (1),  superstar (2)
-	 pekka,  megaknight,  barbarian,  prince,  witch,  monk
-Solution nr 207:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  ranger (2),  noble (1),  giant (1)
-	 pekka,  megaknight,  archerqueen,  barbarian,  prince,  royalgiant
-Solution nr 208:
-	 pekka (1),  brawler (4),  ace (2),  blaster (1),  clan (2),  brutalist (1),  noble (1)
-	 pekka,  executioner,  megaknight,  barbarian,  valkyrie,  prince
-Solution nr 209:
-	 ace (4),  assassin (1),  blaster (1),  brawler (2),  giant (1),  superstar (2),  noble (1)
-	 bandit,  executioner,  megaknight,  electrogiant,  prince,  monk
-Solution nr 210:
-	 pekka (1),  brawler (4),  ace (2),  clan (1),  giant (1),  superstar (2),  noble (1)
-	 pekka,  megaknight,  barbarian,  electrogiant,  prince,  monk
-Solution nr 211:
-	 ace (2),  assassin (1),  pekka (1),  brawler (4),  clan (2),  blaster (1),  noble (1)
-	 bandit,  pekka,  megaknight,  barbarian,  wizard,  prince
-Solution nr 212:
-	 clan (4),  ranger (2),  brawler (2),  brutalist (1),  blaster (1),  noble (1),  undead (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  prince,  skeletondragons
-Solution nr 213:
-	 clan (4),  ranger (2),  brawler (2),  brutalist (1),  blaster (1),  noble (1),  giant (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  prince,  royalgiant
-Solution nr 214:
-	 clan (4),  ranger (1),  brawler (2),  brutalist (2),  blaster (1),  noble (1),  undead (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  prince,  skeletonking
-Solution nr 215:
-	 ace (1),  blaster (2),  clan (4),  ranger (1),  brawler (2),  brutalist (1),  noble (1)
-	 executioner,  archerqueen,  barbarian,  valkyrie,  wizard,  prince
-Solution nr 216:
-	 clan (4),  ranger (1),  brawler (2),  brutalist (2),  blaster (1),  noble (1),  pekka (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  prince,  minipekka
-Solution nr 217:
-	 ace (4),  assassin (2),  blaster (1),  brawler (2),  goblin (1),  noble (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  goblin,  prince,  monk
-Solution nr 218:
-	 ace (2),  assassin (2),  pekka (1),  brawler (4),  clan (1),  goblin (1),  noble (1)
-	 bandit,  pekka,  megaknight,  barbarian,  goblin,  prince
-Solution nr 219:
-	 goblin (1),  ranger (2),  noble (1),  superstar (2),  undead (4),  assassin (1),  brutalist (1)
-	 dartgoblin,  musketeer,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 220:
-	 ace (4),  assassin (1),  blaster (2),  brawler (2),  goblin (1),  noble (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  speargoblin,  prince,  monk
-Solution nr 221:
-	 pekka (1),  brawler (4),  ace (2),  blaster (2),  clan (1),  goblin (1),  noble (1)
-	 pekka,  executioner,  megaknight,  barbarian,  speargoblin,  prince
-Solution nr 222:
-	 pekka (1),  brawler (4),  ace (2),  clan (2),  ranger (1),  noble (1),  superstar (1)
-	 pekka,  megaknight,  archerqueen,  barbarian,  prince,  monk
-Solution nr 223:
-	 ace (2),  assassin (1),  pekka (1),  brawler (4),  clan (2),  ranger (1),  noble (1)
-	 bandit,  pekka,  megaknight,  archerqueen,  barbarian,  prince
-Solution nr 224:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  blaster (2),  goblin (1),  noble (1)
-	 pekka,  megaknight,  barbarian,  wizard,  speargoblin,  prince
-Solution nr 225:
-	 pekka (1),  brawler (4),  ace (2),  blaster (1),  clan (2),  ranger (1),  noble (1)
-	 pekka,  executioner,  megaknight,  archerqueen,  barbarian,  prince
-Solution nr 226:
-	 clan (4),  ranger (1),  brawler (2),  brutalist (1),  blaster (2),  goblin (1),  noble (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  speargoblin,  prince
-Solution nr 227:
-	 giant (1),  superstar (4),  noble (2),  assassin (1),  undead (2),  ranger (1),  ace (1)
-	 electrogiant,  goldenknight,  musketeer,  witch,  skeletondragons,  monk
-Solution nr 228:
-	 clan (1),  brutalist (4),  goblin (2),  blaster (2),  noble (1),  undead (1),  pekka (1)
-	 valkyrie,  speargoblin,  goblinmachine,  princess,  skeletonking,  minipekka
-Solution nr 229:
-	 pekka (1),  brawler (4),  ace (2),  clan (2),  brutalist (1),  noble (1),  superstar (1)
-	 pekka,  megaknight,  barbarian,  valkyrie,  prince,  monk
-Solution nr 230:
-	 ace (2),  assassin (1),  pekka (1),  brawler (4),  clan (2),  brutalist (1),  noble (1)
-	 bandit,  pekka,  megaknight,  barbarian,  valkyrie,  prince
-Solution nr 231:
-	 pekka (2),  brawler (4),  ace (1),  clan (1),  goblin (1),  brutalist (2),  noble (1)
-	 pekka,  megaknight,  barbarian,  goblinmachine,  prince,  minipekka
-Solution nr 232:
-	 pekka (2),  brawler (2),  clan (1),  brutalist (4),  goblin (1),  noble (1),  undead (1)
-	 pekka,  valkyrie,  goblinmachine,  prince,  skeletonking,  minipekka
-Solution nr 233:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  brutalist (2),  goblin (1),  noble (1)
-	 pekka,  megaknight,  barbarian,  valkyrie,  goblinmachine,  prince
-Solution nr 234:
-	 ace (4),  assassin (1),  blaster (2),  brawler (2),  clan (1),  noble (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  wizard,  prince,  monk
-Solution nr 235:
-	 clan (4),  ranger (1),  brawler (2),  brutalist (2),  blaster (1),  goblin (1),  noble (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  goblinmachine,  prince
-Solution nr 236:
-	 pekka (1),  brawler (4),  ace (2),  clan (2),  blaster (1),  noble (1),  superstar (1)
-	 pekka,  megaknight,  barbarian,  wizard,  prince,  monk
-Solution nr 237:
-	 clan (2),  ranger (4),  brawler (2),  goblin (1),  noble (1),  undead (1),  giant (1)
-	 archerqueen,  barbarian,  dartgoblin,  prince,  skeletondragons,  royalgiant
-Solution nr 238:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  ranger (2),  goblin (1),  noble (1)
-	 pekka,  megaknight,  archerqueen,  barbarian,  dartgoblin,  prince
-Solution nr 239:
-	 ace (4),  assassin (2),  blaster (1),  brawler (1),  undead (2),  ranger (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  royalghost,  skeletondragons,  monk
-Solution nr 240:
-	 clan (4),  ranger (2),  brawler (2),  brutalist (1),  blaster (1),  goblin (1),  noble (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  dartgoblin,  prince
-Solution nr 241:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (1),  blaster (1),  undead (2),  assassin (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  royalghost,  skeletondragons
-Solution nr 242:
-	 pekka (2),  brawler (4),  ace (1),  clan (1),  noble (2),  assassin (1),  brutalist (1)
-	 pekka,  megaknight,  barbarian,  goldenknight,  prince,  minipekka
-Solution nr 243:
-	 pekka (1),  brawler (4),  ace (2),  blaster (1),  clan (1),  noble (2),  assassin (1)
-	 pekka,  executioner,  megaknight,  barbarian,  goldenknight,  prince
-Solution nr 244:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  ranger (1),  noble (2),  assassin (1)
-	 pekka,  megaknight,  archerqueen,  barbarian,  goldenknight,  prince
-Solution nr 245:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  brutalist (1),  noble (2),  assassin (1)
-	 pekka,  megaknight,  barbarian,  valkyrie,  goldenknight,  prince
-Solution nr 246:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  blaster (1),  noble (2),  assassin (1)
-	 pekka,  megaknight,  barbarian,  wizard,  goldenknight,  prince
-Solution nr 247:
-	 clan (4),  ranger (1),  brawler (2),  brutalist (1),  blaster (1),  noble (2),  assassin (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  goldenknight,  prince
-Solution nr 248:
-	 pekka (1),  brawler (4),  ace (1),  clan (1),  goblin (1),  assassin (2),  noble (2)
-	 pekka,  megaknight,  barbarian,  goblin,  goldenknight,  prince
-Solution nr 249:
-	 ace (4),  assassin (1),  blaster (1),  brawler (2),  noble (1),  undead (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  prince,  witch,  monk
-Solution nr 250:
-	 goblin (4),  assassin (2),  blaster (1),  brutalist (1),  ranger (2),  undead (1),  giant (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalghost,  royalgiant
-Solution nr 251:
-	 ace (1),  blaster (2),  goblin (4),  assassin (2),  brutalist (1),  ranger (1),  undead (1)
-	 executioner,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalghost
-Solution nr 252:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (1),  blaster (1),  undead (2),  superstar (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  witch,  skeletondragons
-Solution nr 253:
-	 giant (1),  superstar (4),  noble (2),  blaster (1),  undead (2),  brutalist (1),  ace (1)
-	 electrogiant,  musketeer,  princess,  witch,  skeletonking,  monk
-Solution nr 254:
-	 noble (2),  superstar (2),  brawler (1),  undead (4),  assassin (1),  brutalist (1),  ranger (1)
-	 musketeer,  prince,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 255:
-	 goblin (4),  assassin (2),  blaster (1),  brutalist (1),  ranger (1),  noble (2),  brawler (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  goldenknight,  prince
-Solution nr 256:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  brutalist (1),  noble (2),  superstar (1)
-	 pekka,  megaknight,  barbarian,  valkyrie,  musketeer,  prince
-Solution nr 257:
-	 giant (1),  superstar (4),  noble (2),  brawler (1),  undead (2),  brutalist (1),  ace (1)
-	 electrogiant,  musketeer,  prince,  witch,  skeletonking,  monk
-Solution nr 258:
-	 pekka (1),  brawler (4),  ace (1),  clan (1),  giant (1),  superstar (2),  noble (2)
-	 pekka,  megaknight,  barbarian,  electrogiant,  musketeer,  prince
-Solution nr 259:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  blaster (1),  noble (2),  superstar (1)
-	 pekka,  megaknight,  barbarian,  wizard,  musketeer,  prince
-Solution nr 260:
-	 ace (4),  assassin (2),  blaster (1),  brawler (1),  noble (1),  undead (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  goldenknight,  witch,  monk
-Solution nr 261:
-	 clan (4),  ranger (1),  brawler (2),  brutalist (1),  blaster (1),  noble (2),  superstar (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  musketeer,  prince
-Solution nr 262:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  brutalist (2),  noble (1),  undead (1)
-	 pekka,  megaknight,  barbarian,  valkyrie,  prince,  skeletonking
-Solution nr 263:
-	 pekka (2),  brawler (4),  ace (1),  clan (1),  noble (2),  superstar (1),  brutalist (1)
-	 pekka,  megaknight,  barbarian,  musketeer,  prince,  minipekka
-Solution nr 264:
-	 goblin (4),  assassin (2),  blaster (1),  brutalist (1),  ranger (1),  undead (2),  superstar (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalghost,  witch
-Solution nr 265:
-	 ace (2),  assassin (4),  goblin (2),  blaster (1),  noble (1),  undead (1),  superstar (1)
-	 bandit,  goblin,  speargoblin,  goldenknight,  royalghost,  monk
-Solution nr 266:
-	 ace (2),  assassin (4),  brawler (1),  goblin (2),  blaster (1),  noble (1),  undead (1)
-	 bandit,  megaknight,  goblin,  speargoblin,  goldenknight,  royalghost
-Solution nr 267:
-	 pekka (1),  brawler (2),  clan (2),  ranger (4),  goblin (1),  undead (1),  giant (1)
-	 pekka,  archerqueen,  barbarian,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 268:
-	 ace (1),  brawler (2),  clan (2),  ranger (4),  goblin (1),  undead (1),  giant (1)
-	 megaknight,  archerqueen,  barbarian,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 269:
-	 clan (1),  ranger (4),  giant (2),  superstar (2),  goblin (1),  undead (1),  ace (1)
-	 archerqueen,  electrogiant,  dartgoblin,  skeletondragons,  royalgiant,  monk
-Solution nr 270:
-	 clan (2),  ranger (4),  brutalist (1),  giant (2),  superstar (1),  goblin (1),  undead (1)
-	 archerqueen,  valkyrie,  electrogiant,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 271:
-	 ace (1),  blaster (2),  clan (2),  ranger (4),  goblin (1),  undead (1),  giant (1)
-	 executioner,  archerqueen,  wizard,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 272:
-	 goblin (4),  assassin (1),  blaster (1),  brutalist (2),  ranger (2),  undead (1),  giant (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletonking,  royalgiant
-Solution nr 273:
-	 ace (1),  assassin (2),  goblin (4),  blaster (1),  brutalist (2),  ranger (1),  undead (1)
-	 bandit,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  skeletonking
-Solution nr 274:
-	 ace (1),  assassin (2),  clan (1),  ranger (4),  goblin (2),  undead (1),  giant (1)
-	 bandit,  archerqueen,  goblin,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 275:
-	 ace (2),  assassin (4),  blaster (1),  goblin (1),  noble (1),  undead (2),  superstar (1)
-	 bandit,  executioner,  goblin,  goldenknight,  royalghost,  witch
-Solution nr 276:
-	 ace (2),  assassin (4),  brawler (1),  goblin (1),  noble (1),  undead (2),  superstar (1)
-	 bandit,  megaknight,  goblin,  goldenknight,  royalghost,  witch
-Solution nr 277:
-	 clan (2),  ranger (4),  brutalist (1),  goblin (2),  assassin (1),  undead (1),  giant (1)
-	 archerqueen,  valkyrie,  goblin,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 278:
-	 clan (1),  ranger (4),  giant (2),  superstar (1),  goblin (2),  assassin (1),  undead (1)
-	 archerqueen,  electrogiant,  goblin,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 279:
-	 clan (2),  ranger (4),  blaster (1),  goblin (2),  assassin (1),  undead (1),  giant (1)
-	 archerqueen,  wizard,  goblin,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 280:
-	 clan (2),  ranger (4),  brawler (1),  goblin (1),  undead (2),  assassin (1),  giant (1)
-	 archerqueen,  barbarian,  dartgoblin,  royalghost,  skeletondragons,  royalgiant
-Solution nr 281:
-	 clan (2),  ranger (4),  brutalist (1),  goblin (1),  undead (2),  assassin (1),  giant (1)
-	 archerqueen,  valkyrie,  dartgoblin,  royalghost,  skeletondragons,  royalgiant
-Solution nr 282:
-	 ace (2),  assassin (4),  goblin (2),  brutalist (1),  noble (1),  undead (1),  superstar (1)
-	 bandit,  goblin,  goblinmachine,  goldenknight,  royalghost,  monk
-Solution nr 283:
-	 ace (2),  assassin (4),  blaster (1),  goblin (2),  brutalist (1),  noble (1),  undead (1)
-	 bandit,  executioner,  goblin,  goblinmachine,  goldenknight,  royalghost
-Solution nr 284:
-	 ace (2),  assassin (4),  brawler (1),  goblin (2),  brutalist (1),  noble (1),  undead (1)
-	 bandit,  megaknight,  goblin,  goblinmachine,  goldenknight,  royalghost
-Solution nr 285:
-	 ace (1),  assassin (4),  clan (1),  brutalist (2),  goblin (2),  noble (1),  undead (1)
-	 bandit,  valkyrie,  goblin,  goblinmachine,  goldenknight,  royalghost
-Solution nr 286:
-	 ace (1),  blaster (2),  clan (1),  ranger (4),  goblin (2),  undead (1),  giant (1)
-	 executioner,  archerqueen,  speargoblin,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 287:
-	 clan (2),  ranger (4),  blaster (1),  goblin (1),  undead (2),  assassin (1),  giant (1)
-	 archerqueen,  wizard,  dartgoblin,  royalghost,  skeletondragons,  royalgiant
-Solution nr 288:
-	 clan (2),  ranger (4),  brutalist (1),  goblin (2),  blaster (1),  undead (1),  giant (1)
-	 archerqueen,  valkyrie,  speargoblin,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 289:
-	 clan (1),  ranger (4),  giant (2),  superstar (1),  goblin (2),  blaster (1),  undead (1)
-	 archerqueen,  electrogiant,  speargoblin,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 290:
-	 giant (1),  superstar (4),  noble (2),  blaster (1),  undead (2),  ranger (1),  ace (1)
-	 electrogiant,  musketeer,  princess,  witch,  skeletondragons,  monk
-Solution nr 291:
-	 ace (1),  assassin (4),  goblin (2),  blaster (1),  noble (1),  undead (2),  superstar (1)
-	 bandit,  goblin,  speargoblin,  goldenknight,  royalghost,  witch
-Solution nr 292:
-	 undead (4),  assassin (1),  superstar (2),  brutalist (1),  ranger (2),  giant (1),  ace (1)
-	 royalghost,  witch,  skeletonking,  skeletondragons,  royalgiant,  monk
-Solution nr 293:
-	 ace (1),  assassin (2),  undead (4),  superstar (1),  brutalist (1),  ranger (2),  giant (1)
-	 bandit,  royalghost,  witch,  skeletonking,  skeletondragons,  royalgiant
-Solution nr 294:
-	 ace (2),  blaster (1),  undead (4),  assassin (1),  superstar (2),  brutalist (1),  ranger (1)
-	 executioner,  royalghost,  witch,  skeletonking,  skeletondragons,  monk
-Solution nr 295:
-	 ace (2),  assassin (2),  blaster (1),  undead (4),  superstar (1),  brutalist (1),  ranger (1)
-	 bandit,  executioner,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 296:
-	 ace (2),  brawler (1),  undead (4),  assassin (1),  superstar (2),  brutalist (1),  ranger (1)
-	 megaknight,  royalghost,  witch,  skeletonking,  skeletondragons,  monk
-Solution nr 297:
-	 ace (2),  assassin (2),  brawler (1),  undead (4),  superstar (1),  brutalist (1),  ranger (1)
-	 bandit,  megaknight,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 298:
-	 clan (1),  ranger (2),  undead (4),  assassin (1),  superstar (2),  brutalist (1),  ace (1)
-	 archerqueen,  royalghost,  witch,  skeletonking,  skeletondragons,  monk
-Solution nr 299:
-	 ace (1),  assassin (2),  clan (1),  ranger (2),  undead (4),  superstar (1),  brutalist (1)
-	 bandit,  archerqueen,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 300:
-	 clan (1),  ranger (4),  goblin (1),  undead (2),  superstar (2),  giant (1),  ace (1)
-	 archerqueen,  dartgoblin,  witch,  skeletondragons,  royalgiant,  monk
-Solution nr 301:
-	 clan (2),  ranger (2),  brawler (1),  undead (4),  assassin (1),  superstar (1),  brutalist (1)
-	 archerqueen,  barbarian,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 302:
-	 clan (1),  brutalist (2),  undead (4),  assassin (1),  superstar (1),  ranger (2),  giant (1)
-	 valkyrie,  royalghost,  witch,  skeletonking,  skeletondragons,  royalgiant
-Solution nr 303:
-	 clan (1),  brutalist (2),  undead (4),  assassin (1),  superstar (2),  ranger (1),  ace (1)
-	 valkyrie,  royalghost,  witch,  skeletonking,  skeletondragons,  monk
-Solution nr 304:
-	 ace (1),  assassin (2),  clan (1),  brutalist (2),  undead (4),  superstar (1),  ranger (1)
-	 bandit,  valkyrie,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 305:
-	 clan (2),  ranger (4),  brawler (1),  goblin (1),  undead (2),  superstar (1),  giant (1)
-	 archerqueen,  barbarian,  dartgoblin,  witch,  skeletondragons,  royalgiant
-Solution nr 306:
-	 clan (2),  brawler (1),  brutalist (2),  undead (4),  assassin (1),  superstar (1),  ranger (1)
-	 barbarian,  valkyrie,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 307:
-	 clan (2),  ranger (4),  brutalist (1),  goblin (1),  undead (2),  superstar (1),  giant (1)
-	 archerqueen,  valkyrie,  dartgoblin,  witch,  skeletondragons,  royalgiant
-Solution nr 308:
-	 ace (1),  assassin (2),  giant (1),  superstar (2),  undead (4),  brutalist (1),  ranger (1)
-	 bandit,  electrogiant,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 309:
-	 clan (1),  ranger (2),  giant (1),  superstar (2),  undead (4),  assassin (1),  brutalist (1)
-	 archerqueen,  electrogiant,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 310:
-	 clan (1),  brutalist (2),  giant (1),  superstar (2),  undead (4),  assassin (1),  ranger (1)
-	 valkyrie,  electrogiant,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 311:
-	 clan (1),  ranger (4),  goblin (2),  blaster (1),  undead (2),  assassin (1),  giant (1)
-	 archerqueen,  speargoblin,  dartgoblin,  royalghost,  skeletondragons,  royalgiant
-Solution nr 312:
-	 clan (2),  ranger (2),  blaster (1),  undead (4),  assassin (1),  superstar (1),  brutalist (1)
-	 archerqueen,  wizard,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 313:
-	 clan (2),  ranger (4),  blaster (1),  goblin (1),  undead (2),  superstar (1),  giant (1)
-	 archerqueen,  wizard,  dartgoblin,  witch,  skeletondragons,  royalgiant
-Solution nr 314:
-	 clan (2),  brutalist (2),  blaster (1),  undead (4),  assassin (1),  superstar (1),  ranger (1)
-	 valkyrie,  wizard,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 315:
-	 goblin (1),  assassin (2),  undead (4),  superstar (1),  brutalist (1),  ranger (2),  giant (1)
-	 goblin,  royalghost,  witch,  skeletonking,  skeletondragons,  royalgiant
-Solution nr 316:
-	 goblin (1),  assassin (2),  undead (4),  superstar (2),  brutalist (1),  ranger (1),  ace (1)
-	 goblin,  royalghost,  witch,  skeletonking,  skeletondragons,  monk
-Solution nr 317:
-	 clan (1),  ranger (2),  goblin (1),  assassin (2),  undead (4),  superstar (1),  brutalist (1)
-	 archerqueen,  goblin,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 318:
-	 clan (1),  ranger (4),  goblin (2),  assassin (1),  undead (2),  superstar (1),  giant (1)
-	 archerqueen,  goblin,  dartgoblin,  witch,  skeletondragons,  royalgiant
-Solution nr 319:
-	 ace (2),  assassin (4),  goblin (1),  noble (1),  undead (2),  brutalist (1),  superstar (1)
-	 bandit,  goblin,  goldenknight,  royalghost,  skeletonking,  monk
-Solution nr 320:
-	 ace (2),  assassin (4),  blaster (1),  goblin (1),  noble (1),  undead (2),  brutalist (1)
-	 bandit,  executioner,  goblin,  goldenknight,  royalghost,  skeletonking
-Solution nr 321:
-	 ace (2),  assassin (4),  brawler (1),  goblin (1),  noble (1),  undead (2),  brutalist (1)
-	 bandit,  megaknight,  goblin,  goldenknight,  royalghost,  skeletonking
-Solution nr 322:
-	 clan (1),  brutalist (2),  goblin (1),  assassin (2),  undead (4),  superstar (1),  ranger (1)
-	 valkyrie,  goblin,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 323:
-	 clan (1),  ranger (4),  giant (2),  superstar (1),  goblin (2),  brutalist (1),  undead (1)
-	 archerqueen,  electrogiant,  goblinmachine,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 324:
-	 giant (1),  superstar (2),  goblin (1),  assassin (2),  undead (4),  brutalist (1),  ranger (1)
-	 electrogiant,  goblin,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 325:
-	 clan (2),  ranger (4),  blaster (1),  goblin (2),  brutalist (1),  undead (1),  giant (1)
-	 archerqueen,  wizard,  goblinmachine,  dartgoblin,  skeletondragons,  royalgiant
-Solution nr 326:
-	 ace (4),  assassin (1),  pekka (1),  brawler (2),  blaster (2),  noble (1),  superstar (1)
-	 bandit,  pekka,  executioner,  megaknight,  princess,  monk
-Solution nr 327:
-	 ace (4),  assassin (1),  pekka (2),  brawler (2),  blaster (1),  brutalist (1),  superstar (1)
-	 bandit,  pekka,  executioner,  megaknight,  minipekka,  monk
-Solution nr 328:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  giant (1),  superstar (2),  noble (1)
-	 bandit,  executioner,  megaknight,  electrogiant,  princess,  monk
-Solution nr 329:
-	 clan (4),  ranger (1),  brawler (1),  brutalist (2),  blaster (2),  noble (1),  pekka (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  princess,  minipekka
-Solution nr 330:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (1),  blaster (2),  noble (1),  undead (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  princess,  skeletondragons
-Solution nr 331:
-	 pekka (1),  brawler (2),  clan (4),  ranger (1),  brutalist (1),  blaster (2),  noble (1)
-	 pekka,  archerqueen,  barbarian,  valkyrie,  wizard,  princess
-Solution nr 332:
-	 clan (4),  ranger (1),  brawler (1),  brutalist (2),  blaster (2),  noble (1),  undead (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  princess,  skeletonking
-Solution nr 333:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (1),  blaster (2),  noble (1),  giant (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  princess,  royalgiant
-Solution nr 334:
-	 ace (1),  brawler (2),  clan (4),  ranger (1),  brutalist (1),  blaster (2),  noble (1)
-	 megaknight,  archerqueen,  barbarian,  valkyrie,  wizard,  princess
-Solution nr 335:
-	 ace (4),  assassin (2),  blaster (2),  brawler (1),  goblin (1),  noble (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  goblin,  princess,  monk
-Solution nr 336:
-	 ace (1),  assassin (4),  goblin (2),  brutalist (1),  noble (1),  undead (2),  superstar (1)
-	 bandit,  goblin,  goblinmachine,  goldenknight,  royalghost,  witch
-Solution nr 337:
-	 clan (1),  ranger (4),  goblin (2),  blaster (1),  undead (2),  superstar (1),  giant (1)
-	 archerqueen,  speargoblin,  dartgoblin,  witch,  skeletondragons,  royalgiant
-Solution nr 338:
-	 ace (2),  blaster (4),  clan (1),  goblin (1),  noble (1),  undead (1),  superstar (2)
-	 executioner,  wizard,  speargoblin,  princess,  witch,  monk
-Solution nr 339:
-	 ace (2),  assassin (2),  blaster (4),  clan (1),  goblin (1),  noble (1),  undead (1)
-	 bandit,  executioner,  wizard,  speargoblin,  princess,  royalghost
-Solution nr 340:
-	 pekka (1),  brawler (2),  ace (2),  blaster (4),  clan (1),  goblin (1),  noble (1)
-	 pekka,  executioner,  megaknight,  wizard,  speargoblin,  princess
-Solution nr 341:
-	 ace (1),  blaster (4),  clan (2),  ranger (2),  goblin (1),  noble (1),  undead (1)
-	 executioner,  archerqueen,  wizard,  speargoblin,  princess,  skeletondragons
-Solution nr 342:
-	 ace (2),  assassin (1),  blaster (4),  clan (2),  ranger (1),  goblin (1),  noble (1)
-	 bandit,  executioner,  archerqueen,  wizard,  speargoblin,  princess
-Solution nr 343:
-	 ace (2),  blaster (4),  clan (2),  ranger (1),  goblin (1),  noble (1),  superstar (1)
-	 executioner,  archerqueen,  wizard,  speargoblin,  princess,  monk
-Solution nr 344:
-	 ace (1),  blaster (4),  clan (2),  ranger (2),  goblin (1),  noble (1),  giant (1)
-	 executioner,  archerqueen,  wizard,  speargoblin,  princess,  royalgiant
-Solution nr 345:
-	 ace (2),  blaster (4),  brawler (1),  clan (2),  ranger (1),  goblin (1),  noble (1)
-	 executioner,  megaknight,  archerqueen,  wizard,  speargoblin,  princess
-Solution nr 346:
-	 ace (2),  blaster (4),  clan (2),  brawler (1),  goblin (1),  noble (1),  superstar (1)
-	 executioner,  barbarian,  wizard,  speargoblin,  princess,  monk
-Solution nr 347:
-	 ace (2),  assassin (1),  blaster (4),  clan (2),  brawler (1),  goblin (1),  noble (1)
-	 bandit,  executioner,  barbarian,  wizard,  speargoblin,  princess
-Solution nr 348:
-	 pekka (1),  brawler (2),  ace (1),  blaster (4),  clan (2),  goblin (1),  noble (1)
-	 pekka,  executioner,  barbarian,  wizard,  speargoblin,  princess
-Solution nr 349:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  ranger (2),  noble (1),  undead (1)
-	 pekka,  megaknight,  archerqueen,  barbarian,  prince,  skeletondragons
-Solution nr 350:
-	 ace (1),  blaster (4),  clan (2),  brutalist (2),  goblin (1),  noble (1),  pekka (1)
-	 executioner,  valkyrie,  wizard,  speargoblin,  princess,  minipekka
-Solution nr 351:
-	 ace (2),  assassin (1),  blaster (4),  clan (2),  brutalist (1),  goblin (1),  noble (1)
-	 bandit,  executioner,  valkyrie,  wizard,  speargoblin,  princess
-Solution nr 352:
-	 ace (2),  blaster (4),  clan (2),  brutalist (1),  goblin (1),  noble (1),  superstar (1)
-	 executioner,  valkyrie,  wizard,  speargoblin,  princess,  monk
-Solution nr 353:
-	 ace (1),  blaster (4),  clan (2),  brutalist (2),  goblin (1),  noble (1),  undead (1)
-	 executioner,  valkyrie,  wizard,  speargoblin,  princess,  skeletonking
-Solution nr 354:
-	 ace (2),  blaster (4),  brawler (1),  clan (2),  brutalist (1),  goblin (1),  noble (1)
-	 executioner,  megaknight,  valkyrie,  wizard,  speargoblin,  princess
-Solution nr 355:
-	 ace (2),  blaster (4),  giant (1),  superstar (2),  clan (1),  goblin (1),  noble (1)
-	 executioner,  electrogiant,  wizard,  speargoblin,  princess,  monk
-Solution nr 356:
-	 ace (2),  blaster (4),  clan (1),  goblin (2),  assassin (1),  noble (1),  superstar (1)
-	 executioner,  wizard,  goblin,  speargoblin,  princess,  monk
-Solution nr 357:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  assassin (2),  noble (1),  undead (1)
-	 executioner,  wizard,  goblin,  speargoblin,  princess,  royalghost
-Solution nr 358:
-	 ace (2),  blaster (4),  brawler (1),  clan (1),  goblin (2),  assassin (1),  noble (1)
-	 executioner,  megaknight,  wizard,  goblin,  speargoblin,  princess
-Solution nr 359:
-	 ace (1),  blaster (4),  clan (2),  ranger (1),  goblin (2),  assassin (1),  noble (1)
-	 executioner,  archerqueen,  wizard,  goblin,  speargoblin,  princess
-Solution nr 360:
-	 ace (1),  blaster (4),  clan (2),  brawler (1),  goblin (2),  assassin (1),  noble (1)
-	 executioner,  barbarian,  wizard,  goblin,  speargoblin,  princess
-Solution nr 361:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (2),  blaster (1),  pekka (1),  giant (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  minipekka,  royalgiant
-Solution nr 362:
-	 ace (1),  blaster (4),  clan (2),  brutalist (1),  goblin (2),  assassin (1),  noble (1)
-	 executioner,  valkyrie,  wizard,  goblin,  speargoblin,  princess
-Solution nr 363:
-	 ace (1),  blaster (2),  clan (4),  ranger (1),  brawler (1),  brutalist (2),  pekka (1)
-	 executioner,  archerqueen,  barbarian,  valkyrie,  wizard,  minipekka
-Solution nr 364:
-	 ace (4),  assassin (1),  blaster (2),  brawler (2),  clan (1),  noble (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  barbarian,  princess,  monk
-Solution nr 365:
-	 clan (1),  ranger (4),  goblin (2),  brutalist (1),  undead (2),  assassin (1),  giant (1)
-	 archerqueen,  goblinmachine,  dartgoblin,  royalghost,  skeletondragons,  royalgiant
-Solution nr 366:
-	 clan (4),  ranger (1),  brawler (1),  brutalist (2),  blaster (2),  goblin (1),  noble (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  goblinmachine,  princess
-Solution nr 367:
-	 ace (2),  assassin (4),  blaster (1),  goblin (2),  ranger (1),  noble (1),  undead (1)
-	 bandit,  executioner,  goblin,  dartgoblin,  goldenknight,  royalghost
-Solution nr 368:
-	 ace (2),  assassin (4),  brawler (1),  goblin (2),  ranger (1),  noble (1),  undead (1)
-	 bandit,  megaknight,  goblin,  dartgoblin,  goldenknight,  royalghost
-Solution nr 369:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  brutalist (2),  noble (1),  undead (1)
-	 executioner,  wizard,  speargoblin,  goblinmachine,  princess,  skeletonking
-Solution nr 370:
-	 ace (2),  blaster (4),  clan (1),  goblin (2),  brutalist (1),  noble (1),  superstar (1)
-	 executioner,  wizard,  speargoblin,  goblinmachine,  princess,  monk
-Solution nr 371:
-	 ace (2),  assassin (1),  blaster (4),  clan (1),  goblin (2),  brutalist (1),  noble (1)
-	 bandit,  executioner,  wizard,  speargoblin,  goblinmachine,  princess
-Solution nr 372:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  brutalist (2),  noble (1),  pekka (1)
-	 executioner,  wizard,  speargoblin,  goblinmachine,  princess,  minipekka
-Solution nr 373:
-	 ace (2),  blaster (4),  brawler (1),  clan (1),  goblin (2),  brutalist (1),  noble (1)
-	 executioner,  megaknight,  wizard,  speargoblin,  goblinmachine,  princess
-Solution nr 374:
-	 ace (1),  blaster (4),  clan (2),  ranger (1),  goblin (2),  brutalist (1),  noble (1)
-	 executioner,  archerqueen,  wizard,  speargoblin,  goblinmachine,  princess
-Solution nr 375:
-	 ace (1),  blaster (4),  clan (2),  brawler (1),  goblin (2),  brutalist (1),  noble (1)
-	 executioner,  barbarian,  wizard,  speargoblin,  goblinmachine,  princess
-Solution nr 376:
-	 goblin (2),  assassin (2),  blaster (1),  undead (4),  superstar (1),  brutalist (1),  ranger (1)
-	 goblin,  speargoblin,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 377:
-	 ace (1),  assassin (4),  goblin (2),  blaster (1),  noble (1),  undead (2),  brutalist (1)
-	 bandit,  goblin,  speargoblin,  goldenknight,  royalghost,  skeletonking
-Solution nr 378:
-	 clan (4),  ranger (2),  brawler (1),  brutalist (1),  blaster (2),  goblin (1),  noble (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  dartgoblin,  princess
-Solution nr 379:
-	 clan (2),  ranger (4),  brawler (1),  goblin (1),  undead (2),  brutalist (1),  giant (1)
-	 archerqueen,  barbarian,  dartgoblin,  skeletonking,  skeletondragons,  royalgiant
-Solution nr 380:
-	 noble (1),  superstar (2),  undead (4),  assassin (1),  brutalist (1),  ranger (2),  giant (1)
-	 musketeer,  royalghost,  witch,  skeletonking,  skeletondragons,  royalgiant
-Solution nr 381:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  ranger (2),  noble (1),  undead (1)
-	 executioner,  wizard,  speargoblin,  dartgoblin,  princess,  skeletondragons
-Solution nr 382:
-	 ace (2),  blaster (4),  clan (1),  goblin (2),  ranger (1),  noble (1),  superstar (1)
-	 executioner,  wizard,  speargoblin,  dartgoblin,  princess,  monk
-Solution nr 383:
-	 ace (2),  assassin (1),  blaster (4),  clan (1),  goblin (2),  ranger (1),  noble (1)
-	 bandit,  executioner,  wizard,  speargoblin,  dartgoblin,  princess
-Solution nr 384:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  ranger (2),  noble (1),  giant (1)
-	 executioner,  wizard,  speargoblin,  dartgoblin,  princess,  royalgiant
-Solution nr 385:
-	 ace (2),  blaster (4),  brawler (1),  clan (1),  goblin (2),  ranger (1),  noble (1)
-	 executioner,  megaknight,  wizard,  speargoblin,  dartgoblin,  princess
-Solution nr 386:
-	 ace (1),  blaster (4),  clan (2),  brawler (1),  goblin (2),  ranger (1),  noble (1)
-	 executioner,  barbarian,  wizard,  speargoblin,  dartgoblin,  princess
-Solution nr 387:
-	 ace (1),  blaster (4),  clan (2),  brutalist (1),  goblin (2),  ranger (1),  noble (1)
-	 executioner,  valkyrie,  wizard,  speargoblin,  dartgoblin,  princess
-Solution nr 388:
-	 clan (2),  ranger (4),  blaster (1),  goblin (1),  undead (2),  brutalist (1),  giant (1)
-	 archerqueen,  wizard,  dartgoblin,  skeletonking,  skeletondragons,  royalgiant
-Solution nr 389:
-	 goblin (1),  brutalist (2),  undead (4),  assassin (1),  superstar (1),  ranger (2),  giant (1)
-	 goblinmachine,  royalghost,  witch,  skeletonking,  skeletondragons,  royalgiant
-Solution nr 390:
-	 goblin (1),  brutalist (2),  undead (4),  assassin (1),  superstar (2),  ranger (1),  ace (1)
-	 goblinmachine,  royalghost,  witch,  skeletonking,  skeletondragons,  monk
-Solution nr 391:
-	 ace (4),  assassin (2),  blaster (2),  brawler (1),  noble (1),  undead (1),  superstar (1)
-	 bandit,  executioner,  megaknight,  princess,  royalghost,  monk
-Solution nr 392:
-	 clan (1),  ranger (2),  goblin (1),  brutalist (2),  undead (4),  assassin (1),  superstar (1)
-	 archerqueen,  goblinmachine,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 393:
-	 clan (1),  ranger (4),  goblin (2),  brutalist (1),  undead (2),  superstar (1),  giant (1)
-	 archerqueen,  goblinmachine,  dartgoblin,  witch,  skeletondragons,  royalgiant
-Solution nr 394:
-	 giant (1),  superstar (2),  goblin (1),  brutalist (2),  undead (4),  assassin (1),  ranger (1)
-	 electrogiant,  goblinmachine,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 395:
-	 goblin (4),  assassin (1),  blaster (2),  brutalist (1),  ranger (2),  noble (1),  giant (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  princess,  royalgiant
-Solution nr 396:
-	 goblin (4),  assassin (1),  blaster (2),  brutalist (2),  ranger (1),  noble (1),  pekka (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  princess,  minipekka
-Solution nr 397:
-	 goblin (4),  assassin (1),  blaster (2),  brutalist (1),  ranger (2),  noble (1),  undead (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  princess,  skeletondragons
-Solution nr 398:
-	 ace (1),  assassin (2),  goblin (4),  blaster (2),  brutalist (1),  ranger (1),  noble (1)
-	 bandit,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  princess
-Solution nr 399:
-	 goblin (4),  assassin (1),  blaster (2),  brutalist (2),  ranger (1),  noble (1),  undead (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  princess,  skeletonking
-Solution nr 400:
-	 goblin (4),  assassin (2),  blaster (2),  brutalist (1),  ranger (1),  noble (1),  undead (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  princess,  royalghost
-Solution nr 401:
-	 clan (1),  ranger (2),  goblin (4),  assassin (1),  blaster (2),  brutalist (1),  noble (1)
-	 archerqueen,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  princess
-Solution nr 402:
-	 clan (1),  brutalist (2),  goblin (4),  assassin (1),  blaster (2),  ranger (1),  noble (1)
-	 valkyrie,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  princess
-Solution nr 403:
-	 noble (2),  assassin (2),  blaster (1),  undead (4),  superstar (1),  brutalist (1),  ranger (1)
-	 goldenknight,  princess,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 404:
-	 clan (4),  ranger (1),  brawler (1),  brutalist (1),  blaster (2),  noble (2),  assassin (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  goldenknight,  princess
-Solution nr 405:
-	 ace (2),  blaster (4),  clan (1),  goblin (1),  noble (2),  assassin (1),  superstar (1)
-	 executioner,  wizard,  speargoblin,  goldenknight,  princess,  monk
-Solution nr 406:
-	 ace (1),  blaster (4),  clan (1),  goblin (1),  noble (2),  assassin (2),  undead (1)
-	 executioner,  wizard,  speargoblin,  goldenknight,  princess,  royalghost
-Solution nr 407:
-	 ace (2),  blaster (4),  brawler (1),  clan (1),  goblin (1),  noble (2),  assassin (1)
-	 executioner,  megaknight,  wizard,  speargoblin,  goldenknight,  princess
-Solution nr 408:
-	 ace (1),  blaster (4),  clan (2),  ranger (1),  goblin (1),  noble (2),  assassin (1)
-	 executioner,  archerqueen,  wizard,  speargoblin,  goldenknight,  princess
-Solution nr 409:
-	 ace (1),  blaster (4),  clan (2),  brawler (1),  goblin (1),  noble (2),  assassin (1)
-	 executioner,  barbarian,  wizard,  speargoblin,  goldenknight,  princess
-Solution nr 410:
-	 ace (1),  blaster (4),  clan (2),  brutalist (1),  goblin (1),  noble (2),  assassin (1)
-	 executioner,  valkyrie,  wizard,  speargoblin,  goldenknight,  princess
-Solution nr 411:
-	 pekka (1),  brawler (4),  ace (2),  clan (1),  noble (2),  assassin (1),  superstar (1)
-	 pekka,  megaknight,  barbarian,  goldenknight,  prince,  monk
-Solution nr 412:
-	 ace (4),  assassin (1),  blaster (2),  brawler (1),  noble (1),  undead (1),  superstar (2)
-	 bandit,  executioner,  megaknight,  princess,  witch,  monk
-Solution nr 413:
-	 ace (1),  assassin (4),  goblin (2),  ranger (1),  noble (1),  undead (2),  superstar (1)
-	 bandit,  goblin,  dartgoblin,  goldenknight,  royalghost,  witch
-Solution nr 414:
-	 goblin (2),  blaster (1),  brutalist (2),  undead (4),  assassin (1),  superstar (1),  ranger (1)
-	 speargoblin,  goblinmachine,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 415:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  brutalist (1),  noble (2),  assassin (1)
-	 executioner,  wizard,  speargoblin,  goblinmachine,  goldenknight,  princess
-Solution nr 416:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  ranger (1),  noble (2),  assassin (1)
-	 executioner,  wizard,  speargoblin,  dartgoblin,  goldenknight,  princess
-Solution nr 417:
-	 pekka (1),  brawler (4),  ace (1),  clan (1),  noble (2),  assassin (2),  undead (1)
-	 pekka,  megaknight,  barbarian,  goldenknight,  prince,  royalghost
-Solution nr 418:
-	 goblin (4),  assassin (1),  blaster (1),  brutalist (1),  ranger (2),  undead (2),  superstar (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  witch,  skeletondragons
-Solution nr 419:
-	 noble (2),  superstar (2),  blaster (1),  undead (4),  assassin (1),  brutalist (1),  ranger (1)
-	 musketeer,  princess,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 420:
-	 ace (2),  assassin (4),  goblin (1),  noble (1),  undead (2),  ranger (1),  superstar (1)
-	 bandit,  goblin,  goldenknight,  royalghost,  skeletondragons,  monk
-Solution nr 421:
-	 ace (2),  assassin (4),  blaster (1),  goblin (1),  noble (1),  undead (2),  ranger (1)
-	 bandit,  executioner,  goblin,  goldenknight,  royalghost,  skeletondragons
-Solution nr 422:
-	 ace (2),  assassin (4),  brawler (1),  goblin (1),  noble (1),  undead (2),  ranger (1)
-	 bandit,  megaknight,  goblin,  goldenknight,  royalghost,  skeletondragons
-Solution nr 423:
-	 ace (2),  assassin (4),  goblin (1),  noble (2),  brawler (1),  undead (1),  superstar (1)
-	 bandit,  goblin,  goldenknight,  prince,  royalghost,  monk
-Solution nr 424:
-	 ace (1),  assassin (4),  pekka (1),  brawler (2),  goblin (1),  noble (2),  undead (1)
-	 bandit,  pekka,  goblin,  goldenknight,  prince,  royalghost
-Solution nr 425:
-	 ace (2),  assassin (4),  blaster (1),  goblin (1),  noble (2),  brawler (1),  undead (1)
-	 bandit,  executioner,  goblin,  goldenknight,  prince,  royalghost
-Solution nr 426:
-	 ace (1),  assassin (4),  clan (1),  brawler (2),  goblin (1),  noble (2),  undead (1)
-	 bandit,  barbarian,  goblin,  goldenknight,  prince,  royalghost
-Solution nr 427:
-	 clan (4),  ranger (1),  brawler (1),  brutalist (1),  blaster (2),  noble (2),  superstar (1)
-	 archerqueen,  barbarian,  valkyrie,  wizard,  musketeer,  princess
-Solution nr 428:
-	 clan (1),  brutalist (2),  goblin (1),  ranger (2),  undead (4),  assassin (1),  superstar (1)
-	 valkyrie,  dartgoblin,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 429:
-	 giant (1),  superstar (2),  goblin (1),  ranger (2),  undead (4),  assassin (1),  brutalist (1)
-	 electrogiant,  dartgoblin,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 430:
-	 giant (1),  superstar (4),  goblin (1),  blaster (2),  noble (2),  undead (1),  ace (1)
-	 electrogiant,  speargoblin,  musketeer,  princess,  witch,  monk
-Solution nr 431:
-	 ace (1),  blaster (4),  clan (1),  goblin (1),  noble (2),  superstar (2),  undead (1)
-	 executioner,  wizard,  speargoblin,  musketeer,  princess,  witch
-Solution nr 432:
-	 ace (2),  assassin (1),  blaster (4),  clan (1),  goblin (1),  noble (2),  superstar (1)
-	 bandit,  executioner,  wizard,  speargoblin,  musketeer,  princess
-Solution nr 433:
-	 ace (2),  blaster (4),  brawler (1),  clan (1),  goblin (1),  noble (2),  superstar (1)
-	 executioner,  megaknight,  wizard,  speargoblin,  musketeer,  princess
-Solution nr 434:
-	 ace (1),  blaster (4),  clan (2),  ranger (1),  goblin (1),  noble (2),  superstar (1)
-	 executioner,  archerqueen,  wizard,  speargoblin,  musketeer,  princess
-Solution nr 435:
-	 ace (1),  blaster (4),  clan (2),  brawler (1),  goblin (1),  noble (2),  superstar (1)
-	 executioner,  barbarian,  wizard,  speargoblin,  musketeer,  princess
-Solution nr 436:
-	 ace (1),  blaster (4),  clan (2),  brutalist (1),  goblin (1),  noble (2),  superstar (1)
-	 executioner,  valkyrie,  wizard,  speargoblin,  musketeer,  princess
-Solution nr 437:
-	 ace (1),  blaster (4),  giant (1),  superstar (2),  clan (1),  goblin (1),  noble (2)
-	 executioner,  electrogiant,  wizard,  speargoblin,  musketeer,  princess
-Solution nr 438:
-	 ace (4),  assassin (1),  blaster (1),  brawler (1),  undead (2),  superstar (2),  ranger (1)
-	 bandit,  executioner,  megaknight,  witch,  skeletondragons,  monk
-Solution nr 439:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  assassin (1),  noble (2),  superstar (1)
-	 executioner,  wizard,  goblin,  speargoblin,  musketeer,  princess
-Solution nr 440:
-	 ace (1),  assassin (4),  goblin (2),  ranger (1),  noble (1),  undead (2),  brutalist (1)
-	 bandit,  goblin,  dartgoblin,  goldenknight,  royalghost,  skeletonking
-Solution nr 441:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  brutalist (1),  noble (2),  superstar (1)
-	 executioner,  wizard,  speargoblin,  goblinmachine,  musketeer,  princess
-Solution nr 442:
-	 ace (1),  assassin (4),  goblin (2),  blaster (1),  noble (1),  undead (2),  ranger (1)
-	 bandit,  goblin,  speargoblin,  goldenknight,  royalghost,  skeletondragons
-Solution nr 443:
-	 ace (4),  assassin (2),  blaster (1),  brawler (1),  noble (1),  superstar (2),  undead (1)
-	 bandit,  executioner,  megaknight,  musketeer,  royalghost,  monk
-Solution nr 444:
-	 ace (1),  assassin (4),  goblin (2),  blaster (1),  noble (2),  brawler (1),  undead (1)
-	 bandit,  goblin,  speargoblin,  goldenknight,  prince,  royalghost
-Solution nr 445:
-	 goblin (2),  blaster (1),  ranger (2),  undead (4),  assassin (1),  superstar (1),  brutalist (1)
-	 speargoblin,  dartgoblin,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 446:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  ranger (1),  noble (2),  superstar (1)
-	 executioner,  wizard,  speargoblin,  dartgoblin,  musketeer,  princess
-Solution nr 447:
-	 goblin (4),  assassin (1),  blaster (2),  brutalist (1),  ranger (1),  noble (2),  superstar (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  musketeer,  princess
-Solution nr 448:
-	 ace (1),  assassin (4),  goblin (1),  noble (2),  brawler (1),  undead (2),  superstar (1)
-	 bandit,  goblin,  goldenknight,  prince,  royalghost,  witch
-Solution nr 449:
-	 ace (1),  assassin (4),  goblin (2),  brutalist (1),  noble (1),  undead (2),  ranger (1)
-	 bandit,  goblin,  goblinmachine,  goldenknight,  royalghost,  skeletondragons
-Solution nr 450:
-	 ace (2),  assassin (1),  giant (2),  superstar (4),  noble (1),  undead (1),  ranger (1)
-	 bandit,  electrogiant,  musketeer,  witch,  royalgiant,  monk
-Solution nr 451:
-	 ace (2),  blaster (1),  giant (2),  superstar (4),  noble (1),  undead (1),  ranger (1)
-	 executioner,  electrogiant,  musketeer,  witch,  royalgiant,  monk
-Solution nr 452:
-	 ace (2),  brawler (1),  giant (2),  superstar (4),  noble (1),  undead (1),  ranger (1)
-	 megaknight,  electrogiant,  musketeer,  witch,  royalgiant,  monk
-Solution nr 453:
-	 pekka (1),  brawler (2),  ace (2),  giant (1),  superstar (4),  noble (1),  undead (1)
-	 pekka,  megaknight,  electrogiant,  musketeer,  witch,  monk
-Solution nr 454:
-	 clan (1),  ranger (2),  giant (2),  superstar (4),  noble (1),  undead (1),  ace (1)
-	 archerqueen,  electrogiant,  musketeer,  witch,  royalgiant,  monk
-Solution nr 455:
-	 ace (1),  assassin (4),  goblin (2),  brutalist (1),  noble (2),  brawler (1),  undead (1)
-	 bandit,  goblin,  goblinmachine,  goldenknight,  prince,  royalghost
-Solution nr 456:
-	 pekka (2),  brawler (2),  ace (1),  clan (1),  brutalist (4),  goblin (1),  undead (1)
-	 pekka,  megaknight,  valkyrie,  goblinmachine,  skeletonking,  minipekka
-Solution nr 457:
-	 clan (2),  ranger (2),  brutalist (4),  goblin (1),  undead (1),  pekka (1),  giant (1)
-	 archerqueen,  valkyrie,  goblinmachine,  skeletonking,  minipekka,  royalgiant
-Solution nr 458:
-	 pekka (2),  brawler (1),  clan (2),  ranger (1),  brutalist (4),  goblin (1),  undead (1)
-	 pekka,  archerqueen,  valkyrie,  goblinmachine,  skeletonking,  minipekka
-Solution nr 459:
-	 ace (1),  brawler (2),  clan (2),  brutalist (4),  goblin (1),  undead (1),  pekka (1)
-	 megaknight,  barbarian,  valkyrie,  goblinmachine,  skeletonking,  minipekka
-Solution nr 460:
-	 pekka (2),  brawler (1),  clan (2),  brutalist (4),  blaster (1),  goblin (1),  undead (1)
-	 pekka,  valkyrie,  wizard,  goblinmachine,  skeletonking,  minipekka
-Solution nr 461:
-	 ace (1),  blaster (2),  clan (2),  brutalist (4),  goblin (1),  undead (1),  pekka (1)
-	 executioner,  valkyrie,  wizard,  goblinmachine,  skeletonking,  minipekka
-Solution nr 462:
-	 ace (1),  assassin (2),  clan (1),  brutalist (4),  goblin (2),  undead (1),  pekka (1)
-	 bandit,  valkyrie,  goblin,  goblinmachine,  skeletonking,  minipekka
-Solution nr 463:
-	 pekka (2),  brawler (1),  clan (1),  brutalist (4),  goblin (2),  assassin (1),  undead (1)
-	 pekka,  valkyrie,  goblin,  goblinmachine,  skeletonking,  minipekka
-Solution nr 464:
-	 clan (2),  ranger (1),  brutalist (4),  goblin (2),  assassin (1),  undead (1),  pekka (1)
-	 archerqueen,  valkyrie,  goblin,  goblinmachine,  skeletonking,  minipekka
-Solution nr 465:
-	 clan (2),  brawler (1),  brutalist (4),  goblin (2),  assassin (1),  undead (1),  pekka (1)
-	 barbarian,  valkyrie,  goblin,  goblinmachine,  skeletonking,  minipekka
-Solution nr 466:
-	 giant (2),  superstar (4),  noble (1),  undead (2),  assassin (1),  ranger (1),  ace (1)
-	 electrogiant,  musketeer,  royalghost,  witch,  royalgiant,  monk
-Solution nr 467:
-	 ace (2),  blaster (1),  giant (1),  superstar (4),  noble (1),  undead (2),  assassin (1)
-	 executioner,  electrogiant,  musketeer,  royalghost,  witch,  monk
-Solution nr 468:
-	 ace (2),  brawler (1),  giant (1),  superstar (4),  noble (1),  undead (2),  assassin (1)
-	 megaknight,  electrogiant,  musketeer,  royalghost,  witch,  monk
-Solution nr 469:
-	 clan (2),  brutalist (4),  blaster (1),  goblin (2),  assassin (1),  undead (1),  pekka (1)
-	 valkyrie,  wizard,  goblin,  goblinmachine,  skeletonking,  minipekka
-Solution nr 470:
-	 ace (1),  assassin (2),  clan (1),  brutalist (4),  goblin (1),  undead (2),  pekka (1)
-	 bandit,  valkyrie,  goblinmachine,  royalghost,  skeletonking,  minipekka
-Solution nr 471:
-	 pekka (2),  brawler (1),  clan (1),  brutalist (4),  goblin (1),  undead (2),  assassin (1)
-	 pekka,  valkyrie,  goblinmachine,  royalghost,  skeletonking,  minipekka
-Solution nr 472:
-	 clan (2),  ranger (1),  brutalist (4),  goblin (1),  undead (2),  assassin (1),  pekka (1)
-	 archerqueen,  valkyrie,  goblinmachine,  royalghost,  skeletonking,  minipekka
-Solution nr 473:
-	 clan (2),  brawler (1),  brutalist (4),  goblin (1),  undead (2),  assassin (1),  pekka (1)
-	 barbarian,  valkyrie,  goblinmachine,  royalghost,  skeletonking,  minipekka
-Solution nr 474:
-	 clan (1),  ranger (4),  goblin (2),  assassin (2),  noble (1),  undead (1),  giant (1)
-	 archerqueen,  goblin,  dartgoblin,  goldenknight,  skeletondragons,  royalgiant
-Solution nr 475:
-	 pekka (2),  brawler (1),  clan (1),  brutalist (4),  goblin (2),  blaster (1),  undead (1)
-	 pekka,  valkyrie,  speargoblin,  goblinmachine,  skeletonking,  minipekka
-Solution nr 476:
-	 ace (1),  blaster (2),  clan (1),  brutalist (4),  goblin (2),  undead (1),  pekka (1)
-	 executioner,  valkyrie,  speargoblin,  goblinmachine,  skeletonking,  minipekka
-Solution nr 477:
-	 clan (2),  ranger (1),  brutalist (4),  goblin (2),  blaster (1),  undead (1),  pekka (1)
-	 archerqueen,  valkyrie,  speargoblin,  goblinmachine,  skeletonking,  minipekka
-Solution nr 478:
-	 clan (2),  brawler (1),  brutalist (4),  goblin (2),  blaster (1),  undead (1),  pekka (1)
-	 barbarian,  valkyrie,  speargoblin,  goblinmachine,  skeletonking,  minipekka
-Solution nr 479:
-	 clan (2),  brutalist (4),  blaster (1),  goblin (1),  undead (2),  assassin (1),  pekka (1)
-	 valkyrie,  wizard,  goblinmachine,  royalghost,  skeletonking,  minipekka
-Solution nr 480:
-	 giant (1),  superstar (4),  goblin (1),  assassin (2),  noble (1),  undead (2),  ace (1)
-	 electrogiant,  goblin,  musketeer,  royalghost,  witch,  monk
-Solution nr 481:
-	 noble (4),  assassin (2),  superstar (2),  brawler (1),  blaster (1),  undead (1),  ace (1)
-	 goldenknight,  musketeer,  prince,  princess,  royalghost,  monk
-Solution nr 482:
-	 ace (1),  assassin (4),  goblin (1),  noble (2),  brawler (1),  undead (2),  brutalist (1)
-	 bandit,  goblin,  goldenknight,  prince,  royalghost,  skeletonking
-Solution nr 483:
-	 pekka (2),  brawler (4),  ace (1),  clan (1),  noble (2),  blaster (1),  brutalist (1)
-	 pekka,  megaknight,  barbarian,  prince,  princess,  minipekka
-Solution nr 484:
-	 ace (2),  assassin (1),  pekka (1),  brawler (4),  clan (1),  noble (2),  blaster (1)
-	 bandit,  pekka,  megaknight,  barbarian,  prince,  princess
-Solution nr 485:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  brutalist (1),  noble (2),  blaster (1)
-	 pekka,  megaknight,  barbarian,  valkyrie,  prince,  princess
-Solution nr 486:
-	 pekka (1),  brawler (4),  ace (1),  clan (1),  goblin (1),  blaster (2),  noble (2)
-	 pekka,  megaknight,  barbarian,  speargoblin,  prince,  princess
-Solution nr 487:
-	 pekka (2),  brawler (4),  ace (2),  clan (1),  noble (1),  brutalist (1),  superstar (1)
-	 pekka,  megaknight,  barbarian,  prince,  minipekka,  monk
-Solution nr 488:
-	 ace (2),  assassin (1),  pekka (2),  brawler (4),  clan (1),  noble (1),  brutalist (1)
-	 bandit,  pekka,  megaknight,  barbarian,  prince,  minipekka
-Solution nr 489:
-	 pekka (2),  brawler (4),  ace (2),  blaster (1),  clan (1),  noble (1),  brutalist (1)
-	 pekka,  executioner,  megaknight,  barbarian,  prince,  minipekka
-Solution nr 490:
-	 ace (2),  blaster (4),  clan (1),  goblin (1),  noble (2),  brawler (1),  superstar (1)
-	 executioner,  wizard,  speargoblin,  prince,  princess,  monk
-Solution nr 491:
-	 ace (2),  assassin (1),  blaster (4),  clan (1),  goblin (1),  noble (2),  brawler (1)
-	 bandit,  executioner,  wizard,  speargoblin,  prince,  princess
-Solution nr 492:
-	 pekka (1),  brawler (2),  ace (1),  blaster (4),  clan (1),  goblin (1),  noble (2)
-	 pekka,  executioner,  wizard,  speargoblin,  prince,  princess
-Solution nr 493:
-	 ace (1),  blaster (4),  clan (2),  ranger (1),  goblin (1),  noble (2),  brawler (1)
-	 executioner,  archerqueen,  wizard,  speargoblin,  prince,  princess
-Solution nr 494:
-	 pekka (2),  brawler (4),  ace (1),  clan (2),  ranger (1),  noble (1),  brutalist (1)
-	 pekka,  megaknight,  archerqueen,  barbarian,  prince,  minipekka
-Solution nr 495:
-	 ace (1),  blaster (4),  clan (2),  brutalist (1),  goblin (1),  noble (2),  brawler (1)
-	 executioner,  valkyrie,  wizard,  speargoblin,  prince,  princess
-Solution nr 496:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  assassin (1),  noble (2),  brawler (1)
-	 executioner,  wizard,  goblin,  speargoblin,  prince,  princess
-Solution nr 497:
-	 pekka (2),  brawler (4),  ace (1),  clan (2),  blaster (1),  noble (1),  brutalist (1)
-	 pekka,  megaknight,  barbarian,  wizard,  prince,  minipekka
-Solution nr 498:
-	 clan (2),  brawler (1),  brutalist (4),  goblin (1),  undead (2),  superstar (1),  pekka (1)
-	 barbarian,  valkyrie,  goblinmachine,  witch,  skeletonking,  minipekka
-Solution nr 499:
-	 pekka (1),  brawler (4),  ace (2),  clan (1),  noble (2),  blaster (1),  superstar (1)
-	 pekka,  megaknight,  barbarian,  prince,  princess,  monk
-Solution nr 500:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  brutalist (1),  noble (2),  brawler (1)
-	 executioner,  wizard,  speargoblin,  goblinmachine,  prince,  princess
-Solution nr 501:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  ranger (1),  noble (2),  blaster (1)
-	 pekka,  megaknight,  archerqueen,  barbarian,  prince,  princess
-Solution nr 502:
-	 clan (1),  brutalist (4),  goblin (2),  blaster (1),  undead (2),  assassin (1),  pekka (1)
-	 valkyrie,  speargoblin,  goblinmachine,  royalghost,  skeletonking,  minipekka
-Solution nr 503:
-	 clan (2),  brutalist (4),  blaster (1),  goblin (1),  undead (2),  superstar (1),  pekka (1)
-	 valkyrie,  wizard,  goblinmachine,  witch,  skeletonking,  minipekka
-Solution nr 504:
-	 ace (1),  assassin (4),  goblin (2),  ranger (1),  noble (2),  brawler (1),  undead (1)
-	 bandit,  goblin,  dartgoblin,  goldenknight,  prince,  royalghost
-Solution nr 505:
-	 noble (1),  assassin (2),  undead (4),  superstar (1),  brutalist (1),  ranger (2),  giant (1)
-	 goldenknight,  royalghost,  witch,  skeletonking,  skeletondragons,  royalgiant
-Solution nr 506:
-	 noble (1),  assassin (2),  undead (4),  superstar (2),  brutalist (1),  ranger (1),  ace (1)
-	 goldenknight,  royalghost,  witch,  skeletonking,  skeletondragons,  monk
-Solution nr 507:
-	 clan (1),  ranger (2),  noble (1),  assassin (2),  undead (4),  superstar (1),  brutalist (1)
-	 archerqueen,  goldenknight,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 508:
-	 clan (1),  brutalist (2),  noble (1),  assassin (2),  undead (4),  superstar (1),  ranger (1)
-	 valkyrie,  goldenknight,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 509:
-	 giant (1),  superstar (2),  noble (1),  assassin (2),  undead (4),  brutalist (1),  ranger (1)
-	 electrogiant,  goldenknight,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 510:
-	 clan (1),  brutalist (4),  goblin (2),  assassin (1),  undead (2),  superstar (1),  pekka (1)
-	 valkyrie,  goblin,  goblinmachine,  witch,  skeletonking,  minipekka
-Solution nr 511:
-	 ace (1),  blaster (4),  clan (1),  goblin (2),  ranger (1),  noble (2),  brawler (1)
-	 executioner,  wizard,  speargoblin,  dartgoblin,  prince,  princess
-Solution nr 512:
-	 ace (1),  blaster (2),  goblin (4),  assassin (1),  brutalist (2),  ranger (1),  pekka (1)
-	 executioner,  goblin,  speargoblin,  goblinmachine,  dartgoblin,  minipekka
-Solution nr 513:
-	 goblin (4),  assassin (1),  blaster (2),  brutalist (1),  ranger (1),  noble (2),  brawler (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  prince,  princess
-Solution nr 514:
-	 giant (2),  superstar (4),  noble (1),  undead (2),  brutalist (1),  ranger (1),  ace (1)
-	 electrogiant,  musketeer,  witch,  skeletonking,  royalgiant,  monk
-Solution nr 515:
-	 ace (2),  assassin (1),  giant (1),  superstar (4),  noble (1),  undead (2),  brutalist (1)
-	 bandit,  electrogiant,  musketeer,  witch,  skeletonking,  monk
-Solution nr 516:
-	 goblin (4),  assassin (2),  blaster (1),  brutalist (2),  ranger (1),  undead (1),  pekka (1)
-	 goblin,  speargoblin,  goblinmachine,  dartgoblin,  royalghost,  minipekka
-Solution nr 517:
-	 giant (2),  superstar (4),  goblin (1),  ranger (2),  noble (1),  undead (1),  ace (1)
-	 electrogiant,  dartgoblin,  musketeer,  witch,  royalgiant,  monk
-Solution nr 518:
-	 goblin (1),  brutalist (2),  noble (1),  assassin (2),  undead (4),  superstar (1),  ranger (1)
-	 goblinmachine,  goldenknight,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 519:
-	 clan (1),  brutalist (4),  goblin (2),  ranger (2),  undead (1),  pekka (1),  giant (1)
-	 valkyrie,  goblinmachine,  dartgoblin,  skeletonking,  minipekka,  royalgiant
-Solution nr 520:
-	 pekka (2),  brawler (1),  clan (1),  brutalist (4),  goblin (2),  ranger (1),  undead (1)
-	 pekka,  valkyrie,  goblinmachine,  dartgoblin,  skeletonking,  minipekka
-Solution nr 521:
-	 clan (2),  brawler (1),  brutalist (4),  goblin (2),  ranger (1),  undead (1),  pekka (1)
-	 barbarian,  valkyrie,  goblinmachine,  dartgoblin,  skeletonking,  minipekka
-Solution nr 522:
-	 noble (4),  assassin (2),  superstar (1),  brawler (1),  blaster (1),  undead (2),  brutalist (1)
-	 goldenknight,  musketeer,  prince,  princess,  royalghost,  skeletonking
-Solution nr 523:
-	 clan (2),  brutalist (4),  blaster (1),  goblin (2),  ranger (1),  undead (1),  pekka (1)
-	 valkyrie,  wizard,  goblinmachine,  dartgoblin,  skeletonking,  minipekka
-Solution nr 524:
-	 ace (1),  assassin (4),  goblin (1),  noble (2),  brawler (1),  undead (2),  ranger (1)
-	 bandit,  goblin,  goldenknight,  prince,  royalghost,  skeletondragons
-Solution nr 525:
-	 ace (2),  assassin (4),  goblin (1),  noble (2),  blaster (1),  undead (1),  superstar (1)
-	 bandit,  goblin,  goldenknight,  princess,  royalghost,  monk
-Solution nr 526:
-	 ace (2),  assassin (4),  brawler (1),  goblin (1),  noble (2),  blaster (1),  undead (1)
-	 bandit,  megaknight,  goblin,  goldenknight,  princess,  royalghost
-Solution nr 527:
-	 pekka (2),  brawler (4),  ace (1),  clan (1),  noble (1),  undead (1),  brutalist (2)
-	 pekka,  megaknight,  barbarian,  prince,  skeletonking,  minipekka
-Solution nr 528:
-	 ace (2),  assassin (1),  pekka (1),  brawler (4),  clan (1),  noble (2),  superstar (1)
-	 bandit,  pekka,  megaknight,  barbarian,  musketeer,  prince
-Solution nr 529:
-	 pekka (1),  brawler (4),  ace (2),  blaster (1),  clan (1),  noble (2),  superstar (1)
-	 pekka,  executioner,  megaknight,  barbarian,  musketeer,  prince
-Solution nr 530:
-	 pekka (1),  brawler (4),  ace (1),  clan (2),  ranger (1),  noble (2),  superstar (1)
-	 pekka,  megaknight,  archerqueen,  barbarian,  musketeer,  prince
-Solution nr 531:
-	 ace (1),  assassin (4),  clan (1),  blaster (2),  goblin (1),  noble (2),  undead (1)
-	 bandit,  wizard,  goblin,  goldenknight,  princess,  royalghost
-Solution nr 532:
-	 clan (1),  brutalist (4),  goblin (2),  ranger (1),  undead (2),  assassin (1),  pekka (1)
-	 valkyrie,  goblinmachine,  dartgoblin,  royalghost,  skeletonking,  minipekka
-Solution nr 533:
-	 clan (2),  ranger (4),  brutalist (2),  goblin (1),  undead (1),  pekka (1),  giant (1)
-	 archerqueen,  valkyrie,  dartgoblin,  skeletondragons,  minipekka,  royalgiant
-Solution nr 534:
-	 clan (1),  brutalist (4),  goblin (2),  ranger (1),  undead (2),  superstar (1),  pekka (1)
-	 valkyrie,  goblinmachine,  dartgoblin,  witch,  skeletonking,  minipekka
-Solution nr 535:
-	 clan (2),  ranger (4),  blaster (2),  goblin (1),  noble (1),  undead (1),  giant (1)
-	 archerqueen,  wizard,  dartgoblin,  princess,  skeletondragons,  royalgiant
-Solution nr 536:
-	 noble (4),  assassin (1),  superstar (2),  brawler (1),  blaster (1),  undead (2),  brutalist (1)
-	 goldenknight,  musketeer,  prince,  princess,  witch,  skeletonking
-Solution nr 537:
-	 ace (1),  assassin (2),  noble (4),  superstar (2),  brawler (1),  blaster (1),  undead (1)
-	 bandit,  goldenknight,  musketeer,  prince,  princess,  witch
-Solution nr 538:
-	 pekka (1),  brawler (2),  noble (4),  assassin (1),  superstar (2),  blaster (1),  undead (1)
-	 pekka,  goldenknight,  musketeer,  prince,  princess,  witch
-Solution nr 539:
-	 noble (4),  assassin (1),  superstar (2),  brawler (1),  blaster (1),  undead (2),  ranger (1)
-	 goldenknight,  musketeer,  prince,  princess,  witch,  skeletondragons
-Solution nr 540:
-	 ace (1),  blaster (2),  noble (4),  assassin (1),  superstar (2),  brawler (1),  undead (1)
-	 executioner,  goldenknight,  musketeer,  prince,  princess,  witch
-Solution nr 541:
-	 pekka (1),  brawler (2),  noble (4),  assassin (1),  superstar (2),  blaster (1),  ace (1)
-	 pekka,  goldenknight,  musketeer,  prince,  princess,  monk
-Solution nr 542:
-	 ace (1),  assassin (2),  pekka (1),  brawler (2),  noble (4),  superstar (1),  blaster (1)
-	 bandit,  pekka,  goldenknight,  musketeer,  prince,  princess
-Solution nr 543:
-	 pekka (1),  brawler (2),  ace (1),  blaster (2),  noble (4),  assassin (1),  superstar (1)
-	 pekka,  executioner,  goldenknight,  musketeer,  prince,  princess
-Solution nr 544:
-	 ace (1),  brawler (2),  noble (4),  assassin (1),  superstar (2),  blaster (1),  undead (1)
-	 megaknight,  goldenknight,  musketeer,  prince,  princess,  witch
-Solution nr 545:
-	 pekka (2),  brawler (2),  noble (4),  assassin (1),  superstar (1),  blaster (1),  brutalist (1)
-	 pekka,  goldenknight,  musketeer,  prince,  princess,  minipekka
-Solution nr 546:
-	 pekka (1),  brawler (2),  noble (4),  assassin (2),  superstar (1),  blaster (1),  undead (1)
-	 pekka,  goldenknight,  musketeer,  prince,  princess,  royalghost
-Solution nr 547:
-	 ace (1),  brawler (2),  noble (4),  assassin (2),  superstar (1),  blaster (1),  undead (1)
-	 megaknight,  goldenknight,  musketeer,  prince,  princess,  royalghost
-Solution nr 548:
-	 ace (1),  blaster (2),  noble (4),  assassin (2),  superstar (1),  brawler (1),  undead (1)
-	 executioner,  goldenknight,  musketeer,  prince,  princess,  royalghost
-Solution nr 549:
-	 clan (1),  brawler (2),  noble (4),  assassin (1),  superstar (2),  blaster (1),  undead (1)
-	 barbarian,  goldenknight,  musketeer,  prince,  princess,  witch
-Solution nr 550:
-	 clan (1),  brawler (2),  noble (4),  assassin (1),  superstar (2),  blaster (1),  ace (1)
-	 barbarian,  goldenknight,  musketeer,  prince,  princess,  monk
-Solution nr 551:
-	 ace (1),  assassin (2),  clan (1),  brawler (2),  noble (4),  superstar (1),  blaster (1)
-	 bandit,  barbarian,  goldenknight,  musketeer,  prince,  princess
-Solution nr 552:
-	 clan (1),  brawler (2),  noble (4),  assassin (2),  superstar (1),  blaster (1),  undead (1)
-	 barbarian,  goldenknight,  musketeer,  prince,  princess,  royalghost
-Solution nr 553:
-	 ace (1),  blaster (2),  clan (1),  brawler (2),  noble (4),  assassin (1),  superstar (1)
-	 executioner,  barbarian,  goldenknight,  musketeer,  prince,  princess
-Solution nr 554:
-	 clan (2),  ranger (1),  brawler (2),  noble (4),  assassin (1),  superstar (1),  blaster (1)
-	 archerqueen,  barbarian,  goldenknight,  musketeer,  prince,  princess
-Solution nr 555:
-	 clan (2),  brawler (2),  brutalist (1),  noble (4),  assassin (1),  superstar (1),  blaster (1)
-	 barbarian,  valkyrie,  goldenknight,  musketeer,  prince,  princess
-Solution nr 556:
-	 giant (2),  superstar (2),  noble (4),  assassin (1),  brawler (1),  blaster (1),  ranger (1)
-	 electrogiant,  goldenknight,  musketeer,  prince,  princess,  royalgiant
-Solution nr 557:
-	 ace (1),  assassin (2),  giant (1),  superstar (2),  noble (4),  brawler (1),  blaster (1)
-	 bandit,  electrogiant,  goldenknight,  musketeer,  prince,  princess
-Solution nr 558:
-	 pekka (1),  brawler (2),  giant (1),  superstar (2),  noble (4),  assassin (1),  blaster (1)
-	 pekka,  electrogiant,  goldenknight,  musketeer,  prince,  princess
-Solution nr 559:
-	 giant (1),  superstar (2),  noble (4),  assassin (2),  brawler (1),  blaster (1),  undead (1)
-	 electrogiant,  goldenknight,  musketeer,  prince,  princess,  royalghost
-Solution nr 560:
-	 ace (1),  blaster (2),  giant (1),  superstar (2),  noble (4),  assassin (1),  brawler (1)
-	 executioner,  electrogiant,  goldenknight,  musketeer,  prince,  princess
-Solution nr 561:
-	 ace (1),  brawler (2),  giant (1),  superstar (2),  noble (4),  assassin (1),  blaster (1)
-	 megaknight,  electrogiant,  goldenknight,  musketeer,  prince,  princess
-Solution nr 562:
-	 clan (1),  brawler (2),  giant (1),  superstar (2),  noble (4),  assassin (1),  blaster (1)
-	 barbarian,  electrogiant,  goldenknight,  musketeer,  prince,  princess
-Solution nr 563:
-	 clan (1),  blaster (2),  noble (4),  assassin (1),  superstar (2),  brawler (1),  undead (1)
-	 wizard,  goldenknight,  musketeer,  prince,  princess,  witch
-Solution nr 564:
-	 clan (1),  blaster (2),  noble (4),  assassin (1),  superstar (2),  brawler (1),  ace (1)
-	 wizard,  goldenknight,  musketeer,  prince,  princess,  monk
-Solution nr 565:
-	 ace (1),  assassin (2),  clan (1),  blaster (2),  noble (4),  superstar (1),  brawler (1)
-	 bandit,  wizard,  goldenknight,  musketeer,  prince,  princess
-Solution nr 566:
-	 pekka (1),  brawler (2),  clan (1),  blaster (2),  noble (4),  assassin (1),  superstar (1)
-	 pekka,  wizard,  goldenknight,  musketeer,  prince,  princess
-Solution nr 567:
-	 clan (1),  blaster (2),  noble (4),  assassin (2),  superstar (1),  brawler (1),  undead (1)
-	 wizard,  goldenknight,  musketeer,  prince,  princess,  royalghost
-Solution nr 568:
-	 ace (1),  brawler (2),  clan (1),  blaster (2),  noble (4),  assassin (1),  superstar (1)
-	 megaknight,  wizard,  goldenknight,  musketeer,  prince,  princess
-Solution nr 569:
-	 clan (2),  ranger (1),  blaster (2),  noble (4),  assassin (1),  superstar (1),  brawler (1)
-	 archerqueen,  wizard,  goldenknight,  musketeer,  prince,  princess
-Solution nr 570:
-	 clan (2),  brutalist (1),  blaster (2),  noble (4),  assassin (1),  superstar (1),  brawler (1)
-	 valkyrie,  wizard,  goldenknight,  musketeer,  prince,  princess
-Solution nr 571:
-	 giant (1),  superstar (2),  clan (1),  blaster (2),  noble (4),  assassin (1),  brawler (1)
-	 electrogiant,  wizard,  goldenknight,  musketeer,  prince,  princess
-Solution nr 572:
-	 goblin (1),  ranger (2),  noble (1),  assassin (2),  undead (4),  superstar (1),  brutalist (1)
-	 dartgoblin,  goldenknight,  royalghost,  witch,  skeletonking,  skeletondragons
-Solution nr 573:
-	 goblin (1),  assassin (2),  noble (4),  superstar (2),  brawler (1),  blaster (1),  ace (1)
-	 goblin,  goldenknight,  musketeer,  prince,  princess,  monk
-Solution nr 574:
-	 goblin (1),  assassin (2),  noble (4),  superstar (2),  brawler (1),  blaster (1),  undead (1)
-	 goblin,  goldenknight,  musketeer,  prince,  princess,  witch
-Solution nr 575:
-	 pekka (1),  brawler (2),  goblin (1),  assassin (2),  noble (4),  superstar (1),  blaster (1)
-	 pekka,  goblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 576:
-	 ace (1),  blaster (2),  goblin (1),  assassin (2),  noble (4),  superstar (1),  brawler (1)
-	 executioner,  goblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 577:
-	 ace (1),  brawler (2),  goblin (1),  assassin (2),  noble (4),  superstar (1),  blaster (1)
-	 megaknight,  goblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 578:
-	 clan (1),  brawler (2),  goblin (1),  assassin (2),  noble (4),  superstar (1),  blaster (1)
-	 barbarian,  goblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 579:
-	 giant (1),  superstar (2),  goblin (1),  assassin (2),  noble (4),  brawler (1),  blaster (1)
-	 electrogiant,  goblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 580:
-	 clan (1),  blaster (2),  goblin (1),  assassin (2),  noble (4),  superstar (1),  brawler (1)
-	 wizard,  goblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 581:
-	 ace (1),  assassin (4),  goblin (1),  noble (2),  blaster (1),  undead (2),  superstar (1)
-	 bandit,  goblin,  goldenknight,  princess,  royalghost,  witch
-Solution nr 582:
-	 ace (1),  assassin (4),  goblin (2),  brutalist (2),  noble (1),  undead (1),  pekka (1)
-	 bandit,  goblin,  goblinmachine,  goldenknight,  royalghost,  minipekka
-Solution nr 583:
-	 goblin (1),  blaster (2),  noble (4),  assassin (1),  superstar (2),  brawler (1),  ace (1)
-	 speargoblin,  goldenknight,  musketeer,  prince,  princess,  monk
-Solution nr 584:
-	 ace (1),  assassin (2),  goblin (1),  blaster (2),  noble (4),  superstar (1),  brawler (1)
-	 bandit,  speargoblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 585:
-	 pekka (1),  brawler (2),  goblin (1),  blaster (2),  noble (4),  assassin (1),  superstar (1)
-	 pekka,  speargoblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 586:
-	 goblin (1),  blaster (2),  noble (4),  assassin (1),  superstar (2),  brawler (1),  undead (1)
-	 speargoblin,  goldenknight,  musketeer,  prince,  princess,  witch
-Solution nr 587:
-	 goblin (1),  blaster (2),  noble (4),  assassin (2),  superstar (1),  brawler (1),  undead (1)
-	 speargoblin,  goldenknight,  musketeer,  prince,  princess,  royalghost
-Solution nr 588:
-	 ace (1),  brawler (2),  goblin (1),  blaster (2),  noble (4),  assassin (1),  superstar (1)
-	 megaknight,  speargoblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 589:
-	 clan (1),  brawler (2),  goblin (1),  blaster (2),  noble (4),  assassin (1),  superstar (1)
-	 barbarian,  speargoblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 590:
-	 giant (1),  superstar (2),  goblin (1),  blaster (2),  noble (4),  assassin (1),  brawler (1)
-	 electrogiant,  speargoblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 591:
-	 ace (2),  assassin (1),  giant (1),  superstar (4),  noble (1),  undead (2),  ranger (1)
-	 bandit,  electrogiant,  musketeer,  witch,  skeletondragons,  monk
-Solution nr 592:
-	 ace (2),  blaster (1),  giant (1),  superstar (4),  noble (1),  undead (2),  ranger (1)
-	 executioner,  electrogiant,  musketeer,  witch,  skeletondragons,  monk
-Solution nr 593:
-	 ace (2),  brawler (1),  giant (1),  superstar (4),  noble (1),  undead (2),  ranger (1)
-	 megaknight,  electrogiant,  musketeer,  witch,  skeletondragons,  monk
-Solution nr 594:
-	 pekka (1),  brawler (4),  ace (1),  clan (1),  noble (2),  superstar (2),  undead (1)
-	 pekka,  megaknight,  barbarian,  musketeer,  prince,  witch
-Solution nr 595:
-	 giant (2),  superstar (4),  noble (2),  brawler (1),  undead (1),  ranger (1),  ace (1)
-	 electrogiant,  musketeer,  prince,  witch,  royalgiant,  monk
-Solution nr 596:
-	 ace (2),  assassin (1),  giant (1),  superstar (4),  noble (2),  brawler (1),  undead (1)
-	 bandit,  electrogiant,  musketeer,  prince,  witch,  monk
-Solution nr 597:
-	 pekka (1),  brawler (2),  giant (1),  superstar (4),  noble (2),  undead (1),  ace (1)
-	 pekka,  electrogiant,  musketeer,  prince,  witch,  monk
-Solution nr 598:
-	 ace (2),  blaster (1),  giant (1),  superstar (4),  noble (2),  brawler (1),  undead (1)
-	 executioner,  electrogiant,  musketeer,  prince,  witch,  monk
-Solution nr 599:
-	 clan (1),  brawler (2),  giant (1),  superstar (4),  noble (2),  undead (1),  ace (1)
-	 barbarian,  electrogiant,  musketeer,  prince,  witch,  monk
-Solution nr 600:
-	 pekka (2),  brawler (1),  clan (1),  brutalist (4),  goblin (1),  undead (2),  ranger (1)
-	 pekka,  valkyrie,  goblinmachine,  skeletonking,  skeletondragons,  minipekka
-Solution nr 601:
-	 goblin (2),  assassin (2),  brutalist (1),  noble (4),  superstar (1),  brawler (1),  blaster (1)
-	 goblin,  goblinmachine,  goldenknight,  musketeer,  prince,  princess
-Solution nr 602:
-	 ace (1),  assassin (4),  goblin (2),  brutalist (1),  noble (2),  blaster (1),  undead (1)
-	 bandit,  goblin,  goblinmachine,  goldenknight,  princess,  royalghost
-Solution nr 603:
-	 goblin (2),  blaster (2),  brutalist (1),  noble (4),  assassin (1),  superstar (1),  brawler (1)
-	 speargoblin,  goblinmachine,  goldenknight,  musketeer,  prince,  princess
-Solution nr 604:
-	 clan (1),  ranger (4),  goblin (2),  blaster (2),  noble (1),  undead (1),  giant (1)
-	 archerqueen,  speargoblin,  dartgoblin,  princess,  skeletondragons,  royalgiant
-Solution nr 605:
-	 clan (2),  brawler (2),  brutalist (4),  goblin (1),  noble (1),  undead (1),  pekka (1)
-	 barbarian,  valkyrie,  goblinmachine,  prince,  skeletonking,  minipekka
-Solution nr 606:
-	 clan (2),  brutalist (4),  blaster (1),  goblin (1),  undead (2),  ranger (1),  pekka (1)
-	 valkyrie,  wizard,  goblinmachine,  skeletonking,  skeletondragons,  minipekka
-Solution nr 607:
-	 undead (4),  assassin (1),  superstar (1),  brutalist (2),  ranger (2),  pekka (1),  giant (1)
-	 royalghost,  witch,  skeletonking,  skeletondragons,  minipekka,  royalgiant
-Solution nr 608:
-	 undead (4),  assassin (1),  superstar (2),  brutalist (2),  ranger (1),  pekka (1),  ace (1)
-	 royalghost,  witch,  skeletonking,  skeletondragons,  minipekka,  monk
-Solution nr 609:
-	 ace (1),  assassin (2),  undead (4),  superstar (1),  brutalist (2),  ranger (1),  pekka (1)
-	 bandit,  royalghost,  witch,  skeletonking,  skeletondragons,  minipekka
-Solution nr 610:
-	 pekka (2),  brawler (1),  undead (4),  assassin (1),  superstar (1),  brutalist (2),  ranger (1)
-	 pekka,  royalghost,  witch,  skeletonking,  skeletondragons,  minipekka
-Solution nr 611:
-	 clan (1),  ranger (2),  undead (4),  assassin (1),  superstar (1),  brutalist (2),  pekka (1)
-	 archerqueen,  royalghost,  witch,  skeletonking,  skeletondragons,  minipekka
-Solution nr 612:
-	 goblin (2),  assassin (2),  ranger (1),  noble (4),  superstar (1),  brawler (1),  blaster (1)
-	 goblin,  dartgoblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 613:
-	 giant (1),  superstar (2),  undead (4),  assassin (1),  brutalist (2),  ranger (1),  pekka (1)
-	 electrogiant,  royalghost,  witch,  skeletonking,  skeletondragons,  minipekka
-Solution nr 614:
-	 clan (1),  brutalist (4),  goblin (2),  assassin (1),  undead (2),  ranger (1),  pekka (1)
-	 valkyrie,  goblin,  goblinmachine,  skeletonking,  skeletondragons,  minipekka
-Solution nr 615:
-	 goblin (2),  blaster (2),  ranger (1),  noble (4),  assassin (1),  superstar (1),  brawler (1)
-	 speargoblin,  dartgoblin,  goldenknight,  musketeer,  prince,  princess
-Solution nr 616:
-	 giant (1),  superstar (4),  noble (2),  brawler (1),  undead (2),  assassin (1),  ace (1)
-	 electrogiant,  musketeer,  prince,  royalghost,  witch,  monk
-Solution nr 617:
-	 clan (1),  ranger (4),  goblin (2),  brutalist (2),  undead (1),  pekka (1),  giant (1)
-	 archerqueen,  goblinmachine,  dartgoblin,  skeletondragons,  minipekka,  royalgiant
-Solution nr 618:
-	 goblin (1),  assassin (2),  undead (4),  superstar (1),  brutalist (2),  ranger (1),  pekka (1)
-	 goblin,  royalghost,  witch,  skeletonking,  skeletondragons,  minipekka
-Solution nr 619:
-	 ace (1),  assassin (4),  goblin (1),  noble (1),  undead (2),  brutalist (2),  pekka (1)
-	 bandit,  goblin,  goldenknight,  royalghost,  skeletonking,  minipekka
-Solution nr 620:
-	 ace (2),  assassin (4),  blaster (1),  goblin (1),  noble (2),  superstar (1),  undead (1)
-	 bandit,  executioner,  goblin,  goldenknight,  musketeer,  royalghost
-Solution nr 621:
-	 ace (2),  assassin (4),  brawler (1),  goblin (1),  noble (2),  superstar (1),  undead (1)
-	 bandit,  megaknight,  goblin,  goldenknight,  musketeer,  royalghost
-Solution nr 622:
-	 clan (1),  brutalist (4),  goblin (2),  blaster (1),  undead (2),  ranger (1),  pekka (1)
-	 valkyrie,  speargoblin,  goblinmachine,  skeletonking,  skeletondragons,  minipekka
-Solution nr 623:
-	 noble (4),  assassin (2),  superstar (1),  brawler (1),  blaster (1),  undead (2),  ranger (1)
-	 goldenknight,  musketeer,  prince,  princess,  royalghost,  skeletondragons
-Solution nr 624:
-	 ace (1),  assassin (4),  giant (1),  superstar (2),  goblin (1),  noble (2),  undead (1)
-	 bandit,  electrogiant,  goblin,  goldenknight,  musketeer,  royalghost
+4205090,334320254333215
+4196902,334251535905055
+2599,18691700830495
+2099750,17592189268255
+133682,53876120097055
+10802,52845294399775
+2614,52776575971615
+12585506,334251535897375
+8399394,17660906582815
+8391203,18691700822815
+10488354,17592189260575
+10748933,284842247000320
+10756101,284842246877440
+10625029,3367286944000
+10747941,284773527393025
+10485799,1099527426835
+10493989,1168246911745
+10616869,3298567459585
+10617349,3298567467265
+10488325,18691713478915
+10487845,18691713471235
+10486279,1099527434515
+11010085,282574504268545
+11010565,282574504276225
+10748421,284773527400705
+10487301,1168247042305
+8391218,52776575963935
+10616853,20890787057920
+4196962,334251803283775
+10850,17661173969215
+2662,17592455541055
+2674,52776843350335
+8391266,17592455533375
+5245474,334251803284255
+1059362,17661173969695
+1051174,17592455541535
+1051186,52776843350815
+11665413,3298835895040
+12058629,282574772704000
+11542533,1168515347200
+11796485,284773795828480
+11535365,1168515470080
+11534853,1099795870465
+4331792,546470214238225
+11534405,1100332733200
+5046402,4240816616964145
+3015808,847792471736320
+6818944,897270478209025
+6825088,862223545077760
+6816897,863185619845120
+2884740,845593433804800
+6816912,897270494986240
+10616965,3298836025600
+10748037,284773795959040
+10494085,1168515477760
+10485925,1099795993345
+10486405,1099796001025
+2786,17592991420735
+10485957,1100332863760
+1051298,17592991421215
+7865472,862086642991360
+918537,860986610483200
+458763,860917890809905
+917529,878510110474240
+458777,878510110408720
+393245,315560159088640
+68134,299067163816255
+1118530,299080852963825
+11010061,284773795959040
+10486797,3367538725120
+10493965,3367538602240
+10485805,3298819117825
+10486285,3298819125505
+8781849,315560159084800
+2666,18692502982975
+917577,860918427746320
+393293,297968476360720
+68146,334251551625535
+5048328,4278200012177425
+10485837,3299355988240
+98634,282588178547185
+1051178,18692502983455
+1966089,860918427746560
+1441805,297968476360960
+8456738,299067163808575
+393357,297968476426240
+1311944,284846257799440
+1049802,1172257833265
+1057992,1309696790800
+5767368,863120654532880
+1050826,18695724269875
+1310922,284777538191665
+1179850,3302578258225
+1310952,284777538192145
+1179880,3302578258705
+1180872,3371297866000
+1050856,18695724270355
+1049290,1103538229555
+1573096,282578515067665
+1049320,1103538230035
+1573065,284777539371280
+1048779,3302562529585
+1049801,3371282137360
+1114313,284777539240240
+1048809,3302562530065
+1048781,3302564630800
+3408072,284777539371280
+3145930,1103539405105
+3277000,3302579437840
+3211464,282578516115760
+3145960,1103539405585
+3145932,1103541506320
+1179864,20894797857040
+9438408,1172258882320
+9437386,1103539274545
+9699528,284777539240720
+9961672,282578516116240
+9568456,3302579307280
+9502920,282578515985200
+9437388,1103541375760
+5047552,4240889362972720
+11042,17665200501055
+2854,17596482072895
+2866,52780869882175
+8391458,17596482065215
+459074,847728045195505
+74562,281548259602675
+328003,847728029466865
+66374,281479541174515
+2687298,844429494780145
+67922,334256115024115
+4260178,897206068445425
+8454498,281479541162995
+1051426,17596749452095
+1116706,299067431195455
+70082,299080853029105
+9503042,281480078033905
+2688384,844498215043120
+2622912,281548798492720
+459017,860922185777200
+196938,284778628645105
+67914,300171774656755
+65867,284778612916465
+594242,862030269579505
+1573320,282582810034480
+1180104,3306873225520
+1311176,284781833158960
+1050056,1176552800560
+1049064,1107833193265
+1049033,3306857496880
+3146184,1107834372400
+9437640,1107834241840
+5051392,4276073735061520
+5050370,4276005015453745
+5050369,4278204039757840
+14882,52849572589855
+6694,52780854161695
+7147520,4276005016633360
+5047304,4243084359696400
+4724784,1108312032608515
+4725776,1108380752216065
+4725264,1108312032612355
+4462609,1111610568474625
+4200980,545362080182275
+6821904,1108312033787905
+8395298,52780854154015
+12589104,545362080170755
+5050432,4276005283889200
+6754,52781121540415
+4200530,545362347556915
+360770,845537595097585
+1055266,52781121540895
+5249072,545362347557635
+4725008,1108320622542865
+11141125,284773544300800
+11018245,282643223752960
+5050496,4276005284020240
+6820992,897274773176320
+4724880,1108312301174785
+5046282,4243015640088625
+69962,300180364591345
+4591625,913698743910400
+592418,862017116246335
+4462616,1111610835861505
+397337,350748824043520
+11075589,845524457689360
+622914,844438083535345
+4721186,897201488335135
+4200752,545370669056275
+4201232,545370669060115
+4200784,545370937491505
+15204357,863116643733760
+4478992,1109420134109185
+4364304,546470214238465
+4233234,545370669056275
+4233744,545370669060355
+5062912,4240829233303600
+12621840,545370670105345
+76322,299135882244415
+11043968,281548263719680
+4298768,1108320622477585
+332098,863129781141745
+1053128,18708609171760
+84514,299071457734975
+90630,281547992264755
+4221444,334324550397955
+156165,3371569311745
+2122276,73017716995
+18994,52780869890335
+27156,52849590464515
+8413702,73017651475
+10764293,284777822368000
+10633221,3302862434560
+11026437,282578799243520
+10502181,1103822402305
+10503173,1172542009600
+19042,17596749459775
+25158,73283989555
+5050376,4278204307144720
+1067554,17596749460255
+1073700,73283990275
+27141,18764715323395
+25095,1172529278995
+9462276,73286087425
+25125,1172529279235
+11550725,1104090837760
+4462864,1109420134105105
+3703936,281548798493440
+2124292,17665203761155
+2122246,73017716755
+26244,210723139585
+2647168,281685700587520
+2122372,73286283265
+8407586,17596482073375
+10502277,1104090968320
+8415748,17665203695875
+409613,297972234465280
+25101,3371820969985
+330274,863116627808575
+10502157,3303114092800
+10813445,847723480813840
+26372,219044507665
+25380,81605488915
+25349,1181119213585
+2122500,81607651345
+8413956,81607586065
+10502405,1112412336400
+25412,81873924145
+4213282,334255829823775
+1245384,284777554968880
+1114344,282578514936625
+14942213,865315666858240
+4757520,1108320622543105
+5066752,4276013605392400
+1065416,1116423131440
+2126340,17673793695745
+4741136,1108320622546945
+29204,52858180399105
+8417796,17673793630465
+4197154,334255829815615
+10506245,18704598380800
+2646532,281547994558465
+30212,17811230552065
+5308616,863120654401840
+1116482,299072263029235
+1114946,281480076988915
+401421,298036658974720
+393741,297967939497985
+395289,350744529076225
+2490393,315560159150080
+8781865,297967939486465
+1704136,284777555099920
+1573066,282578515067185
+393291,297968474259505
+4260194,862021679579635
+4260674,862021679583475
+2490441,297968476422160
+393305,315560693858320
+8781897,297968476356880
+458765,860917892911120
+2555913,860917892972560
+68034,299072263094515
+66018,281480077050355
+66498,281480077054195
+2163138,281480078229745
+1441833,297968474260225
+8847369,860917892907280
+3538953,297968476422400
+1441817,315560693858560
+4495376,1109420134105345
+5308738,862022216450545
+5179392,4278199760519185
+5177346,4243015388430385
+5048352,4276000720486675
+5046306,4240816348397875
+5048832,4276000720490515
+5046786,4240816348401715
+5048321,4278199744790545
+5046275,4243015372701745
+4589577,913694448943105
+5046277,4243015374802960
+7274496,4243015389610000
+7145472,4276000721666065
+7143426,4240816349577265
+4587533,878510078955520
+7143428,4240816351678480
+6684681,878510079016960
+5046290,4276000737263665
+5046289,4278199761567760
+7143440,4276000738443280
+1507337,860918427681040
+13434881,4243015374799120
+12976137,878510078951680
+15532032,4240816351674640
+5177408,4243015656865840
+5048384,4276000988921905
+5046337,4243015641137200
+4587593,878510613725200
+592194,862021679644915
+590178,844429493600755
+590658,844429493604595
+7143488,4240816618012720
+393369,315560693923840
+5046352,4276001005699120
+8781961,297968476422400
+43554,17665200501535
+11810,17798344552735
+35378,52780869882655
+10519557,1172542001920
+10780677,284777822360320
+10526725,1172541879040
+11042821,282578799235840
+10649605,3302862426880
+10519045,1103822402305
+35426,17596749452095
+4260290,862022216515825
+5636105,878510613725440
+13666336,334256099299075
+9535522,281479541165875
+9478688,73283944195
+9732129,284778078146305
+9469987,1104078180115
+9472033,18696264224515
+9601057,3303118212865
+9470497,1104078184195
+9472036,17596752600835
+9469990,4566556435
+9478180,73286041345
+287237,284846529245185
+11568160,73286225665
+11567138,4566617875
+11569184,17596752662275
+12091424,281479543459585
+11567648,4566621955
+9472048,52781139365635
+9472096,17597287370515
+9535584,281480078036785
+9470560,5101330195
+9470049,1104615051025
+9470052,5103427345
+10617861,3367287066880
+11567200,5103488785
+10486821,1168247034625
+35366,17596482073375
+458889,860918427746320
+10518661,1104090960640
+65898,282579588612595
+66378,282579588616435
+9994400,281480078233345
+9472160,17597287436035
+9470114,5101391635
+9471136,73820999425
+9470624,5101395715
+9470113,1104615116545
+9470116,5103492865
+6094912,4240817153704240
+1638722,844430030471665
+10518541,3303114085120
+917517,860917892976640
+5181440,4278204055486480
+9732136,284778612920065
+9472040,18696798998275
+9469994,1104612953875
+9601064,3303652986625
+9470504,1104612957955
+9469996,1104615055105
+11567144,1104615116545
+9306121,860917892972800
+5177472,4243015656996880
+5048448,4276000989052945
+100898,299071457727295
+5046401,4243015641268240
+4587657,878510613790720
+5046416,4276001005830160
+1212616,3306873226000
+1082568,1176552801040
+1343688,284781833159440
+1081546,1107833193265
+1605832,282582810034960
+1147080,282582809903920
+1081545,3306857497360
+3178696,1107834372880
+5079296,4240829233299760
+10518789,1112412328720
+9472288,17605340434195
+9535776,281488131100465
+9470752,13154393875
+9470241,1112668114705
+9470244,13156491025
+11567392,13156552465
+27396,17673791533075
+4229666,334255829816095
+4260170,863121728078065
+6094976,4240817153835280
+9470368,13691326225
+9470248,1113202888465
+90884,281556582199345
+5505224,865319677657360
+5083136,4276013605388560
+330050,863121191207155
+328034,845529005162995
+328514,845529005166835
+84290,299080316096755
+90434,281556849537265
+82274,281488130052595
+82246,281488131109105
+10522629,18704598373120
+7143432,4243015641268240
+5046296,4278200028954640
+5281808,545370937492225
+13668384,334264689233665
+9474082,17605340434195
+9474592,17605340438275
+9474081,18704854159105
+9474084,17605342535425
+11571232,17605342596865
+9474096,52789729300225
+4459042,898300999897375
+9474144,17605877305105
+590154,845529542099185
+9474208,17605877370625
+1376578,845529542033905
+72226,334255829815615
+1130818,281488666923505
+6094856,4243016176959760
+9474088,18705388932865
+1085640,18708609172240
+4276546,862030269518065
+328130,845529542099185
+4331538,546461624303635
+4331568,546461624303875
+4332048,546461624307715
+4209168,545430798610435
+4331537,548660648607745
+82370,281488666988785
+2631296,281681405620225
+2753665,284842520412160
+2630785,282780919336960
+2623108,281543968763905
+11019392,281681407709440
+11011232,281543968752385
+2622658,281544503525425
+2630848,281681942482960
+2622657,282644017250320
+2622660,281544505626640
+4397072,1109411577724945
+4266032,1108312032542995
+4266512,1108312032546835
+11011264,281544505622800
+2688130,844493920075825
+2696320,844631359033360
+2688129,845593433800720
+2688132,844493922177040
+393545,297972769226800
+3679360,281681942483200
+3671200,281544503526145
+3671169,282644017250560
+3671172,281544505626880
+11076736,844493922173200
+4266064,1108312300978225
+121088,334315959357745
+606530,844438083539185
+58884,219044507905
+57862,81605488915
+2155012,81607651585
+1106436,81873924865
+28164,17802640617475
+26118,210454573075
+26148,210454573315
+9488416,17605340438275
+9486370,13154393875
+9494560,81873878785
+9486369,1112668118785
+26117,1309968297985
+11583520,13156556545
+9486432,13691264785
+8414724,210456670465
+6816900,862086108221440
+59908,17673791533315
+9486496,13691330305
+57861,1181119213825
+3736704,844494456946960
+15205504,862086108217600
+82250,282588178551025
+5177600,4243019683397680
+5048576,4276005015453745
+5046529,4243019667669040
+7143680,4240820644544560
+5046544,4276005032230960
+6816960,862086642991120
+9486376,1113202892545
+1049832,1172257833745
+1097928,1116423131920
+4855824,1109411577790465
+4724754,1108312032608275
+1115336,282647234543920
+4331544,548660915994625
+5046656,4240820911931440
+2753672,284843055185920
+2630792,282781454110720
+2622604,282644017254400
+643328,862081540755760
+11011208,282644017250560
+344386,845537595101425
+100674,299080316092915
+99138,281488130052595
+550404,281685431414785
+29190,17673791533075
+29220,17673791533315
+29189,18773305257985
+8487234,281488131097585
+2688136,845593968574480
+2491401,298036659159040
+6816904,863186154618880
+8814601,297972234453760
+4772096,897265912844560
+4247810,334315959357745
+4256000,334384678842640
+4509952,898365424406800
+4247840,334315959358225
+63744,52909702131985
+61698,17725330043185
+61728,17725330043665
+4248320,334315959365905
+62720,17862769062160
+127232,299200306753840
+119552,299131587277105
+119072,299131587269425
+4247812,334315960414480
+55556,52840983703825
+53510,17656611615025
+119044,299131588325680
+53540,17656611615505
+53509,18756125339920
+2150660,17656613777680
+184592,53940544606480
+53522,52840999424305
+61712,52909718909200
+119056,334315976134960
+53552,52840999424785
+54032,52840999432465
+53524,52841000481040
+12636416,334315960406800
+8444160,52840983696145
+8442114,17656611607345
+8450304,17725331092240
+8507648,299131588318000
+8442624,17656611615505
+8442113,18756125332240
+10539264,17656613770000
+8442128,52841000473360
+5046536,4243019935055920
+55616,52841251082545
+4247872,334316227793200
+61760,17725598478640
+53600,17656878994225
+54080,17656879001905
+53572,17656880050480
+53584,52841267859760
+8442176,17656880042800
+4292930,862030269514225
+67010,281548796657905
+1104128,52841251083025
+1102082,17656878994225
+1110272,17725598479120
+5296384,334316227793680
+1167616,299131855704880
+1102592,17656879002385
+1102084,17656880050960
+1102096,52841267860240
+4462610,1109411544170515
+4462640,1109411544170755
+4463120,1109411544174595
+4223492,334333140332545
+4347920,546470214242305
+4216850,545370669060115
+4225040,545439388545025
+4216880,545370669060355
+4216852,545370670116865
+2892928,845730870661120
+53696,17657415930160
+98754,281488666984945
+1102208,17657415930640
+1474569,297972769227520
+2638980,281548263731200
+11273344,845593433800960
+5178368,4243084108038160
+5049344,4276069440094225
+5047298,4240885068005425
+5055488,4241022506962960
+5047297,4243084092309520
+53576,18756927492400
+5047312,4276069456871440
+2884800,845593968574480
+1102088,18756927492880
+4282384,1108320622481425
+394377,298037193932800
+5047360,4240885336440880
+591170,844498213208305
+69986,299080316092915
+70466,299080316096755
+3933312,845593968574720
+381184,863181052318000
+69970,334264704958705

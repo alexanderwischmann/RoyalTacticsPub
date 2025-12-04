@@ -1,0 +1,98 @@
+{
+    "bandit": [
+        "ace",
+        "assassin"
+    ],
+    "pekka": [
+        "pekka",
+        "brawler"
+    ],
+    "executioner": [
+        "ace",
+        "blaster"
+    ],
+    "megaknight": [
+        "ace",
+        "brawler"
+    ],
+    "archerqueen": [
+        "clan",
+        "ranger"
+    ],
+    "barbarian": [
+        "clan",
+        "brawler"
+    ],
+    "valkyrie": [
+        "clan",
+        "brutalist"
+    ],
+    "electrogiant": [
+        "giant",
+        "superstar"
+    ],
+    "wizard": [
+        "clan",
+        "blaster"
+    ],
+    "goblin": [
+        "goblin",
+        "assassin"
+    ],
+    "speargoblin": [
+        "goblin",
+        "blaster"
+    ],
+    "goblinmachine": [
+        "goblin",
+        "brutalist"
+    ],
+    "dartgoblin": [
+        "goblin",
+        "ranger"
+    ],
+    "goldenknight": [
+        "noble",
+        "assassin"
+    ],
+    "musketeer": [
+        "noble",
+        "superstar"
+    ],
+    "prince": [
+        "noble",
+        "brawler"
+    ],
+    "princess": [
+        "noble",
+        "blaster"
+    ],
+    "royalghost": [
+        "undead",
+        "assassin"
+    ],
+    "witch": [
+        "undead",
+        "superstar"
+    ],
+    "skeletonking": [
+        "undead",
+        "brutalist"
+    ],
+    "skeletondragons": [
+        "undead",
+        "ranger"
+    ],
+    "minipekka": [
+        "pekka",
+        "brutalist"
+    ],
+    "royalgiant": [
+        "giant",
+        "ranger"
+    ],
+    "monk": [
+        "ace",
+        "superstar"
+    ]
+}
