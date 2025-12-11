@@ -987,6 +987,7 @@ button.secondary:hover {
   overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) transparent;
+  padding-bottom: 6px;
 }
 
 .solution-line::-webkit-scrollbar {
@@ -1021,7 +1022,8 @@ button.secondary:hover {
   padding: 0;
   background: transparent;
   border-radius: 0;
-  overflow-x: auto;
+  overflow: visible;
+  flex: 0 0 auto;
 }
 
 .trait-strip {
