@@ -18,6 +18,7 @@ DISPLAY_LIMIT = 25
 # decrease to respond to cancellations faster.
 CANCELLATION_CHECK_INTERVAL = 128
 BASE_DIR = Path(__file__).resolve().parent
+STATIC_DIR = BASE_DIR / "static"
 SOLUTIONS_DIR = BASE_DIR / "solutions"
 ASSETS_DIR = BASE_DIR / "assets"
 ALLOWED_ASSET_TYPES = {"cards", "traits"}
@@ -512,9 +513,14 @@ def api_solutions():
         }
     )
 
+@app.route('/favicon.ico')
+def favicon():
+    path = ASSETS_DIR / "favicon.ico"
+    return send_file(path, mimetype='image/vnd.microsoft.icon')
+
 @app.get("/assets/logo.png")
 def serve_logo():
-    path = ASSETS_DIR / "logo3.png"
+    path = ASSETS_DIR / "logo.png"
     if not path.exists():
         abort(404)
     return send_file(path, mimetype="image/png")
