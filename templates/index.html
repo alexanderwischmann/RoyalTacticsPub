@@ -3,6 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var sw = screen.width;
+        if (sw >= 1600) {
+          // Calibrated from: 1920px → 0.80 zoom, 2560px → 1.10 zoom
+          var z = 0.8 + ((sw - 1920) * 0.3) / 640;
+          z = Math.round(Math.min(Math.max(z, 0.75), 1.35) * 100) / 100;
+          document.documentElement.style.zoom = z;
+        }
+      })();
+    </script>
     <title>Merge Tactics Comp Solver</title>
     <link
       rel="icon"
