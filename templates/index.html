@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -47,12 +47,12 @@
         <div class="app-badge-cluster">
           <a
             class="app-logo-badge app-badge-card"
-            href="https://supercell.com/en/games/clashroyale/blog/release-notes/merge-tactics-update-december-2025/"
+            href="https://supercell.com/en/games/clashroyale/blog/release-notes/merge-tactics-update-season-7/"
             target="_blank"
             rel="noopener"
           >
             <div class="app-tagline">
-              <span class="app-tagline-primary">Holiday Season &middot;</span>
+              <span class="app-tagline-primary">Season 7 &middot;</span>
               <span class="app-tagline-secondary">Updates Every Season!</span>
             </div>
             <img
@@ -399,7 +399,7 @@
           } catch (err) {
             // Fallback: use a timestamp-based id if crypto.randomUUID not available
             __MT_clientId = `client-${Date.now()}-${Math.floor(
-              Math.random() * 100000
+              Math.random() * 100000,
             )}`;
             localStorage.setItem("clientId", __MT_clientId);
           }
@@ -508,11 +508,11 @@
               }
               const maxLeftIndex = Math.max(
                 0,
-                total - this.traitValueViewportSize
+                total - this.traitValueViewportSize,
               );
               const clampedLeftIndex = Math.min(
                 Math.max(this.traitValueLeftIndex, 0),
-                maxLeftIndex
+                maxLeftIndex,
               );
               const trackWidth = `calc(${total} * var(--trait-value-button-width) + ${
                 total - 1
@@ -612,7 +612,7 @@
 
               if (this.filters.requiredCards.includes(name)) {
                 this.filters.requiredCards = this.filters.requiredCards.filter(
-                  (card) => card !== name
+                  (card) => card !== name,
                 );
                 if (!this.filters.forbiddenCards.includes(name)) {
                   this.filters.forbiddenCards = [
@@ -687,13 +687,13 @@
               const state = this.traitState(name);
               const removeFromAll = () => {
                 this.filters.traitsMin4 = this.filters.traitsMin4.filter(
-                  (trait) => trait !== name
+                  (trait) => trait !== name,
                 );
                 this.filters.traitsMin2 = this.filters.traitsMin2.filter(
-                  (trait) => trait !== name
+                  (trait) => trait !== name,
                 );
                 this.filters.traitsMax1 = this.filters.traitsMax1.filter(
-                  (trait) => trait !== name
+                  (trait) => trait !== name,
                 );
               };
 
@@ -794,7 +794,7 @@
               const maxValue = universe[universe.length - 1];
               const maxLeftValue = Math.max(
                 minValue,
-                maxValue - (viewport - 1)
+                maxValue - (viewport - 1),
               );
               let desiredLeftValue = clampedSize - (viewport - 1);
               if (desiredLeftValue < minValue) {
@@ -823,7 +823,7 @@
 
               const options = this.traitValueTrackValues.slice(
                 leftIndex,
-                leftIndex + this.traitValueViewportSize
+                leftIndex + this.traitValueViewportSize,
               );
               if (!options.length) {
                 this.selectedTraitValue = null;
@@ -846,7 +846,7 @@
                   nextValue = maxOption;
                 } else if (hasPrevious) {
                   const nextHigher = options.find(
-                    (value) => value > previousValue
+                    (value) => value > previousValue,
                   );
                   if (nextHigher != null) {
                     nextValue = nextHigher;
@@ -897,7 +897,7 @@
                 if (!this.deckSizes.includes(resolvedSize)) {
                   resolvedSize = this.deckSizes.includes(6)
                     ? 6
-                    : this.deckSizes[0] ?? null;
+                    : (this.deckSizes[0] ?? null);
                 }
                 this.selectedSize = resolvedSize;
 
@@ -950,12 +950,12 @@
                   trait_option: this.selectedTraitOption,
                 });
                 const response = await fetch(
-                  `/api/options?${params.toString()}`
+                  `/api/options?${params.toString()}`,
                 );
                 if (!response.ok) {
                   const message = await response.text();
                   throw new Error(
-                    message || "Failed to load card and trait options."
+                    message || "Failed to load card and trait options.",
                   );
                 }
                 const data = await response.json();
@@ -991,7 +991,7 @@
               if (!this.isOptionAvailable(this.selectedTraitOption)) {
                 const priority = ["base", "4trait", "44trait"];
                 const nextOption = priority.find((option) =>
-                  this.isOptionAvailable(option)
+                  this.isOptionAvailable(option),
                 );
                 this.selectedTraitOption = nextOption || "base";
               }
@@ -1015,7 +1015,7 @@
               }
 
               this.selectedTraitValue = this.clampTraitValue(
-                this.selectedTraitValue ?? this.selectedSize
+                this.selectedTraitValue ?? this.selectedSize,
               );
 
               this.syncTraitSelectionForSize();
@@ -1026,7 +1026,7 @@
 
               ["requiredCards", "forbiddenCards"].forEach((key) => {
                 const filtered = this.filters[key].filter((card) =>
-                  validCards.has(card)
+                  validCards.has(card),
                 );
                 if (filtered.length !== this.filters[key].length) {
                   this.filters[key] = filtered;
@@ -1035,7 +1035,7 @@
 
               ["traitsMin4", "traitsMin2", "traitsMax1"].forEach((key) => {
                 const filtered = this.filters[key].filter((trait) =>
-                  validTraits.has(trait)
+                  validTraits.has(trait),
                 );
                 if (filtered.length !== this.filters[key].length) {
                   this.filters[key] = filtered;
@@ -1049,7 +1049,7 @@
               const min4Filtered = this.filters.traitsMin4
                 .filter((trait) => traitPool.has(trait))
                 .filter(
-                  (trait, index, array) => array.indexOf(trait) === index
+                  (trait, index, array) => array.indexOf(trait) === index,
                 );
               if (min4Filtered.length !== this.filters.traitsMin4.length) {
                 this.filters.traitsMin4 = min4Filtered;
@@ -1059,7 +1059,7 @@
               const min2Filtered = this.filters.traitsMin2
                 .filter((trait) => traitPool.has(trait) && !min4Set.has(trait))
                 .filter(
-                  (trait, index, array) => array.indexOf(trait) === index
+                  (trait, index, array) => array.indexOf(trait) === index,
                 );
               if (min2Filtered.length !== this.filters.traitsMin2.length) {
                 this.filters.traitsMin2 = min2Filtered;
@@ -1071,10 +1071,10 @@
                   (trait) =>
                     traitPool.has(trait) &&
                     !min4Set.has(trait) &&
-                    !min2Set.has(trait)
+                    !min2Set.has(trait),
                 )
                 .filter(
-                  (trait, index, array) => array.indexOf(trait) === index
+                  (trait, index, array) => array.indexOf(trait) === index,
                 );
               if (max1Filtered.length !== this.filters.traitsMax1.length) {
                 this.filters.traitsMax1 = max1Filtered;
@@ -1112,9 +1112,9 @@
                 Object.entries(filterMapping).forEach(
                   ([stateKey, queryKey]) => {
                     this.filters[stateKey].forEach((value) =>
-                      params.append(queryKey, value)
+                      params.append(queryKey, value),
                     );
-                  }
+                  },
                 );
 
                 // Attach client identification and a monotonically increasing
@@ -1136,7 +1136,7 @@
                   `/api/solutions?${params.toString()}`,
                   {
                     signal: __MT_currentController.signal,
-                  }
+                  },
                 );
 
                 if (!response.ok) {
@@ -1207,7 +1207,7 @@
                 const progress = Math.min(elapsed / duration, 1);
                 const eased = this.easeOutQuad(progress);
                 const current = Math.round(
-                  startValue + (endValue - startValue) * eased
+                  startValue + (endValue - startValue) * eased,
                 );
                 this.displayTotalMatches = current;
 

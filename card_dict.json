@@ -1,98 +1,90 @@
 {
-    "bandit": [
-        "ace",
-        "assassin"
-    ],
     "pekka": [
-        "pekka",
-        "brawler"
-    ],
-    "executioner": [
-        "ace",
-        "blaster"
-    ],
-    "megaknight": [
-        "ace",
-        "brawler"
+        "superstar",
+        "ace"
     ],
     "archerqueen": [
-        "clan",
-        "ranger"
+        "superstar",
+        "clan"
     ],
     "barbarian": [
-        "clan",
-        "brawler"
+        "warrior",
+        "clan"
     ],
     "valkyrie": [
-        "clan",
-        "brutalist"
-    ],
-    "electrogiant": [
-        "giant",
-        "superstar"
+        "tank",
+        "clan"
     ],
     "wizard": [
-        "clan",
-        "blaster"
+        "hinder",
+        "fire"
     ],
     "goblin": [
-        "goblin",
-        "assassin"
-    ],
-    "speargoblin": [
-        "goblin",
-        "blaster"
+        "assassin",
+        "goblin"
     ],
     "goblinmachine": [
-        "goblin",
-        "brutalist"
+        "superstar",
+        "goblin"
     ],
     "dartgoblin": [
-        "goblin",
-        "ranger"
+        "marksman",
+        "goblin"
     ],
     "goldenknight": [
-        "noble",
-        "assassin"
+        "assassin",
+        "noble"
     ],
     "musketeer": [
-        "noble",
-        "superstar"
+        "marksman",
+        "noble"
     ],
     "prince": [
-        "noble",
-        "brawler"
-    ],
-    "princess": [
-        "noble",
-        "blaster"
-    ],
-    "royalghost": [
-        "undead",
-        "assassin"
+        "warrior",
+        "noble"
     ],
     "witch": [
-        "undead",
-        "superstar"
+        "hinder",
+        "undead"
     ],
     "skeletonking": [
-        "undead",
-        "brutalist"
+        "warrior",
+        "undeaad"
     ],
     "skeletondragons": [
-        "undead",
-        "ranger"
+        "dragon",
+        "undead"
     ],
-    "minipekka": [
-        "pekka",
-        "brutalist"
+    "giantskeleton": [
+        "tank",
+        "undead"
     ],
     "royalgiant": [
-        "giant",
-        "ranger"
+        "marksman",
+        "giant"
+    ],
+    "giant": [
+        "superstar",
+        "giant"
     ],
     "monk": [
-        "ace",
-        "superstar"
+        "tank",
+        "ace"
+    ],
+    "archer": [
+        "marksman",
+        "clan"
+    ],
+    "goblindemolisher": [
+        "warrior",
+        "goblin"
+    ],
+    "babydragon": [
+        "dragon",
+        "fire"
+    ],
+    "knight": [
+        "tank",
+        "noble"
     ]
 }
